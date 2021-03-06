@@ -1,5 +1,6 @@
 # custom
 */Resources/Resource.designer.cs
+*/LiveSharp.dashboard.cs
 
 # globs
 Makefile.in
