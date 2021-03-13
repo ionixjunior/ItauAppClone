@@ -19,6 +19,8 @@ namespace ItauAppClone.Views
         private Color SecondaryColor = Color.FromHex("#005F89");
         private Color TextColor = Color.Black;
 
+        private Grid _passwordButtonGrid;
+
         public LoginView()
         {
             On<iOS>().SetUseSafeArea(true);
@@ -38,6 +40,63 @@ namespace ItauAppClone.Views
                 (ImageButton.PaddingProperty, new Thickness(34, 0)),
                 (ImageButton.CornerRadiusProperty, 8)
             );
+
+            _passwordButtonGrid = new Grid
+            {
+                IsVisible = false,
+                RowSpacing = 10,
+                ColumnSpacing = 10,
+                Children =
+                {
+                    new Button
+                    {
+                        Text = "0 ou 9"
+                    }
+                    .Style(passwordButtonStyle)
+                    .Row(PasswordButtonRow.First)
+                    .Column(PasswordButtonColumn.First),
+
+                    new Button
+                    {
+                        Text = "1 ou 6"
+                    }
+                    .Style(passwordButtonStyle)
+                    .Row(PasswordButtonRow.First)
+                    .Column(PasswordButtonColumn.Middle),
+
+                    new Button
+                    {
+                        Text = "2 ou 4"
+                    }
+                    .Style(passwordButtonStyle)
+                    .Row(PasswordButtonRow.First)
+                    .Column(PasswordButtonColumn.Last),
+
+                    new Button
+                    {
+                        Text = "3 ou 5"
+                    }
+                    .Style(passwordButtonStyle)
+                    .Row(PasswordButtonRow.Second)
+                    .Column(PasswordButtonColumn.First),
+
+                    new Button
+                    {
+                        Text = "7 ou 8"
+                    }
+                    .Style(passwordButtonStyle)
+                    .Row(PasswordButtonRow.Second)
+                    .Column(PasswordButtonColumn.Middle),
+
+                    new ImageButton
+                    {
+                        Source = "backspace"
+                    }
+                    .Style(passwordImageButtonStyle)
+                    .Row(PasswordButtonRow.Second)
+                    .Column(PasswordButtonColumn.Last)
+                }
+            };
 
             Content = new Grid
             {
@@ -175,64 +234,11 @@ namespace ItauAppClone.Views
                                             .Column(FieldPasswordColumn.Left)
                                             .Row(FieldPasswordRow.Bottom)
                                             .ColumnSpan(2)
-                                        }
-                                    },
+                                        },
+                                    }
+                                    .TapGesture(TapPasswordArea),
 
-                                    new Grid
-                                    {
-                                        RowSpacing = 10,
-                                        ColumnSpacing = 10,
-                                        Children =
-                                        {
-                                            new Button
-                                            {
-                                                Text = "0 ou 9"
-                                            }
-                                            .Style(passwordButtonStyle)
-                                            .Row(PasswordButtonRow.First)
-                                            .Column(PasswordButtonColumn.First),
-
-                                            new Button
-                                            {
-                                                Text = "1 ou 6"
-                                            }
-                                            .Style(passwordButtonStyle)
-                                            .Row(PasswordButtonRow.First)
-                                            .Column(PasswordButtonColumn.Middle),
-
-                                            new Button
-                                            {
-                                                Text = "2 ou 4"
-                                            }
-                                            .Style(passwordButtonStyle)
-                                            .Row(PasswordButtonRow.First)
-                                            .Column(PasswordButtonColumn.Last),
-
-                                            new Button
-                                            {
-                                                Text = "3 ou 5"
-                                            }
-                                            .Style(passwordButtonStyle)
-                                            .Row(PasswordButtonRow.Second)
-                                            .Column(PasswordButtonColumn.First),
-
-                                            new Button
-                                            {
-                                                Text = "7 ou 8"
-                                            }
-                                            .Style(passwordButtonStyle)
-                                            .Row(PasswordButtonRow.Second)
-                                            .Column(PasswordButtonColumn.Middle),
-
-                                            new ImageButton
-                                            {
-                                                Source = "backspace"
-                                            }
-                                            .Style(passwordImageButtonStyle)
-                                            .Row(PasswordButtonRow.Second)
-                                            .Column(PasswordButtonColumn.Last)
-                                        }
-                                    },
+                                    _passwordButtonGrid,
 
                                     new Button {
                                         Text = "acessar",
@@ -330,6 +336,16 @@ namespace ItauAppClone.Views
                     .Row(ViewRow.Body)
                 }
             };
+        }
+
+        private void TapPasswordArea(TapGestureRecognizer tap)
+        {
+            tap.Tapped += OnPasswordAreaTapped;
+        }
+
+        private void OnPasswordAreaTapped(object _, EventArgs __)
+        {
+            _passwordButtonGrid.IsVisible = true;
         }
     }
 }
