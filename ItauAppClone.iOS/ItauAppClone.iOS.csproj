@@ -137,4 +137,15 @@
       <Name>ItauAppClone</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ajuda_outlined.png" />
+    <BundleResource Include="Resources\ajuda_outlined%402x.png" />
+    <BundleResource Include="Resources\ajuda_outlined%403x.png" />
+    <BundleResource Include="Resources\itoken_outlined.png" />
+    <BundleResource Include="Resources\itoken_outlined%402x.png" />
+    <BundleResource Include="Resources\itoken_outlined%403x.png" />
+    <BundleResource Include="Resources\pix_outlined.png" />
+    <BundleResource Include="Resources\pix_outlined%402x.png" />
+    <BundleResource Include="Resources\pix_outlined%403x.png" />
+  </ItemGroup>
 </Project>
