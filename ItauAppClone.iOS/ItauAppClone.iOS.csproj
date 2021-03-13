@@ -138,20 +138,20 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\ajuda_outlined.png" />
-    <BundleResource Include="Resources\ajuda_outlined%402x.png" />
-    <BundleResource Include="Resources\ajuda_outlined%403x.png" />
+    <BundleResource Include="Resources\help_outlined.png" />
+    <BundleResource Include="Resources\help_outlined%402x.png" />
+    <BundleResource Include="Resources\help_outlined%403x.png" />
     <BundleResource Include="Resources\itoken_outlined.png" />
     <BundleResource Include="Resources\itoken_outlined%402x.png" />
     <BundleResource Include="Resources\itoken_outlined%403x.png" />
     <BundleResource Include="Resources\pix_outlined.png" />
     <BundleResource Include="Resources\pix_outlined%402x.png" />
     <BundleResource Include="Resources\pix_outlined%403x.png" />
-    <BundleResource Include="Resources\cadeado.png" />
-    <BundleResource Include="Resources\cadeado%402x.png" />
-    <BundleResource Include="Resources\cadeado%403x.png" />
-    <BundleResource Include="Resources\seta_baixo_azul.png" />
-    <BundleResource Include="Resources\seta_baixo_azul%402x.png" />
-    <BundleResource Include="Resources\seta_baixo_azul%403x.png" />
+    <BundleResource Include="Resources\lock.png" />
+    <BundleResource Include="Resources\lock%402x.png" />
+    <BundleResource Include="Resources\lock%403x.png" />
+    <BundleResource Include="Resources\arrow_orange.png" />
+    <BundleResource Include="Resources\arrow_orange%402x.png" />
+    <BundleResource Include="Resources\arrow_orange%403x.png" />
   </ItemGroup>
 </Project>

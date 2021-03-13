@@ -84,7 +84,7 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\ajuda_outlined.png">
+    <AndroidResource Include="Resources\drawable-xhdpi\help_outlined.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -96,7 +96,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxhdpi\ajuda_outlined.png">
+    <AndroidResource Include="Resources\drawable-xxhdpi\help_outlined.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -108,7 +108,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\ajuda_outlined.png">
+    <AndroidResource Include="Resources\drawable-hdpi\help_outlined.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -120,7 +120,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-mdpi\ajuda_outlined.png">
+    <AndroidResource Include="Resources\drawable-mdpi\help_outlined.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -132,7 +132,7 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\ajuda_outlined.png">
+    <AndroidResource Include="Resources\drawable-xxxhdpi\help_outlined.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
@@ -144,43 +144,43 @@
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xhdpi\cadeado.png">
+    <AndroidResource Include="Resources\drawable-xhdpi\lock.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xhdpi\seta_baixo_azul.png">
+    <AndroidResource Include="Resources\drawable-xhdpi\arrow_orange.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxhdpi\cadeado.png">
+    <AndroidResource Include="Resources\drawable-xxhdpi\lock.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxhdpi\seta_baixo_azul.png">
+    <AndroidResource Include="Resources\drawable-xxhdpi\arrow_orange.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\cadeado.png">
+    <AndroidResource Include="Resources\drawable-hdpi\lock.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-hdpi\seta_baixo_azul.png">
+    <AndroidResource Include="Resources\drawable-hdpi\arrow_orange.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-mdpi\cadeado.png">
+    <AndroidResource Include="Resources\drawable-mdpi\lock.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-mdpi\seta_baixo_azul.png">
+    <AndroidResource Include="Resources\drawable-mdpi\arrow_orange.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\cadeado.png">
+    <AndroidResource Include="Resources\drawable-xxxhdpi\lock.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
-    <AndroidResource Include="Resources\drawable-xxxhdpi\seta_baixo_azul.png">
+    <AndroidResource Include="Resources\drawable-xxxhdpi\arrow_orange.png">
       <SubType></SubType>
       <Generator></Generator>
     </AndroidResource>
