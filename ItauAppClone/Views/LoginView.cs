@@ -1,6 +1,8 @@
 ﻿using System;
 using Xamarin.CommunityToolkit.Markup;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using static Xamarin.CommunityToolkit.Markup.GridRowsColumns;
 
 namespace ItauAppClone.Views
@@ -17,6 +19,8 @@ namespace ItauAppClone.Views
 
         public LoginView()
         {
+            On<iOS>().SetUseSafeArea(true);
+
             Content = new Grid
             {
                 RowSpacing = 0,
