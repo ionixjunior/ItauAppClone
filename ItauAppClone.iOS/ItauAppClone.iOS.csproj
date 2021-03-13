@@ -147,5 +147,11 @@
     <BundleResource Include="Resources\pix_outlined.png" />
     <BundleResource Include="Resources\pix_outlined%402x.png" />
     <BundleResource Include="Resources\pix_outlined%403x.png" />
+    <BundleResource Include="Resources\cadeado.png" />
+    <BundleResource Include="Resources\cadeado%402x.png" />
+    <BundleResource Include="Resources\cadeado%403x.png" />
+    <BundleResource Include="Resources\seta_baixo_azul.png" />
+    <BundleResource Include="Resources\seta_baixo_azul%402x.png" />
+    <BundleResource Include="Resources\seta_baixo_azul%403x.png" />
   </ItemGroup>
 </Project>
