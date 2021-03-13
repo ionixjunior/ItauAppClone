@@ -93,8 +93,8 @@ namespace ItauAppClone.Views
                             EndPoint = new Point(0, 1),
                             GradientStops = new GradientStopCollection
                             {
-                                new GradientStop { Color = Color.FromHex("#B3B3BD"), Offset = 0.1f },
-                                new GradientStop { Color = Color.FromHex("#393A3F"), Offset = 0.9f }
+                                new GradientStop { Color = Color.FromHex("#F8801F"), Offset = 0.5f },
+                                new GradientStop { Color = Color.FromHex("#E49602"), Offset = 0.9f }
                             }
                         },
 
@@ -199,6 +199,7 @@ namespace ItauAppClone.Views
                             new FlexLayout
                             {
                                 JustifyContent = FlexJustify.SpaceEvenly,
+                                AlignItems = FlexAlignItems.Center,
 
                                 Children =
                                 {
@@ -206,9 +207,10 @@ namespace ItauAppClone.Views
                                     {
                                         Children =
                                         {
-                                            new BoxView
+                                            new Image
                                             {
-                                                BackgroundColor = Color.Yellow
+                                                Source = "login_pix",
+                                                HeightRequest = 30
                                             },
 
                                             new Label
@@ -225,9 +227,10 @@ namespace ItauAppClone.Views
                                     {
                                         Children =
                                         {
-                                            new BoxView
+                                            new Image
                                             {
-                                                BackgroundColor = Color.Red
+                                                Source = "login_itoken",
+                                                HeightRequest = 30
                                             },
 
                                             new Label
@@ -244,9 +247,10 @@ namespace ItauAppClone.Views
                                     {
                                         Children =
                                         {
-                                            new BoxView
+                                            new Image
                                             {
-                                                BackgroundColor = Color.Green
+                                                Source = "login_ajuda",
+                                                HeightRequest = 30
                                             },
 
                                             new Label
