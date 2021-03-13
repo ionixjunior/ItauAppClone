@@ -40,6 +40,7 @@ namespace ItauAppClone.Views
                                 HeightRequest = 40,
                                 WidthRequest = 40,
                                 CornerRadius = 20,
+                                HasShadow = false,
                                 BorderColor = Color.FromHex("#DDD9D9"),
                                 Content = new Label {
                                     Text = "MS",
