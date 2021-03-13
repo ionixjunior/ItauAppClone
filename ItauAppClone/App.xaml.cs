@@ -11,7 +11,7 @@ namespace ItauAppClone
         {
             InitializeComponent();
 
-            MainPage = new LoginView();
+            MainPage = new MainView();
         }
 
         protected override void OnStart()
