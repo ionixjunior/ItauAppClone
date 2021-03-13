@@ -15,8 +15,7 @@ namespace ItauAppClone.Views
         enum PasswordButtonColumn { First, Middle, Last }
         enum PasswordButtonRow { First, Second }
 
-        private Color PrimaryColor = Color.FromHex("#CD7400");
-        private Color SecondaryColor = Color.FromHex("#005F89");
+        private Color PrimaryColor = Color.FromHex("#EB6F01");
         private Color TextColor = Color.Black;
 
         private Grid _passwordButtonGrid;
@@ -125,7 +124,7 @@ namespace ItauAppClone.Views
                                 BorderColor = Color.FromHex("#DDD9D9"),
                                 Content = new Label {
                                     Text = "MS",
-                                    TextColor = SecondaryColor,
+                                    TextColor = PrimaryColor,
                                 }
                                 .TextCenterVertical()
                                 .TextCenterHorizontal()
@@ -142,7 +141,7 @@ namespace ItauAppClone.Views
                                     new Label
                                     {
                                         Text = "olá, Marcos",
-                                        TextColor = SecondaryColor,
+                                        TextColor = PrimaryColor,
                                         FontAttributes = FontAttributes.Bold
                                     }
                                     .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Label))),
