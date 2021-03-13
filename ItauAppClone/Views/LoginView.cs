@@ -10,8 +10,8 @@ namespace ItauAppClone.Views
     public class LoginView : ContentPage
     {
         enum ViewRow { Header, Body }
-        enum CampoSenhaLinha { Topo, Rodape }
-        enum CampoSenhaColuna { Esquerda, Direita }
+        enum FieldPasswordRow { Top, Bottom }
+        enum FieldPasswordColumn { Left, Right }
 
         private Color PrimaryColor = Color.FromHex("#CD7400");
         private Color SecondaryColor = Color.FromHex("#005F89");
@@ -120,13 +120,13 @@ namespace ItauAppClone.Views
                                         ColumnSpacing = 15,
 
                                         RowDefinitions = Rows.Define(
-                                            (CampoSenhaLinha.Topo, 60),
-                                            (CampoSenhaLinha.Rodape, 2)
+                                            (FieldPasswordRow.Top, 60),
+                                            (FieldPasswordRow.Bottom, 2)
                                         ),
 
                                         ColumnDefinitions = Columns.Define(
-                                            (CampoSenhaColuna.Esquerda, 30),
-                                            (CampoSenhaColuna.Direita, Star)
+                                            (FieldPasswordColumn.Left, 30),
+                                            (FieldPasswordColumn.Right, Star)
                                         ),
 
                                         Children =
@@ -135,8 +135,8 @@ namespace ItauAppClone.Views
                                             {
                                                 Source = "lock"
                                             }
-                                            .Column(CampoSenhaColuna.Esquerda)
-                                            .Row(CampoSenhaLinha.Topo)
+                                            .Column(FieldPasswordColumn.Left)
+                                            .Row(FieldPasswordRow.Top)
                                             .Height(40)
                                             .CenterVertical(),
 
@@ -145,8 +145,8 @@ namespace ItauAppClone.Views
                                                 Text = "● ● ● ● ● ●",
                                                 TextColor = Color.White
                                             }
-                                            .Column(CampoSenhaColuna.Direita)
-                                            .Row(CampoSenhaLinha.Topo)
+                                            .Column(FieldPasswordColumn.Right)
+                                            .Row(FieldPasswordRow.Top)
                                             .FontSize(40)
                                             .CenterVertical(),
 
@@ -154,8 +154,8 @@ namespace ItauAppClone.Views
                                             {
                                                 BackgroundColor = Color.White
                                             }
-                                            .Column(CampoSenhaColuna.Esquerda)
-                                            .Row(CampoSenhaLinha.Rodape)
+                                            .Column(FieldPasswordColumn.Left)
+                                            .Row(FieldPasswordRow.Bottom)
                                             .ColumnSpan(2)
                                         }
                                     },
