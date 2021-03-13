@@ -12,6 +12,8 @@ namespace ItauAppClone.Views
         enum ViewRow { Header, Body }
         enum FieldPasswordRow { Top, Bottom }
         enum FieldPasswordColumn { Left, Right }
+        enum PasswordButtonColumn { First, Middle, Last }
+        enum PasswordButtonRow { First, Second }
 
         private Color PrimaryColor = Color.FromHex("#CD7400");
         private Color SecondaryColor = Color.FromHex("#005F89");
@@ -20,6 +22,22 @@ namespace ItauAppClone.Views
         public LoginView()
         {
             On<iOS>().SetUseSafeArea(true);
+
+            var passwordButtonStyle = new Style<Button>();
+            passwordButtonStyle.Add(
+                (Button.BackgroundColorProperty, Color.White),
+                (Button.TextColorProperty, "#575757"),
+                (Button.FontAttributesProperty, FontAttributes.Bold),
+                (Button.TextTransformProperty, TextTransform.Lowercase),
+                (Button.CornerRadiusProperty, 8)
+            );
+
+            var passwordImageButtonStyle = new Style<ImageButton>();
+            passwordImageButtonStyle.Add(
+                (ImageButton.BackgroundColorProperty, Color.White),
+                (ImageButton.PaddingProperty, new Thickness(34, 0)),
+                (ImageButton.CornerRadiusProperty, 8)
+            );
 
             Content = new Grid
             {
@@ -157,6 +175,62 @@ namespace ItauAppClone.Views
                                             .Column(FieldPasswordColumn.Left)
                                             .Row(FieldPasswordRow.Bottom)
                                             .ColumnSpan(2)
+                                        }
+                                    },
+
+                                    new Grid
+                                    {
+                                        RowSpacing = 10,
+                                        ColumnSpacing = 10,
+                                        Children =
+                                        {
+                                            new Button
+                                            {
+                                                Text = "0 ou 9"
+                                            }
+                                            .Style(passwordButtonStyle)
+                                            .Row(PasswordButtonRow.First)
+                                            .Column(PasswordButtonColumn.First),
+
+                                            new Button
+                                            {
+                                                Text = "1 ou 6"
+                                            }
+                                            .Style(passwordButtonStyle)
+                                            .Row(PasswordButtonRow.First)
+                                            .Column(PasswordButtonColumn.Middle),
+
+                                            new Button
+                                            {
+                                                Text = "2 ou 4"
+                                            }
+                                            .Style(passwordButtonStyle)
+                                            .Row(PasswordButtonRow.First)
+                                            .Column(PasswordButtonColumn.Last),
+
+                                            new Button
+                                            {
+                                                Text = "3 ou 5"
+                                            }
+                                            .Style(passwordButtonStyle)
+                                            .Row(PasswordButtonRow.Second)
+                                            .Column(PasswordButtonColumn.First),
+
+                                            new Button
+                                            {
+                                                Text = "7 ou 8"
+                                            }
+                                            .Style(passwordButtonStyle)
+                                            .Row(PasswordButtonRow.Second)
+                                            .Column(PasswordButtonColumn.Middle),
+
+                                            new ImageButton
+                                            {
+                                                Source = "backspace"
+                                            }
+                                            .Style(passwordImageButtonStyle)
+                                            .Row(PasswordButtonRow.Second)
+                                            .Column(PasswordButtonColumn.Last)
                                         }
                                     },
 
