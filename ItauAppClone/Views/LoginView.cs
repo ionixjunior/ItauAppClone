@@ -1,7 +1,6 @@
 ﻿using System;
 using Xamarin.CommunityToolkit.Markup;
 using Xamarin.Forms;
-using Xamarin.Forms.Shapes;
 using static Xamarin.CommunityToolkit.Markup.GridRowsColumns;
 
 namespace ItauAppClone.Views
@@ -72,11 +71,9 @@ namespace ItauAppClone.Views
                             .Margin(10, 0)
                             .Grow(1),
 
-                            new Path
+                            new Image
                             {
-                                Data = (Geometry)new PathGeometryConverter().ConvertFromInvariantString("M2 2L15 15.5L28.5 2"),
-                                Stroke = new SolidColorBrush(SecondaryColor),
-                                StrokeThickness = 2
+                                Source = "arrow_orange"
                             }
                             .Margin(10, 0)
                         }
@@ -129,25 +126,9 @@ namespace ItauAppClone.Views
 
                                         Children =
                                         {
-                                            new Path
+                                            new Image
                                             {
-                                                Data = new GeometryGroup
-                                                {
-                                                    Children =
-                                                    {
-                                                        (Geometry)new PathGeometryConverter().ConvertFromInvariantString("M12 27.2172V24.7172H14V27.2172H15V28.2172H11V27.2172H12Z"),
-                                                        (Geometry)new PathGeometryConverter().ConvertFromInvariantString("M6 8.71729C6 2.21725 16 -4.78278 20 8.71729"),
-                                                        (Geometry)new PathGeometryConverter().ConvertFromInvariantString("M22 11.7172H3.5C1.81623 12.6996 1.29051 13.4777 1 15.2172V31.2172C1.22806 32.8988 1.80247 33.6559 3.5 34.7172H12.5H22C23.7617 33.8894 24.5086 33.0966 25.5 31.2172V15.2172C24.6561 13.2005 23.9275 12.389 22 11.7172Z"),
-                                                        new EllipseGeometry
-                                                        {
-                                                            Center = new Point(x: 13, y: 22.2172),
-                                                            RadiusX = 2.5,
-                                                            RadiusY = 2.5,
-                                                        }
-                                                    }
-                                                },
-                                                Stroke = Brush.White,
-                                                StrokeThickness = 2
+                                                Source = "lock"
                                             }
                                             .Column(CampoSenhaColuna.Esquerda)
                                             .Row(CampoSenhaLinha.Topo)
@@ -209,7 +190,7 @@ namespace ItauAppClone.Views
                                         {
                                             new Image
                                             {
-                                                Source = "login_pix",
+                                                Source = "pix_outlined",
                                                 HeightRequest = 30
                                             },
 
@@ -229,7 +210,7 @@ namespace ItauAppClone.Views
                                         {
                                             new Image
                                             {
-                                                Source = "login_itoken",
+                                                Source = "itoken_outlined",
                                                 HeightRequest = 30
                                             },
 
@@ -249,7 +230,7 @@ namespace ItauAppClone.Views
                                         {
                                             new Image
                                             {
-                                                Source = "login_ajuda",
+                                                Source = "help_outlined",
                                                 HeightRequest = 30
                                             },
 
