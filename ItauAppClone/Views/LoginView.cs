@@ -224,7 +224,7 @@ namespace ItauAppClone.Views
                                             }
                                             .Column(FieldPasswordColumn.Right)
                                             .Row(FieldPasswordRow.Top)
-                                            .FontSize(40)
+                                            .FontSize(Device.GetNamedSize(NamedSize.Large, typeof(Label)))
                                             .CenterVertical(),
 
                                             new BoxView
