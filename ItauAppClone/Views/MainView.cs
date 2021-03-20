@@ -27,6 +27,7 @@ namespace ItauAppClone.Views
                 TabWidth = tabWidth,
                 Text = "início",
                 FontSize = 10,
+                FontSizeSelected = 10,
                 TextColor = Color.White,
                 Content = new Label { Text = "Conteúdo início" }
             });
@@ -35,6 +36,7 @@ namespace ItauAppClone.Views
                 TabWidth = tabWidth,
                 Text = "extrato",
                 FontSize = 10,
+                FontSizeSelected = 10,
                 TextColor = Color.White,
                 Content = new Label { Text = "Conteúdo extrato" }
             });
@@ -43,6 +45,7 @@ namespace ItauAppClone.Views
                 TabWidth = tabWidth,
                 Text = "transações",
                 FontSize = 10,
+                FontSizeSelected = 10,
                 TextColor = Color.White,
                 Content = new Label { Text = "Conteúdo transações" }
             });
@@ -51,6 +54,7 @@ namespace ItauAppClone.Views
                 TabWidth = tabWidth,
                 Text = "serviços",
                 FontSize = 10,
+                FontSizeSelected = 10,
                 TextColor = Color.White,
                 Content = new Label { Text = "Conteúdo serviços" }
             });
@@ -59,6 +63,7 @@ namespace ItauAppClone.Views
                 TabWidth = tabWidth,
                 Text = "ajuda",
                 FontSize = 10,
+                FontSizeSelected = 10,
                 TextColor = Color.White,
                 Content = new Label { Text = "ajuda" }
             });
