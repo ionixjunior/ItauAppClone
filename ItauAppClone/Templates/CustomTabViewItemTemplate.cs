@@ -14,6 +14,7 @@ namespace ItauAppClone.Templates
 		public CustomTabViewItemTemplate()
 		{
 			RowSpacing = 0;
+			Margin = new Thickness(0, 0, 0, 8);
 
 			HorizontalOptions = LayoutOptions.FillAndExpand;
 			VerticalOptions = LayoutOptions.FillAndExpand;
@@ -26,7 +27,7 @@ namespace ItauAppClone.Templates
 				Aspect = Aspect.AspectFit,
 				HorizontalOptions = LayoutOptions.Center,
 				VerticalOptions = LayoutOptions.Center,
-				Margin = new Thickness(0, 6)
+				Margin = new Thickness(0)
 			};
 
 			text = new Label
@@ -35,7 +36,9 @@ namespace ItauAppClone.Templates
 				FontAttributes = FontAttributes.Bold,
 				HorizontalOptions = LayoutOptions.Center,
 				VerticalOptions = LayoutOptions.Center,
-				Margin = new Thickness(0, 6)
+				TextTransform = TextTransform.Lowercase,
+				VerticalTextAlignment = TextAlignment.End,
+				Margin = new Thickness(0),
 			};
 
 			badge = new TabBadgeView

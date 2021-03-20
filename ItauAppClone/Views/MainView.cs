@@ -22,7 +22,7 @@ namespace ItauAppClone.Views
             {
                 TabStripBackgroundColor = PrimaryColor,
                 TabStripPlacement = TabStripPlacement.Bottom,
-                TabStripHeight = 80
+                TabStripHeight = 70
             };
             tabView.SelectionChanged += OnTabViewSelectionChanged;
 
@@ -33,8 +33,6 @@ namespace ItauAppClone.Views
                 Text = "início",
                 Icon = "menu_home",
                 IconSelected = "menu_home_selected",
-                FontSize = 10,
-                FontSizeSelected = 10,
                 TextColor = Color.White,
                 TextColorSelected = PrimaryColor,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
@@ -46,8 +44,6 @@ namespace ItauAppClone.Views
                 Text = "extrato",
                 Icon = "menu_extrato",
                 IconSelected = "menu_extrato_selected",
-                FontSize = 10,
-                FontSizeSelected = 10,
                 TextColor = Color.White,
                 TextColorSelected = PrimaryColor,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
@@ -59,8 +55,6 @@ namespace ItauAppClone.Views
                 Text = "transações",
                 Icon = "menu_transacoes",
                 IconSelected = "menu_transacoes_selected",
-                FontSize = 10,
-                FontSizeSelected = 10,
                 TextColor = Color.White,
                 TextColorSelected = PrimaryColor,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
@@ -72,8 +66,6 @@ namespace ItauAppClone.Views
                 Text = "serviços",
                 Icon = "menu_servicos",
                 IconSelected = "menu_servicos_selected",
-                FontSize = 10,
-                FontSizeSelected = 10,
                 TextColor = Color.White,
                 TextColorSelected = PrimaryColor,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
@@ -85,8 +77,6 @@ namespace ItauAppClone.Views
                 Text = "ajuda",
                 Icon = "menu_ajuda",
                 IconSelected = "menu_ajuda_selected",
-                FontSize = 10,
-                FontSizeSelected = 10,
                 TextColor = Color.White,
                 TextColorSelected = PrimaryColor,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
