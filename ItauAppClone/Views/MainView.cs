@@ -5,6 +5,8 @@ using ItauAppClone.Templates;
 using Xamarin.CommunityToolkit.Markup;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace ItauAppClone.Views
 {
@@ -15,6 +17,8 @@ namespace ItauAppClone.Views
 
         public MainView()
         {
+            On<iOS>().SetUseSafeArea(true);
+
             var width = Width;
             var tabWidth = width / 5;
 
@@ -36,7 +40,12 @@ namespace ItauAppClone.Views
                 TextColor = Color.White,
                 TextColorSelected = PrimaryColor,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
-                Content = new Label { Text = "Conteúdo início" }
+                Content = new Label
+                {
+                    Text = "Conteúdo início",
+                    HorizontalOptions = LayoutOptions.Center,
+                    VerticalOptions = LayoutOptions.Center
+                }
             });
             tabView.TabItems.Add(new TabViewItem
             {
