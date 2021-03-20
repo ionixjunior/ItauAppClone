@@ -156,5 +156,35 @@
     <BundleResource Include="Resources\backspace.png" />
     <BundleResource Include="Resources\backspace%402x.png" />
     <BundleResource Include="Resources\backspace%403x.png" />
+    <BundleResource Include="Resources\menu_ajuda_selected.png" />
+    <BundleResource Include="Resources\menu_ajuda_selected%402x.png" />
+    <BundleResource Include="Resources\menu_ajuda_selected%403x.png" />
+    <BundleResource Include="Resources\menu_ajuda.png" />
+    <BundleResource Include="Resources\menu_ajuda%402x.png" />
+    <BundleResource Include="Resources\menu_ajuda%403x.png" />
+    <BundleResource Include="Resources\menu_extrato_selected.png" />
+    <BundleResource Include="Resources\menu_extrato_selected%402x.png" />
+    <BundleResource Include="Resources\menu_extrato_selected%403x.png" />
+    <BundleResource Include="Resources\menu_extrato.png" />
+    <BundleResource Include="Resources\menu_extrato%402x.png" />
+    <BundleResource Include="Resources\menu_extrato%403x.png" />
+    <BundleResource Include="Resources\menu_home_selected.png" />
+    <BundleResource Include="Resources\menu_home_selected%402x.png" />
+    <BundleResource Include="Resources\menu_home_selected%403x.png" />
+    <BundleResource Include="Resources\menu_home.png" />
+    <BundleResource Include="Resources\menu_home%402x.png" />
+    <BundleResource Include="Resources\menu_home%403x.png" />
+    <BundleResource Include="Resources\menu_servicos_selected.png" />
+    <BundleResource Include="Resources\menu_servicos_selected%402x.png" />
+    <BundleResource Include="Resources\menu_servicos_selected%403x.png" />
+    <BundleResource Include="Resources\menu_servicos.png" />
+    <BundleResource Include="Resources\menu_servicos%402x.png" />
+    <BundleResource Include="Resources\menu_servicos%403x.png" />
+    <BundleResource Include="Resources\menu_transacoes_selected.png" />
+    <BundleResource Include="Resources\menu_transacoes_selected%402x.png" />
+    <BundleResource Include="Resources\menu_transacoes_selected%403x.png" />
+    <BundleResource Include="Resources\menu_transacoes.png" />
+    <BundleResource Include="Resources\menu_transacoes%402x.png" />
+    <BundleResource Include="Resources\menu_transacoes%403x.png" />
   </ItemGroup>
 </Project>
