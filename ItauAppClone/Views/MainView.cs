@@ -10,6 +10,7 @@ namespace ItauAppClone.Views
 {
     public class MainView : ContentPage
     {
+        private const int TabItemSelectedTopSpace = 12;
         private Color PrimaryColor = Color.FromHex("#EB6F01");
 
         public MainView()
@@ -27,6 +28,7 @@ namespace ItauAppClone.Views
 
             tabView.TabItems.Add(new TabViewItem
             {
+                TranslationY = TabItemSelectedTopSpace,
                 TabWidth = tabWidth,
                 Text = "início",
                 Icon = "menu_home",
@@ -102,8 +104,7 @@ namespace ItauAppClone.Views
                 {
                     if (index == tabView.SelectedIndex)
                     {
-                        tabView.TabItems[index].TranslationY = 0;
-                        tabView.TabItems[index].Paddings(0, 0, 0, 0);
+                        tabView.TabItems[index].TranslationY = TabItemSelectedTopSpace;
                         continue;
                     }
 
