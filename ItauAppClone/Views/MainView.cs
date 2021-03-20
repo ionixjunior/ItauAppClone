@@ -26,6 +26,8 @@ namespace ItauAppClone.Views
             {
                 TabWidth = tabWidth,
                 Text = "início",
+                Icon = "menu_home",
+                IconSelected = "menu_home_selected",
                 FontSize = 10,
                 FontSizeSelected = 10,
                 TextColor = Color.White,
@@ -35,6 +37,8 @@ namespace ItauAppClone.Views
             {
                 TabWidth = tabWidth,
                 Text = "extrato",
+                Icon = "menu_extrato",
+                IconSelected = "menu_extrato_selected",
                 FontSize = 10,
                 FontSizeSelected = 10,
                 TextColor = Color.White,
@@ -44,6 +48,8 @@ namespace ItauAppClone.Views
             {
                 TabWidth = tabWidth,
                 Text = "transações",
+                Icon = "menu_transacoes",
+                IconSelected = "menu_transacoes_selected",
                 FontSize = 10,
                 FontSizeSelected = 10,
                 TextColor = Color.White,
@@ -53,6 +59,8 @@ namespace ItauAppClone.Views
             {
                 TabWidth = tabWidth,
                 Text = "serviços",
+                Icon = "menu_servicos",
+                IconSelected = "menu_servicos_selected",
                 FontSize = 10,
                 FontSizeSelected = 10,
                 TextColor = Color.White,
@@ -62,6 +70,8 @@ namespace ItauAppClone.Views
             {
                 TabWidth = tabWidth,
                 Text = "ajuda",
+                Icon = "menu_ajuda",
+                IconSelected = "menu_ajuda_selected",
                 FontSize = 10,
                 FontSizeSelected = 10,
                 TextColor = Color.White,
