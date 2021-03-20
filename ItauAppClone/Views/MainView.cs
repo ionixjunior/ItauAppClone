@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using ItauAppClone.Templates;
+using Xamarin.CommunityToolkit.Effects;
+using Xamarin.CommunityToolkit.Helpers;
 using Xamarin.CommunityToolkit.Markup;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.PlatformConfiguration;
-using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace ItauAppClone.Views
 {
@@ -17,8 +17,6 @@ namespace ItauAppClone.Views
 
         public MainView()
         {
-            On<iOS>().SetUseSafeArea(true);
-
             var width = Width;
             var tabWidth = width / 5;
 
@@ -26,7 +24,8 @@ namespace ItauAppClone.Views
             {
                 TabStripBackgroundColor = PrimaryColor,
                 TabStripPlacement = TabStripPlacement.Bottom,
-                TabStripHeight = 70
+                TabStripHeight = 70,
+                TabContentBackgroundColor = Color.White
             };
             tabView.SelectionChanged += OnTabViewSelectionChanged;
 
@@ -92,6 +91,8 @@ namespace ItauAppClone.Views
                 Content = new Label { Text = "ajuda" }
             });
 
+            SafeAreaEffect.SetSafeArea(tabView, new SafeArea(false, true, false, true));
+            BackgroundColor = PrimaryColor;
             Content = tabView;
         }
 
