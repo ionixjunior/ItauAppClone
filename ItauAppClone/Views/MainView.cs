@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using ItauAppClone.ContentViews.Home;
 using ItauAppClone.Templates;
 using Xamarin.CommunityToolkit.Effects;
 using Xamarin.CommunityToolkit.Helpers;
@@ -39,12 +40,7 @@ namespace ItauAppClone.Views
                 TextColor = Color.White,
                 TextColorSelected = PrimaryColor,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
-                Content = new Label
-                {
-                    Text = "Conteúdo início",
-                    HorizontalOptions = LayoutOptions.Center,
-                    VerticalOptions = LayoutOptions.Center
-                }
+                Content = new HomeContentView()
             });
             tabView.TabItems.Add(new TabViewItem
             {

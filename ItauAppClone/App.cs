@@ -5,12 +5,10 @@ using Xamarin.Forms.Xaml;
 
 namespace ItauAppClone
 {
-    public partial class App : Application
+    public class App : Application
     {
         public App()
         {
-            InitializeComponent();
-
             MainPage = new MainView();
         }
 
@@ -25,5 +23,11 @@ namespace ItauAppClone
         protected override void OnResume()
         {
         }
+    }
+
+    public static class AppStyle
+    {
+        public static Color PrimaryColor = Color.FromHex("#EB6F01");
+        public static Color TextColor = Color.Black;
     }
 }

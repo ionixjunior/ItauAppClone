@@ -20,5 +20,8 @@
   <ItemGroup>
     <Folder Include="Views\" />
     <Folder Include="Templates\" />
+    <Folder Include="ContentViews\" />
+    <Folder Include="ContentViews\Home\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
 </Project>
