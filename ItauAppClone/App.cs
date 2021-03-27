@@ -31,5 +31,6 @@ namespace ItauAppClone
     {
         public static Color PrimaryColor = Color.FromHex("#EB6F01");
         public static Color TextColor = Color.Black;
+        public static Color ContentPageBackgroundColor = Color.FromHex("#EFE9E4");
     }
 }
