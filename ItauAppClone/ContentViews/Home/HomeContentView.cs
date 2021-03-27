@@ -1,18 +1,22 @@
-﻿using System;
-using ItauAppClone.Controls;
-using Xamarin.CommunityToolkit.Markup;
+﻿using ItauAppClone.Controls;
+using ItauAppClone.Interfaces;
 using Xamarin.Forms;
 
 namespace ItauAppClone.ContentViews.Home
 {
-    public class HomeContentView : ContentView
+    public class HomeContentView : ContentView, IReload
     {
-        private Color PrimaryColor = Color.FromHex("#EB6F01");
-        private Color TextColor = Color.Black;
+        public HomeContentView() => Build();
 
-        public HomeContentView()
+        public void Build()
         {
-            Content = new Header();
+            Content = new StackLayout
+            {
+                Children =
+                {
+                    new Header()
+                }
+            };
         }
     }
 }

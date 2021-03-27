@@ -1,4 +1,5 @@
 ﻿using System;
+using ItauAppClone.Controls;
 using ItauAppClone.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -9,7 +10,8 @@ namespace ItauAppClone
     {
         public App()
         {
-            MainPage = new MainView();
+            var mainMenu = new MainMenu();
+            MainPage = new MainView(mainMenu);
         }
 
         protected override void OnStart()

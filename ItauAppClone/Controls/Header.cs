@@ -10,6 +10,7 @@ namespace ItauAppClone.Controls
         {
             BackgroundColor = Color.White;
             AlignItems = FlexAlignItems.Center;
+            Padding = new Thickness(10);
 
             Children.Add(GetAvatar());
             Children.Add(GetAccountInfo());

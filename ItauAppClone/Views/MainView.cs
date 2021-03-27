@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using ItauAppClone.ContentViews.Home;
+using ItauAppClone.Interfaces;
 using ItauAppClone.Templates;
 using Xamarin.CommunityToolkit.Effects;
 using Xamarin.CommunityToolkit.Helpers;
@@ -15,81 +16,33 @@ namespace ItauAppClone.Views
     {
         private const int TabItemSelectedTopSpace = 12;
         private Color PrimaryColor = Color.FromHex("#EB6F01");
+        private readonly TabView _tabView;
 
-        public MainView()
+        public MainView(TabView tabView)
         {
-            var width = Width;
-            var tabWidth = width / 5;
+            _tabView = tabView;
+            Build();
+        }
 
-            var tabView = new TabView
-            {
-                TabStripBackgroundColor = PrimaryColor,
-                TabStripPlacement = TabStripPlacement.Bottom,
-                TabStripHeight = 70,
-                TabContentBackgroundColor = Color.White
-            };
-            tabView.SelectionChanged += OnTabViewSelectionChanged;
-
-            tabView.TabItems.Add(new TabViewItem
-            {
-                TranslationY = TabItemSelectedTopSpace,
-                TabWidth = tabWidth,
-                Text = "início",
-                Icon = "menu_home",
-                IconSelected = "menu_home_selected",
-                TextColor = Color.White,
-                TextColorSelected = PrimaryColor,
-                ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
-                Content = new HomeContentView()
-            });
-            tabView.TabItems.Add(new TabViewItem
-            {
-                TabWidth = tabWidth,
-                Text = "extrato",
-                Icon = "menu_extrato",
-                IconSelected = "menu_extrato_selected",
-                TextColor = Color.White,
-                TextColorSelected = PrimaryColor,
-                ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
-                Content = new Label { Text = "Conteúdo extrato" }
-            });
-            tabView.TabItems.Add(new TabViewItem
-            {
-                TabWidth = tabWidth,
-                Text = "transações",
-                Icon = "menu_transacoes",
-                IconSelected = "menu_transacoes_selected",
-                TextColor = Color.White,
-                TextColorSelected = PrimaryColor,
-                ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
-                Content = new Label { Text = "Conteúdo transações" }
-            });
-            tabView.TabItems.Add(new TabViewItem
-            {
-                TabWidth = tabWidth,
-                Text = "serviços",
-                Icon = "menu_servicos",
-                IconSelected = "menu_servicos_selected",
-                TextColor = Color.White,
-                TextColorSelected = PrimaryColor,
-                ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
-                Content = new Label { Text = "Conteúdo serviços" }
-            });
-            tabView.TabItems.Add(new TabViewItem
-            {
-                TabWidth = tabWidth,
-                Text = "ajuda",
-                Icon = "menu_ajuda",
-                IconSelected = "menu_ajuda_selected",
-                TextColor = Color.White,
-                TextColorSelected = PrimaryColor,
-                ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
-                Content = new Label { Text = "ajuda" }
-            });
-
-            SafeAreaEffect.SetSafeArea(tabView, new SafeArea(false, true, false, true));
+        private void Build()
+        {
+            _tabView.SelectionChanged += OnTabViewSelectionChanged;
+#if DEBUG
+            ReloadTabItems();
+#endif
+            SafeAreaEffect.SetSafeArea(_tabView, new SafeArea(false, true, false, true));
             BackgroundColor = PrimaryColor;
-            Content = tabView;
+
+            Content = _tabView;
+        }
+
+        private void ReloadTabItems()
+        {
+            foreach (var tabItem in _tabView.TabItems)
+            {
+                if (tabItem.Content is IReload reload)
+                    reload.Build();
+            }
         }
 
         private void OnTabViewSelectionChanged(object sender, TabSelectionChangedEventArgs _)

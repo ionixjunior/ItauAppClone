@@ -23,5 +23,6 @@
     <Folder Include="ContentViews\" />
     <Folder Include="ContentViews\Home\" />
     <Folder Include="Controls\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 </Project>
