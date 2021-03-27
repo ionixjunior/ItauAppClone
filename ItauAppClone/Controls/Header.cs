@@ -1,5 +1,4 @@
-﻿using System;
-using Xamarin.CommunityToolkit.Markup;
+﻿using Xamarin.CommunityToolkit.Markup;
 using Xamarin.Forms;
 
 namespace ItauAppClone.Controls
@@ -14,7 +13,8 @@ namespace ItauAppClone.Controls
 
             Children.Add(GetAvatar());
             Children.Add(GetAccountInfo());
-            Children.Add(GetIcon());
+            Children.Add(GetBellIcon());
+            Children.Add(GetSearchIcon());
         }
 
         private Frame GetAvatar()
@@ -62,7 +62,16 @@ namespace ItauAppClone.Controls
             .Grow(1);
         }
 
-        private static Image GetIcon()
+        private static Image GetBellIcon()
+        {
+            return new Image
+            {
+                Source = "arrow_orange"
+            }
+            .Margin(10, 0);
+        }
+
+        private static Image GetSearchIcon()
         {
             return new Image
             {
