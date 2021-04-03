@@ -79,12 +79,20 @@ namespace ItauAppClone.ContentViews.Home
             };
         }
 
+        private Label _expanderText;
         private Image _expanderArrowImage;
         private const double _imageRotateExpanded = 0;
         private const double _imageRotateNotExpanded = 180;
+        private const string _textExpanded = "ocultar";
+        private const string _textNotExpanded = "expandir";
 
         private Expander GetExpander()
         {
+            _expanderText = new Label
+            {
+                Text = _textNotExpanded
+            };
+
             _expanderArrowImage = new Image
             {
                 Source = "arrow_up_gray",
@@ -113,11 +121,7 @@ namespace ItauAppClone.ContentViews.Home
                             AlignItems = FlexAlignItems.Center,
                             Children =
                             {
-                                new Label
-                                {
-                                    Text = "expandir"
-                                },
-
+                                _expanderText,
                                 _expanderArrowImage
                             }
                         }
@@ -179,7 +183,10 @@ namespace ItauAppClone.ContentViews.Home
         private void OnExpanderTapped(object sender, System.EventArgs e)
         {
             if (sender is Expander expander)
+            {
+                _expanderText.Text = expander.IsExpanded ? _textExpanded : _textNotExpanded;
                 _expanderArrowImage.Rotation = expander.IsExpanded ? _imageRotateExpanded : _imageRotateNotExpanded;
+            }
         }
     }
 }
