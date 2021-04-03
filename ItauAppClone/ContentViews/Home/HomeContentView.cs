@@ -20,7 +20,7 @@ namespace ItauAppClone.ContentViews.Home
                 Children =
                 {
                     new Header(),
-                    new InfoContent("arrow_orange", "Seu limite de crédito continua disponível. Toque aqui."),
+                    new InfoContent("currency_outlined", "Seu limite de crédito continua disponível. Toque aqui."),
 
                     new Frame
                     {
