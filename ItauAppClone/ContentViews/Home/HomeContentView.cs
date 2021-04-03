@@ -91,9 +91,6 @@ namespace ItauAppClone.ContentViews.Home
 
         private Expander GetExpander()
         {
-            var expanderLeftTextSize = (float)Width / 3 * 2;
-            var expanderRightTextSize = (float)Width / 3;
-
             _expanderText = new Label
             {
                 Text = _textNotExpanded
@@ -127,7 +124,7 @@ namespace ItauAppClone.ContentViews.Home
                                 .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label)))
                             }
                         }
-                        .Basis(expanderLeftTextSize),
+                        .Grow(2),
 
                         new FlexLayout
                         {
@@ -140,7 +137,7 @@ namespace ItauAppClone.ContentViews.Home
                             }
                         }
                         .Margins(0, 10, 0, 0)
-                        .Basis(expanderRightTextSize)
+                        .Grow(1)
                     }
                 }
                 .Height(85),
