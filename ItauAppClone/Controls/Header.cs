@@ -66,18 +66,22 @@ namespace ItauAppClone.Controls
         {
             return new Image
             {
-                Source = "arrow_orange"
+                Source = "bell"
             }
-            .Margin(10, 0);
+            .Margin(10, 0)
+            .Height(24)
+            .Width(24);
         }
 
         private static Image GetSearchIcon()
         {
             return new Image
             {
-                Source = "arrow_orange"
+                Source = "search_outlined"
             }
-            .Margin(10, 0);
+            .Margin(10, 0)
+            .Height(24)
+            .Width(24);
         }
     }
 }
