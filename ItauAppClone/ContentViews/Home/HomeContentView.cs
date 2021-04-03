@@ -54,7 +54,7 @@ namespace ItauAppClone.ContentViews.Home
 
                                                 new Image
                                                 {
-                                                    Source = "arrow_orange"
+                                                    Source = "arrow_up_gray"
                                                 }
                                                 .Basis(14)
                                             }
