@@ -186,5 +186,32 @@
     <BundleResource Include="Resources\menu_transacoes.png" />
     <BundleResource Include="Resources\menu_transacoes%402x.png" />
     <BundleResource Include="Resources\menu_transacoes%403x.png" />
+    <BundleResource Include="Resources\arrow_up_gray.png" />
+    <BundleResource Include="Resources\arrow_up_gray%402x.png" />
+    <BundleResource Include="Resources\arrow_up_gray%403x.png" />
+    <BundleResource Include="Resources\barcode.png" />
+    <BundleResource Include="Resources\barcode%402x.png" />
+    <BundleResource Include="Resources\barcode%403x.png" />
+    <BundleResource Include="Resources\bell.png" />
+    <BundleResource Include="Resources\bell%402x.png" />
+    <BundleResource Include="Resources\bell%403x.png" />
+    <BundleResource Include="Resources\credit_rate_outlined.png" />
+    <BundleResource Include="Resources\credit_rate_outlined%402x.png" />
+    <BundleResource Include="Resources\credit_rate_outlined%403x.png" />
+    <BundleResource Include="Resources\currency_outlined.png" />
+    <BundleResource Include="Resources\currency_outlined%402x.png" />
+    <BundleResource Include="Resources\currency_outlined%403x.png" />
+    <BundleResource Include="Resources\house_outlined.png" />
+    <BundleResource Include="Resources\house_outlined%402x.png" />
+    <BundleResource Include="Resources\house_outlined%403x.png" />
+    <BundleResource Include="Resources\info_outlined.png" />
+    <BundleResource Include="Resources\info_outlined%402x.png" />
+    <BundleResource Include="Resources\info_outlined%403x.png" />
+    <BundleResource Include="Resources\pix.png" />
+    <BundleResource Include="Resources\pix%402x.png" />
+    <BundleResource Include="Resources\pix%403x.png" />
+    <BundleResource Include="Resources\search_outlined.png" />
+    <BundleResource Include="Resources\search_outlined%402x.png" />
+    <BundleResource Include="Resources\search_outlined%403x.png" />
   </ItemGroup>
 </Project>
