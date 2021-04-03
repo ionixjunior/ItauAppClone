@@ -166,7 +166,7 @@ namespace ItauAppClone.ContentViews.Home
                             {
                                 new Label
                                 {
-                                    Text = "Cheque especial *"
+                                    Text = "cheque especial *"
                                 },
 
                                 new Image
