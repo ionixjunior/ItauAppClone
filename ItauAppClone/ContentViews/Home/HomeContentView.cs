@@ -76,11 +76,26 @@ namespace ItauAppClone.ContentViews.Home
                                                 BackgroundColor = Color.FromHex("#EFE9E4")
                                             },
 
-                                            new Label
+                                            new FlexLayout
                                             {
-                                                Text = "Cheque especial"
+                                                AlignItems = FlexAlignItems.Center,
+                                                Children =
+                                                {
+                                                    new Label
+                                                    {
+                                                        Text = "Cheque especial *"
+                                                    },
+
+                                                    new Image
+                                                    {
+                                                        Source = "info_outlined"
+                                                    }
+                                                    .Margins(10, 0, 0, 0)
+                                                    .Height(16)
+                                                    .Width(16)
+                                                }
                                             }
-                                            .Margins(0, 10, 0, 0),
+                                            .Margins(0, 10, 0, 10),
 
                                             new Label
                                             {
@@ -96,7 +111,7 @@ namespace ItauAppClone.ContentViews.Home
                                             {
                                                 Text = "*sugeito a encargos"
                                             }
-                                            .Margins(0, 0, 0, 20)
+                                            .Margins(0, 10, 0, 20)
                                         }
                                     }
                                 },
