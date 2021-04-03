@@ -46,8 +46,8 @@ namespace ItauAppClone.ContentViews.Home
 
                                             new FlexLayout
                                             {
-                                                JustifyContent = FlexJustify.Center,
-                                                AlignItems = FlexAlignItems.Start,
+                                                JustifyContent = FlexJustify.End,
+                                                AlignItems = FlexAlignItems.Center,
                                                 Children =
                                                 {
                                                     new Label
@@ -59,7 +59,9 @@ namespace ItauAppClone.ContentViews.Home
                                                     {
                                                         Source = "arrow_up_gray"
                                                     }
-                                                    .Basis(14)
+                                                    .Margins(6, 0, 0, 0)
+                                                    .Height(12)
+                                                    .Width(12)
                                                 }
                                             }
                                             .Basis(150)
