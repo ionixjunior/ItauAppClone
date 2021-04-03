@@ -97,10 +97,10 @@ namespace ItauAppClone.ContentViews.Home
                                     {
                                         Children =
                                         {
-                                            CreateFrame("house_outlined", "soluções para esse momento", Color.White, AppStyle.TextColor),
-                                            CreateFrame("pix", "Pix", Color.FromHex("#0D6EB0"), Color.White),
-                                            CreateFrame("barcode", "pagar conta", Color.White, AppStyle.TextColor),
-                                            CreateFrame("", "criar novo atalho", Color.White, AppStyle.TextColor)
+                                            new Shortcut("house_outlined", "soluções para esse momento", Color.White, AppStyle.TextColor),
+                                            new Shortcut("pix", "Pix", Color.FromHex("#0D6EB0"), Color.White),
+                                            new Shortcut("barcode", "pagar conta", Color.White, AppStyle.TextColor),
+                                            new Shortcut("", "criar novo atalho", Color.White, AppStyle.TextColor)
                                         }
                                     }
                                 }
@@ -111,42 +111,6 @@ namespace ItauAppClone.ContentViews.Home
                     }
                 }
             };
-        }
-
-        private static Frame CreateFrame(string icon, string text, Color backgroundColor, Color textColor)
-        {
-            return new Frame
-            {
-                BackgroundColor = backgroundColor,
-                HasShadow = false,
-                CornerRadius = 10,
-                Content = new StackLayout
-                {
-                    Margin = 5,
-                    Children =
-                    {
-                        new Image
-                        {
-                            Source = icon
-                        }
-                        .Height(24)
-                        .Width(24),
-
-                        new Label
-                        {
-                            Text = text,
-                            TextColor = textColor
-                        }
-                        .TextCenterHorizontal()
-                        .FontSize(Device.GetNamedSize(NamedSize.Small, typeof(Label))),
-                    }
-                }
-                .CenterVertical()
-            }
-            .Padding(0)
-            .Margins(10, 0)
-            .Height(120)
-            .Width(120);
         }
 
         private Label _expanderText;
