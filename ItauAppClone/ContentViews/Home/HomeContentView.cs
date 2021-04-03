@@ -132,50 +132,50 @@ namespace ItauAppClone.ContentViews.Home
                 Content = new StackLayout
                 {
                     Children =
+                    {
+                        new BoxView
                         {
-                            new BoxView
-                            {
-                                HeightRequest = 1,
-                                BackgroundColor = Color.FromHex("#EFE9E4")
-                            },
+                            HeightRequest = 1,
+                            BackgroundColor = Color.FromHex("#EFE9E4")
+                        },
 
-                            new FlexLayout
+                        new FlexLayout
+                        {
+                            AlignItems = FlexAlignItems.Center,
+                            Children =
                             {
-                                AlignItems = FlexAlignItems.Center,
-                                Children =
+                                new Label
                                 {
-                                    new Label
-                                    {
-                                        Text = "Cheque especial *"
-                                    },
+                                    Text = "Cheque especial *"
+                                },
 
-                                    new Image
-                                    {
-                                        Source = "info_outlined"
-                                    }
-                                    .Margins(10, 0, 0, 0)
-                                    .Height(16)
-                                    .Width(16)
+                                new Image
+                                {
+                                    Source = "info_outlined"
                                 }
+                                .Margins(10, 0, 0, 0)
+                                .Height(16)
+                                .Width(16)
                             }
-                            .Margins(0, 10, 0, 10),
-
-                            new Label
-                            {
-                                Text = "limite disponível para uso"
-                            },
-
-                            new Label
-                            {
-                                Text = "R$ 1.000,00"
-                            },
-
-                            new Label
-                            {
-                                Text = "*sugeito a encargos"
-                            }
-                            .Margins(0, 10, 0, 20)
                         }
+                        .Margins(0, 10, 0, 10),
+
+                        new Label
+                        {
+                            Text = "limite disponível para uso"
+                        },
+
+                        new Label
+                        {
+                            Text = "R$ 1.000,00"
+                        },
+
+                        new Label
+                        {
+                            Text = "*sugeito a encargos"
+                        }
+                        .Margins(0, 10, 0, 20)
+                    }
                 }
             };
         }
