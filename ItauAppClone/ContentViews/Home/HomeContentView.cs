@@ -133,11 +133,19 @@ namespace ItauAppClone.ContentViews.Home
                 {
                     Children =
                     {
+                        new Label
+                        {
+                            Text = "R$ 1.000,00"
+                        }
+                        .Margins(0, 10, 0, 0)
+                        .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label))),
+
                         new BoxView
                         {
                             HeightRequest = 1,
                             BackgroundColor = Color.FromHex("#EFE9E4")
-                        },
+                        }
+                        .Margins(0, 10, 0, 10),
 
                         new FlexLayout
                         {
@@ -158,12 +166,13 @@ namespace ItauAppClone.ContentViews.Home
                                 .Width(16)
                             }
                         }
-                        .Margins(0, 10, 0, 10),
+                        .Margins(0),
 
                         new Label
                         {
                             Text = "limite disponível para uso"
-                        },
+                        }
+                        .Margins(0, 10, 0, 0),
 
                         new Label
                         {
