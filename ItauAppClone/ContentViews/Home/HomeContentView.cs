@@ -16,6 +16,10 @@ namespace ItauAppClone.ContentViews.Home
         public void Build()
         {
             BackgroundColor = AppStyle.ContentPageBackgroundColor;
+
+            var expander = GetExpander();
+            expander.Tapped += OnExpanderTapped;
+
             Content = new StackLayout
             {
                 Children =
@@ -31,92 +35,7 @@ namespace ItauAppClone.ContentViews.Home
                             Direction = FlexDirection.Column,
                             Children =
                             {
-                                new Expander
-                                {
-                                    Header = new FlexLayout
-                                    {
-                                        JustifyContent = FlexJustify.SpaceBetween,
-                                        Children =
-                                        {
-                                            new Label
-                                            {
-                                                Text = "Saldo em conta corrente"
-                                            }
-                                            .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label))),
-
-                                            new FlexLayout
-                                            {
-                                                JustifyContent = FlexJustify.End,
-                                                AlignItems = FlexAlignItems.Center,
-                                                Children =
-                                                {
-                                                    new Label
-                                                    {
-                                                        Text = "expandir"
-                                                    },
-
-                                                    new Image
-                                                    {
-                                                        Source = "arrow_up_gray"
-                                                    }
-                                                    .Margins(6, 0, 0, 0)
-                                                    .Height(12)
-                                                    .Width(12)
-                                                }
-                                            }
-                                            .Basis(150)
-                                        }
-                                    },
-
-                                    Content = new StackLayout
-                                    {
-                                        Children =
-                                        {
-                                            new BoxView
-                                            {
-                                                HeightRequest = 1,
-                                                BackgroundColor = Color.FromHex("#EFE9E4")
-                                            },
-
-                                            new FlexLayout
-                                            {
-                                                AlignItems = FlexAlignItems.Center,
-                                                Children =
-                                                {
-                                                    new Label
-                                                    {
-                                                        Text = "Cheque especial *"
-                                                    },
-
-                                                    new Image
-                                                    {
-                                                        Source = "info_outlined"
-                                                    }
-                                                    .Margins(10, 0, 0, 0)
-                                                    .Height(16)
-                                                    .Width(16)
-                                                }
-                                            }
-                                            .Margins(0, 10, 0, 10),
-
-                                            new Label
-                                            {
-                                                Text = "limite disponível para uso"
-                                            },
-
-                                            new Label
-                                            {
-                                                Text = "R$ 1.000,00"
-                                            },
-
-                                            new Label
-                                            {
-                                                Text = "*sugeito a encargos"
-                                            }
-                                            .Margins(0, 10, 0, 20)
-                                        }
-                                    }
-                                },
+                                expander,
 
                                 new BoxView
                                 {
@@ -158,6 +77,109 @@ namespace ItauAppClone.ContentViews.Home
                     .Margin(20)
                 }
             };
+        }
+
+        private Image _expanderArrowImage;
+        private const double _imageRotateExpanded = 0;
+        private const double _imageRotateNotExpanded = 180;
+
+        private Expander GetExpander()
+        {
+            _expanderArrowImage = new Image
+            {
+                Source = "arrow_up_gray",
+                Rotation = _imageRotateNotExpanded
+            }
+            .Margins(6, 0, 0, 0)
+            .Height(12)
+            .Width(12);
+
+            return new Expander
+            {
+                Header = new FlexLayout
+                {
+                    JustifyContent = FlexJustify.SpaceBetween,
+                    Children =
+                    {
+                        new Label
+                        {
+                            Text = "Saldo em conta corrente"
+                        }
+                        .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label))),
+
+                        new FlexLayout
+                        {
+                            JustifyContent = FlexJustify.End,
+                            AlignItems = FlexAlignItems.Center,
+                            Children =
+                            {
+                                new Label
+                                {
+                                    Text = "expandir"
+                                },
+
+                                _expanderArrowImage
+                            }
+                        }
+                        .Basis(150)
+                    }
+                },
+
+                Content = new StackLayout
+                {
+                    Children =
+                        {
+                            new BoxView
+                            {
+                                HeightRequest = 1,
+                                BackgroundColor = Color.FromHex("#EFE9E4")
+                            },
+
+                            new FlexLayout
+                            {
+                                AlignItems = FlexAlignItems.Center,
+                                Children =
+                                {
+                                    new Label
+                                    {
+                                        Text = "Cheque especial *"
+                                    },
+
+                                    new Image
+                                    {
+                                        Source = "info_outlined"
+                                    }
+                                    .Margins(10, 0, 0, 0)
+                                    .Height(16)
+                                    .Width(16)
+                                }
+                            }
+                            .Margins(0, 10, 0, 10),
+
+                            new Label
+                            {
+                                Text = "limite disponível para uso"
+                            },
+
+                            new Label
+                            {
+                                Text = "R$ 1.000,00"
+                            },
+
+                            new Label
+                            {
+                                Text = "*sugeito a encargos"
+                            }
+                            .Margins(0, 10, 0, 20)
+                        }
+                }
+            };
+        }
+
+        private void OnExpanderTapped(object sender, System.EventArgs e)
+        {
+            if (sender is Expander expander)
+                _expanderArrowImage.Rotation = expander.IsExpanded ? _imageRotateExpanded : _imageRotateNotExpanded;
         }
     }
 }
