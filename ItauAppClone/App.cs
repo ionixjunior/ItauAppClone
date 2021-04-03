@@ -13,18 +13,6 @@ namespace ItauAppClone
             var mainMenu = new MainMenu();
             MainPage = new MainView(mainMenu);
         }
-
-        protected override void OnStart()
-        {
-        }
-
-        protected override void OnSleep()
-        {
-        }
-
-        protected override void OnResume()
-        {
-        }
     }
 
     public static class AppStyle
