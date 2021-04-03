@@ -10,8 +10,23 @@ namespace ItauAppClone
     {
         public App()
         {
+            CreateStyles();
             var mainMenu = new MainMenu();
             MainPage = new MainView(mainMenu);
+        }
+
+        private void CreateStyles()
+        {
+            Resources = new ResourceDictionary
+            {
+                new Style(typeof(Label))
+                {
+                    Setters =
+                    {
+                        new Setter { Property = Label.TextColorProperty, Value = AppStyle.TextColor }
+                    }
+                }
+            };
         }
     }
 
