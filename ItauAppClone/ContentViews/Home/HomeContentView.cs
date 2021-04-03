@@ -88,6 +88,9 @@ namespace ItauAppClone.ContentViews.Home
 
         private Expander GetExpander()
         {
+            var expanderLeftTextSize = (float)Width / 3 * 2;
+            var expanderRightTextSize = (float)Width / 3;
+
             _expanderText = new Label
             {
                 Text = _textNotExpanded
@@ -107,27 +110,37 @@ namespace ItauAppClone.ContentViews.Home
                 Header = new FlexLayout
                 {
                     JustifyContent = FlexJustify.SpaceBetween,
+                    AlignItems = FlexAlignItems.Start,
                     Children =
                     {
-                        new Label
+                        new FlexLayout
                         {
-                            Text = "Saldo em conta corrente"
+                            Children =
+                            {
+                                new Label
+                                {
+                                    Text = "saldo em conta corrente"
+                                }
+                                .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label)))
+                            }
                         }
-                        .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label))),
+                        .Basis(expanderLeftTextSize),
 
                         new FlexLayout
                         {
                             JustifyContent = FlexJustify.End,
-                            AlignItems = FlexAlignItems.Center,
+                            AlignItems = FlexAlignItems.Start,
                             Children =
                             {
                                 _expanderText,
                                 _expanderArrowImage
                             }
                         }
-                        .Basis(150)
+                        .Margins(0, 10, 0, 0)
+                        .Basis(expanderRightTextSize)
                     }
-                },
+                }
+                .Height(85),
 
                 Content = new StackLayout
                 {
@@ -137,7 +150,6 @@ namespace ItauAppClone.ContentViews.Home
                         {
                             Text = "R$ 1.000,00"
                         }
-                        .Margins(0, 10, 0, 0)
                         .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label))),
 
                         new BoxView
