@@ -1,6 +1,7 @@
 ﻿using ItauAppClone.Controls;
 using ItauAppClone.Interfaces;
 using Xamarin.CommunityToolkit.Markup;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 using static Xamarin.CommunityToolkit.Markup.GridRowsColumns;
 
@@ -30,39 +31,75 @@ namespace ItauAppClone.ContentViews.Home
                             Direction = FlexDirection.Column,
                             Children =
                             {
-                                new FlexLayout
+                                new Expander
                                 {
-                                    JustifyContent = FlexJustify.SpaceBetween,
-                                    Children =
+                                    Header = new FlexLayout
                                     {
-                                        new Label
+                                        JustifyContent = FlexJustify.SpaceBetween,
+                                        Children =
                                         {
-                                            Text = "Saldo em conta corrente"
-                                        }
-                                        .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label))),
-
-                                        new FlexLayout
-                                        {
-                                            JustifyContent = FlexJustify.Center,
-                                            AlignItems = FlexAlignItems.Start,
-                                            Children =
+                                            new Label
                                             {
-                                                new Label
-                                                {
-                                                    Text = "expandir"
-                                                },
-
-                                                new Image
-                                                {
-                                                    Source = "arrow_up_gray"
-                                                }
-                                                .Basis(14)
+                                                Text = "Saldo em conta corrente"
                                             }
+                                            .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label))),
+
+                                            new FlexLayout
+                                            {
+                                                JustifyContent = FlexJustify.Center,
+                                                AlignItems = FlexAlignItems.Start,
+                                                Children =
+                                                {
+                                                    new Label
+                                                    {
+                                                        Text = "expandir"
+                                                    },
+
+                                                    new Image
+                                                    {
+                                                        Source = "arrow_up_gray"
+                                                    }
+                                                    .Basis(14)
+                                                }
+                                            }
+                                            .Basis(150)
                                         }
-                                        .Basis(150)
+                                    },
+
+                                    Content = new StackLayout
+                                    {
+                                        Children =
+                                        {
+                                            new BoxView
+                                            {
+                                                HeightRequest = 1,
+                                                BackgroundColor = Color.FromHex("#EFE9E4")
+                                            },
+
+                                            new Label
+                                            {
+                                                Text = "Cheque especial"
+                                            }
+                                            .Margins(0, 10, 0, 0),
+
+                                            new Label
+                                            {
+                                                Text = "limite disponível para uso"
+                                            },
+
+                                            new Label
+                                            {
+                                                Text = "R$ 1.000,00"
+                                            },
+
+                                            new Label
+                                            {
+                                                Text = "*sugeito a encargos"
+                                            }
+                                            .Margins(0, 0, 0, 20)
+                                        }
                                     }
-                                }
-                                .Basis(70),
+                                },
 
                                 new BoxView
                                 {
