@@ -19,6 +19,7 @@ namespace ItauAppClone.Controls
             TabStripPlacement = TabStripPlacement.Bottom;
             TabStripHeight = 70;
             TabContentBackgroundColor = Color.White;
+            IsSwipeEnabled = false;
             
             TabItems.Add(new TabViewItem
             {
