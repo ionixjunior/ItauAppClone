@@ -148,7 +148,8 @@ namespace ItauAppClone.ContentViews.Home
                     {
                         new Label
                         {
-                            Text = "R$ 1.000,00"
+                            Text = "R$ 1.000,00",
+                            TextColor = Color.FromHex("#486D5D")
                         }
                         .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label))),
 
@@ -166,7 +167,8 @@ namespace ItauAppClone.ContentViews.Home
                             {
                                 new Label
                                 {
-                                    Text = "cheque especial *"
+                                    Text = "cheque especial *",
+                                    FontAttributes = FontAttributes.Bold
                                 },
 
                                 new Image
@@ -196,6 +198,7 @@ namespace ItauAppClone.ContentViews.Home
                             Text = "*sugeito a encargos"
                         }
                         .Margins(0, 10, 0, 20)
+                        .FontSize(Device.GetNamedSize(NamedSize.Small, typeof(Label)))
                     }
                 }
             };
