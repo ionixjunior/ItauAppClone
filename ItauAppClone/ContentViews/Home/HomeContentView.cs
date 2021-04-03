@@ -20,61 +20,64 @@ namespace ItauAppClone.ContentViews.Home
             var expander = GetExpander();
             expander.Tapped += OnExpanderTapped;
 
-            Content = new StackLayout
+            Content = new ScrollView
             {
-                Children =
+                Content = new StackLayout
                 {
-                    new Header(),
-                    new InfoContent("currency_outlined", "Seu limite de crédito continua disponível. Toque aqui."),
-
-                    new Frame
+                    Children =
                     {
-                        HasShadow = false,
-                        Content = new FlexLayout
+                        new Header(),
+                        new InfoContent("currency_outlined", "Seu limite de crédito continua disponível. Toque aqui."),
+
+                        new Frame
                         {
-                            Direction = FlexDirection.Column,
-                            Children =
+                            HasShadow = false,
+                            Content = new FlexLayout
                             {
-                                expander,
-
-                                new BoxView
+                                Direction = FlexDirection.Column,
+                                Children =
                                 {
-                                    HeightRequest = 1,
-                                    BackgroundColor = Color.FromHex("#EFE9E4")
-                                },
+                                    expander,
 
-                                new FlexLayout
-                                {
-                                    JustifyContent = FlexJustify.SpaceBetween,
-                                    AlignItems = FlexAlignItems.Start,
-                                    Children =
+                                    new BoxView
                                     {
-                                        new Button
-                                        {
-                                            Text = "ver extrato",
-                                            TextColor = Color.FromHex("#0D6EB0"),
-                                            BackgroundColor = Color.Transparent,
-                                            TextTransform = TextTransform.Lowercase,
-                                            FontAttributes = FontAttributes.Bold
-                                        }
-                                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button))),
+                                        HeightRequest = 1,
+                                        BackgroundColor = Color.FromHex("#EFE9E4")
+                                    },
 
-                                        new Button
+                                    new FlexLayout
+                                    {
+                                        JustifyContent = FlexJustify.SpaceBetween,
+                                        AlignItems = FlexAlignItems.Start,
+                                        Children =
                                         {
-                                            Text = "ver calendário",
-                                            TextColor = Color.FromHex("#0D6EB0"),
-                                            BackgroundColor = Color.Transparent,
-                                            TextTransform = TextTransform.Lowercase,
-                                            FontAttributes = FontAttributes.Bold
+                                            new Button
+                                            {
+                                                Text = "ver extrato",
+                                                TextColor = Color.FromHex("#0D6EB0"),
+                                                BackgroundColor = Color.Transparent,
+                                                TextTransform = TextTransform.Lowercase,
+                                                FontAttributes = FontAttributes.Bold
+                                            }
+                                            .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button))),
+
+                                            new Button
+                                            {
+                                                Text = "ver calendário",
+                                                TextColor = Color.FromHex("#0D6EB0"),
+                                                BackgroundColor = Color.Transparent,
+                                                TextTransform = TextTransform.Lowercase,
+                                                FontAttributes = FontAttributes.Bold
+                                            }
+                                            .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
                                         }
-                                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
                                     }
+                                    .Basis(40)
                                 }
-                                .Basis(40)
                             }
                         }
+                        .Margin(20)
                     }
-                    .Margin(20)
                 }
             };
         }
