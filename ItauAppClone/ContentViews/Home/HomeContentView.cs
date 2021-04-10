@@ -31,7 +31,9 @@ namespace ItauAppClone.ContentViews.Home
 
                         new Frame
                         {
+                            IsVisible = false,
                             HasShadow = false,
+                            CornerRadius = 5,
                             Content = new FlexLayout
                             {
                                 Direction = FlexDirection.Column,
@@ -80,6 +82,7 @@ namespace ItauAppClone.ContentViews.Home
 
                         new StackLayout
                         {
+                            IsVisible = false,
                             Children =
                             {
                                 new Label
@@ -107,7 +110,84 @@ namespace ItauAppClone.ContentViews.Home
                                 .Margins(0, 10, 0, 0)
                                 .Padding(10, 0)
                             }
+                        },
+
+                        new Frame
+                        {
+                            BackgroundColor = Color.Red,
+                            CornerRadius = 5,
+                            HasShadow = false,
+                            HeightRequest = 200,
+                            Background = new LinearGradientBrush
+                            {
+                                StartPoint = new Point(0, 0),
+                                EndPoint = new Point(1, 1),
+                                GradientStops = new GradientStopCollection
+                                {
+                                    new GradientStop
+                                    {
+                                        Color = Color.FromHex("#6E606B"),
+                                        Offset = 0.0f
+                                    },
+                                    new GradientStop
+                                    {
+                                        Color = Color.FromHex("#282013"),
+                                        Offset = 1.0f
+                                    }
+                                }
+                            },
+
+                            Content = new StackLayout
+                            {
+                                Children =
+                                {
+                                    new FlexLayout
+                                    {
+                                        JustifyContent = FlexJustify.SpaceBetween,
+                                        AlignItems = FlexAlignItems.Start,
+                                        Children =
+                                        {
+                                            new FlexLayout
+                                            {
+                                                Children =
+                                                {
+                                                    new Label
+                                                    {
+                                                        Text = "Itaucard Click MasterCard",
+                                                        TextColor = Color.White
+                                                    }
+                                                    .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label)))
+                                                }
+                                            }
+                                            .Grow(2),
+
+                                            new FlexLayout
+                                            {
+                                                JustifyContent = FlexJustify.End,
+                                                AlignItems = FlexAlignItems.Start,
+                                                Children =
+                                                {
+                                                    new Label
+                                                    {
+                                                        Text = "expandir",
+                                                        TextColor = Color.White
+                                                    },
+                                                    new Image
+                                                    {
+                                                        Source = "arrow_up_gray",
+                                                        Rotation = _imageRotateNotExpanded
+                                                    }
+                                                }
+                                            }
+                                            .Margins(0, 10, 0, 0)
+                                            .Grow(1)
+                                        }
+                                    }
+                                    .Height(85)
+                                }
+                            }
                         }
+                        .Margin(20, 20)
                     }
                 }
             };
