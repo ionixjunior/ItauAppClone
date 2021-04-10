@@ -1,4 +1,5 @@
-﻿using ItauAppClone.Controls;
+﻿using System.Collections.Generic;
+using ItauAppClone.Controls;
 using ItauAppClone.Interfaces;
 using Xamarin.CommunityToolkit.Markup;
 using Xamarin.CommunityToolkit.UI.Views;
@@ -17,9 +18,6 @@ namespace ItauAppClone.ContentViews.Home
         {
             BackgroundColor = AppStyle.ContentPageBackgroundColor;
 
-            var expander = GetExpander();
-            expander.Tapped += OnExpanderTapped;
-
             Content = new ScrollView
             {
                 Content = new StackLayout
@@ -29,60 +27,30 @@ namespace ItauAppClone.ContentViews.Home
                         new Header(),
                         new InfoContent("currency_outlined", "Seu limite de crédito continua disponível. Toque aqui."),
 
-                        new Frame
+                        new CardExpandableContent(
+                            "saldo em conta corrente",
+                            LineBreakMode.WordWrap,
+                            Color.Black,
+                            "arrow_up_gray",
+                            GetContentFromAccountBalance(),
+                            GetFooterFromAccountBalance()
+                        )
                         {
-                            IsVisible = false,
-                            HasShadow = false,
-                            CornerRadius = 5,
-                            Content = new FlexLayout
-                            {
-                                Direction = FlexDirection.Column,
-                                Children =
-                                {
-                                    expander,
+                            IsVisible = true
+                        },
 
-                                    new BoxView
-                                    {
-                                        HeightRequest = 1,
-                                        BackgroundColor = Color.FromHex("#EFE9E4")
-                                    },
-
-                                    new FlexLayout
-                                    {
-                                        JustifyContent = FlexJustify.SpaceBetween,
-                                        AlignItems = FlexAlignItems.Start,
-                                        Children =
-                                        {
-                                            new Button
-                                            {
-                                                Text = "ver extrato",
-                                                TextColor = Color.FromHex("#0D6EB0"),
-                                                BackgroundColor = Color.Transparent,
-                                                TextTransform = TextTransform.Lowercase,
-                                                FontAttributes = FontAttributes.Bold
-                                            }
-                                            .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button))),
-
-                                            new Button
-                                            {
-                                                Text = "ver calendário",
-                                                TextColor = Color.FromHex("#0D6EB0"),
-                                                BackgroundColor = Color.Transparent,
-                                                TextTransform = TextTransform.Lowercase,
-                                                FontAttributes = FontAttributes.Bold
-                                            }
-                                            .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
-                                        }
-                                    }
-                                    .Basis(40)
-                                }
-                            }
-                        }
-                        .Margin(20),
+                        //new Frame
+                        //{
+                        //    IsVisible = true,
+                        //    HasShadow = false,
+                        //    CornerRadius = 5,
+                        //    Content = GetContentFromAccountBalance()
+                        //}
+                        //.Margin(20),
 
                         new StackLayout
                         {
-                            IsVisible = false,
+                            IsVisible = true,
                             Children =
                             {
                                 new Label
@@ -112,12 +80,15 @@ namespace ItauAppClone.ContentViews.Home
                             }
                         },
 
-                        new Frame
+                        new CardExpandableContent(
+                            "Itaucard Click MasterCard",
+                            LineBreakMode.TailTruncation,
+                            Color.White,
+                            "arrow_up_gray",
+                            GetContentFromCreditCard(),
+                            GetFooterFromCreditCard()
+                        )
                         {
-                            BackgroundColor = Color.Red,
-                            CornerRadius = 5,
-                            HasShadow = false,
-                            HeightRequest = 200,
                             Background = new LinearGradientBrush
                             {
                                 StartPoint = new Point(0, 0),
@@ -135,193 +106,157 @@ namespace ItauAppClone.ContentViews.Home
                                         Offset = 1.0f
                                     }
                                 }
-                            },
-
-                            Content = new StackLayout
-                            {
-                                Children =
-                                {
-                                    new FlexLayout
-                                    {
-                                        JustifyContent = FlexJustify.SpaceBetween,
-                                        AlignItems = FlexAlignItems.Start,
-                                        Children =
-                                        {
-                                            new FlexLayout
-                                            {
-                                                Children =
-                                                {
-                                                    new Label
-                                                    {
-                                                        Text = "Itaucard Click MasterCard",
-                                                        TextColor = Color.White
-                                                    }
-                                                    .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label)))
-                                                }
-                                            }
-                                            .Grow(2),
-
-                                            new FlexLayout
-                                            {
-                                                JustifyContent = FlexJustify.End,
-                                                AlignItems = FlexAlignItems.Start,
-                                                Children =
-                                                {
-                                                    new Label
-                                                    {
-                                                        Text = "expandir",
-                                                        TextColor = Color.White
-                                                    },
-                                                    new Image
-                                                    {
-                                                        Source = "arrow_up_gray",
-                                                        Rotation = _imageRotateNotExpanded
-                                                    }
-                                                }
-                                            }
-                                            .Margins(0, 10, 0, 0)
-                                            .Grow(1)
-                                        }
-                                    }
-                                    .Height(85)
-                                }
                             }
                         }
-                        .Margin(20, 20)
+                        .Margin(20, 20),
                     }
                 }
             };
         }
 
-        private Label _expanderText;
-        private Image _expanderArrowImage;
-        private const double _imageRotateExpanded = 0;
-        private const double _imageRotateNotExpanded = 180;
-        private const string _textExpanded = "ocultar";
-        private const string _textNotExpanded = "expandir";
-
-        private Expander GetExpander()
+        private List<View> GetFooterFromAccountBalance()
         {
-            _expanderText = new Label
+            return new List<View>
             {
-                Text = _textNotExpanded
-            };
+                new BoxView
+                {
+                    HeightRequest = 1,
+                    BackgroundColor = Color.FromHex("#EFE9E4")
+                },
 
-            _expanderArrowImage = new Image
-            {
-                Source = "arrow_up_gray",
-                Rotation = _imageRotateNotExpanded
-            }
-            .Margins(6, 0, 0, 0)
-            .Height(12)
-            .Width(12);
-
-            return new Expander
-            {
-                Header = new FlexLayout
+                new FlexLayout
                 {
                     JustifyContent = FlexJustify.SpaceBetween,
                     AlignItems = FlexAlignItems.Start,
                     Children =
                     {
-                        new FlexLayout
+                        new Button
                         {
-                            Children =
-                            {
-                                new Label
-                                {
-                                    Text = "saldo em conta corrente"
-                                }
-                                .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label)))
-                            }
+                            Text = "ver extrato",
+                            TextColor = Color.FromHex("#0D6EB0"),
+                            BackgroundColor = Color.Transparent,
+                            TextTransform = TextTransform.Lowercase,
+                            FontAttributes = FontAttributes.Bold
                         }
-                        .Grow(2),
+                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button))),
 
-                        new FlexLayout
+                        new Button
                         {
-                            JustifyContent = FlexJustify.End,
-                            AlignItems = FlexAlignItems.Start,
-                            Children =
-                            {
-                                _expanderText,
-                                _expanderArrowImage
-                            }
+                            Text = "ver calendário",
+                            TextColor = Color.FromHex("#0D6EB0"),
+                            BackgroundColor = Color.Transparent,
+                            TextTransform = TextTransform.Lowercase,
+                            FontAttributes = FontAttributes.Bold
                         }
-                        .Margins(0, 10, 0, 0)
-                        .Grow(1)
+                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
                     }
                 }
-                .Height(85),
+                .Basis(40)
+            };
 
-                Content = new StackLayout
+        }
+
+        private StackLayout GetContentFromAccountBalance()
+        {
+            return new StackLayout
+            {
+                Children =
                 {
-                    Children =
+                    new Label
                     {
-                        new Label
-                        {
-                            Text = "R$ 1.000,00",
-                            TextColor = Color.FromHex("#486D5D")
-                        }
-                        .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label))),
-
-                        new BoxView
-                        {
-                            HeightRequest = 1,
-                            BackgroundColor = Color.FromHex("#EFE9E4")
-                        }
-                        .Margins(0, 10, 0, 10),
-
-                        new FlexLayout
-                        {
-                            AlignItems = FlexAlignItems.Center,
-                            Children =
-                            {
-                                new Label
-                                {
-                                    Text = "cheque especial *",
-                                    FontAttributes = FontAttributes.Bold
-                                },
-
-                                new Image
-                                {
-                                    Source = "info_outlined"
-                                }
-                                .Margins(10, 0, 0, 0)
-                                .Height(16)
-                                .Width(16)
-                            }
-                        }
-                        .Margins(0),
-
-                        new Label
-                        {
-                            Text = "limite disponível para uso"
-                        }
-                        .Margins(0, 10, 0, 0),
-
-                        new Label
-                        {
-                            Text = "R$ 1.000,00"
-                        },
-
-                        new Label
-                        {
-                            Text = "*sugeito a encargos"
-                        }
-                        .Margins(0, 10, 0, 20)
-                        .FontSize(Device.GetNamedSize(NamedSize.Small, typeof(Label)))
+                        Text = "R$ 1.000,00",
+                        TextColor = Color.FromHex("#486D5D")
                     }
+                    .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label))),
+
+                    new BoxView
+                    {
+                        HeightRequest = 1,
+                        BackgroundColor = Color.FromHex("#EFE9E4")
+                    }
+                    .Margins(0, 10, 0, 10),
+
+                    new FlexLayout
+                    {
+                        AlignItems = FlexAlignItems.Center,
+                        Children =
+                        {
+                            new Label
+                            {
+                                Text = "cheque especial *",
+                                FontAttributes = FontAttributes.Bold
+                            },
+
+                            new Image
+                            {
+                                Source = "info_outlined"
+                            }
+                            .Margins(10, 0, 0, 0)
+                            .Height(16)
+                            .Width(16)
+                        }
+                    }
+                    .Margins(0),
+
+                    new Label
+                    {
+                        Text = "limite disponível para uso"
+                    }
+                    .Margins(0, 10, 0, 0),
+
+                    new Label
+                    {
+                        Text = "R$ 1.000,00"
+                    },
+
+                    new Label
+                    {
+                        Text = "*sugeito a encargos"
+                    }
+                    .Margins(0, 10, 0, 20)
+                    .FontSize(Device.GetNamedSize(NamedSize.Small, typeof(Label)))
                 }
             };
         }
 
-        private void OnExpanderTapped(object sender, System.EventArgs e)
+        private ContentView GetContentFromCreditCard()
         {
-            if (sender is Expander expander)
+            return new ContentView { Content = new Label { Text = "teste", TextColor = Color.White } };
+        }
+
+        private List<View> GetFooterFromCreditCard()
+        {
+            return new List<View>
             {
-                _expanderText.Text = expander.IsExpanded ? _textExpanded : _textNotExpanded;
-                _expanderArrowImage.Rotation = expander.IsExpanded ? _imageRotateExpanded : _imageRotateNotExpanded;
-            }
+                new FlexLayout
+                {
+                    JustifyContent = FlexJustify.Start,
+                    AlignItems = FlexAlignItems.Start,
+                    Children =
+                    {
+                        new Button
+                        {
+                            Text = "pagar",
+                            TextColor = Color.White,
+                            BackgroundColor = Color.Transparent,
+                            TextTransform = TextTransform.Lowercase,
+                            FontAttributes = FontAttributes.Bold
+                        }
+                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button))),
+
+                        new Button
+                        {
+                            Text = "ver detalhes",
+                            TextColor = Color.White,
+                            BackgroundColor = Color.Transparent,
+                            TextTransform = TextTransform.Lowercase,
+                            FontAttributes = FontAttributes.Bold
+                        }
+                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
+                    }
+                }
+                .Basis(40)
+            };
         }
     }
 }
