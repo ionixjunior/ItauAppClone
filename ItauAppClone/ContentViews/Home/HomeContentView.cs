@@ -85,6 +85,7 @@ namespace ItauAppClone.ContentViews.Home
                             LineBreakMode.TailTruncation,
                             Color.White,
                             "arrow_up_gray",
+                            GetSubtitleFromCreditCard(),
                             GetContentFromCreditCard(),
                             GetFooterFromCreditCard()
                         )
@@ -217,6 +218,33 @@ namespace ItauAppClone.ContentViews.Home
                     .FontSize(Device.GetNamedSize(NamedSize.Small, typeof(Label)))
                 }
             };
+        }
+
+
+        private View GetSubtitleFromCreditCard()
+        {
+            return new FlexLayout
+            {
+                AlignItems = FlexAlignItems.Center,
+
+                Children =
+                {
+                    new Image
+                    {
+                        Source = "mastercard_logo"
+                    }
+                    .Height(60),
+
+                    new Label
+                    {
+                        Text = "final 1234",
+                        TextColor = Color.White
+                    }
+                    .Margin(15, 0)
+                    .FontSize(Device.GetNamedSize(NamedSize.Subtitle, typeof(Label)))
+                }
+            }
+            .Margin(0, 10);
         }
 
         private ContentView GetContentFromCreditCard()
