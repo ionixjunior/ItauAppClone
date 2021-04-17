@@ -5,19 +5,80 @@ using Xamarin.Forms;
 
 namespace ItauAppClone.Controls
 {
+    public class ExpandableContentBuilder
+    {
+        private ExpandableContent _content = new ExpandableContent();
+
+        public ExpandableContentBuilder AddHeaderTitle(string headerTitle)
+        {
+            _content.SetHeaderTitle(headerTitle);
+            return this;
+        }
+
+        public ExpandableContentBuilder AddHeaderTitleTruncation(LineBreakMode headerTitleTruncation)
+        {
+            _content._headerTitleTruncation = headerTitleTruncation;
+            return this;
+        }
+
+        public ExpandableContentBuilder AddTextColor(Color textColor)
+        {
+            _content._textColor = textColor;
+            return this;
+        }
+
+        public ExpandableContentBuilder AddArrowIconName(string arrowIconName)
+        {
+            _content._arrowIconName = arrowIconName;
+            return this;
+        }
+
+        public ExpandableContentBuilder AddContent(View content)
+        {
+            _content._content = content;
+            return this;
+        }
+
+        public ExpandableContentBuilder AddHeaderSubtitleView(View headerSubtitleView)
+        {
+            _content._headerSubtitleView = headerSubtitleView;
+            return this;
+        }
+
+        public ExpandableContent Build()
+        {
+            _content.Build();
+            return _content;
+        }
+    }
+
     public class ExpandableContent : Expander
     {
-        private string _headerTitle;
-        private LineBreakMode _headerTitleTruncation;
-        private Color _textColor;
-        private string _arrowIconName;
-        private Label _expanderText;
+        public string _headerTitle;
+        public LineBreakMode _headerTitleTruncation;
+        public Color _textColor;
+        public string _arrowIconName;
+        public View _content;
+        public Label _expanderText;
         private Image _expanderArrowImage;
-        private View _headerSubtitleView;
+        public View _headerSubtitleView;
         private const double _imageRotateExpanded = 0;
         private const double _imageRotateNotExpanded = 180;
         private const string _textExpanded = "ocultar";
         private const string _textNotExpanded = "expandir";
+
+        public ExpandableContent() { }
+
+        public void Build()
+        {
+            _expanderText = GetHeaderText();
+            _expanderArrowImage = GetHeaderImage();
+
+            Tapped += OnExpanderTapped;
+
+            Header = GetHeader();
+            Content = _content;
+        }
 
         public ExpandableContent(
             string headerTitle,

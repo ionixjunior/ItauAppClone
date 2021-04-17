@@ -22,13 +22,22 @@ namespace ItauAppClone.Controls
                 Direction = FlexDirection.Column,
                 Children =
                 {
-                    new ExpandableContent(
-                        headerTitle,
-                        headerTitleTruncation,
-                        textColor,
-                        arrowIconName,
-                        headerExpandableContent
-                    )
+                    //new ExpandableContent(
+                    //    headerTitle,
+                    //    headerTitleTruncation,
+                    //    textColor,
+                    //    arrowIconName,
+                    //    headerExpandableContent
+                    //)
+
+                    new ExpandableContentBuilder()
+                        .AddHeaderTitle(headerTitle)
+                        .AddHeaderTitleTruncation(headerTitleTruncation)
+                        .AddTextColor(textColor)
+                        .AddArrowIconName(arrowIconName)
+                        .AddContent(headerExpandableContent)
+                        .AddHeaderSubtitleView(new ContentView { Content = new Label { Text = "meu subtítulo"}})
+                        .Build()
                 }
             };
 
