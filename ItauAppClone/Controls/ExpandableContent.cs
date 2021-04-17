@@ -13,12 +13,53 @@ namespace ItauAppClone.Controls
         private string _arrowIconName;
         private Label _expanderText;
         private Image _expanderArrowImage;
+        private View _headerSubtitleView;
         private const double _imageRotateExpanded = 0;
         private const double _imageRotateNotExpanded = 180;
         private const string _textExpanded = "ocultar";
         private const string _textNotExpanded = "expandir";
 
         public ExpandableContent(
+            string headerTitle,
+            LineBreakMode headerTitleTruncation,
+            Color textColor,
+            string arrowIconName,
+            View content)
+        {
+            Initialize(
+                headerTitle,
+                headerTitleTruncation,
+                textColor,
+                arrowIconName,
+                content
+            );
+        }
+
+        public ExpandableContent(
+            string headerTitle,
+            LineBreakMode headerTitleTruncation,
+            Color textColor,
+            string arrowIconName,
+            View headerSubtitleView,
+            View content) : this(
+                headerTitle,
+                headerTitleTruncation,
+                textColor,
+                arrowIconName,
+                content)
+        {
+            _headerSubtitleView = headerSubtitleView;
+
+            Initialize(
+                headerTitle,
+                headerTitleTruncation,
+                textColor,
+                arrowIconName,
+                content
+            );
+        }
+
+        private void Initialize(
             string headerTitle,
             LineBreakMode headerTitleTruncation,
             Color textColor,
@@ -68,44 +109,55 @@ namespace ItauAppClone.Controls
             }
         }
 
-        private FlexLayout GetHeader()
+        private View GetHeader()
         {
-            return new FlexLayout
+            var stack = new StackLayout
             {
-                JustifyContent = FlexJustify.SpaceBetween,
-                AlignItems = FlexAlignItems.Start,
                 Children =
                 {
                     new FlexLayout
                     {
-                        Children =
-                        {
-                            new Label
-                            {
-                                Text = _headerTitle,
-                                TextColor = _textColor,
-                                LineBreakMode = _headerTitleTruncation
-                            }
-                            .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label)))
-                        }
-                    }
-                    .Grow(2),
-
-                    new FlexLayout
-                    {
-                        JustifyContent = FlexJustify.End,
+                        JustifyContent = FlexJustify.SpaceBetween,
                         AlignItems = FlexAlignItems.Start,
                         Children =
                         {
-                            _expanderText,
-                            _expanderArrowImage
+                            new FlexLayout
+                            {
+                                Children =
+                                {
+                                    new Label
+                                    {
+                                        Text = _headerTitle,
+                                        TextColor = _textColor,
+                                        LineBreakMode = _headerTitleTruncation
+                                    }
+                                    .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label)))
+                                }
+                            }
+                            .Grow(2),
+
+                            new FlexLayout
+                            {
+                                JustifyContent = FlexJustify.End,
+                                AlignItems = FlexAlignItems.Start,
+                                Children =
+                                {
+                                    _expanderText,
+                                    _expanderArrowImage
+                                }
+                            }
+                            .Margins(0, 10, 0, 0)
+                            .Grow(1)
                         }
                     }
-                    .Margins(0, 10, 0, 0)
-                    .Grow(1)
+                    .Height(85)
                 }
-            }
-            .Height(85);
+            };
+
+            if (_headerSubtitleView != null)
+                stack.Children.Add(_headerSubtitleView);
+
+            return stack;
         }
     }
 }
