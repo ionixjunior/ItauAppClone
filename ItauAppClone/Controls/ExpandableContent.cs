@@ -144,6 +144,7 @@ namespace ItauAppClone.Controls
 
                             new StackLayout
                             {
+                                VerticalOptions = LayoutOptions.Start,
                                 Orientation = StackOrientation.Horizontal,
                                 Children =
                                 {
