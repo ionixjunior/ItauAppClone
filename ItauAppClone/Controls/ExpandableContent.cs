@@ -2,6 +2,7 @@
 using Xamarin.CommunityToolkit.Markup;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
+using static Xamarin.CommunityToolkit.Markup.GridRowsColumns;
 
 namespace ItauAppClone.Controls
 {
@@ -109,19 +110,24 @@ namespace ItauAppClone.Controls
             }
         }
 
+        private enum GridHeaderColumn { Left, Right };
+
         private View GetHeader()
         {
             var stack = new StackLayout
             {
                 Children =
                 {
-                    new FlexLayout
+                    new Grid
                     {
-                        JustifyContent = FlexJustify.SpaceBetween,
-                        AlignItems = FlexAlignItems.Start,
+                        ColumnDefinitions = Columns.Define(
+                            (GridHeaderColumn.Left, Star),
+                            (GridHeaderColumn.Right, Auto)
+                        ),
+
                         Children =
                         {
-                            new FlexLayout
+                            new StackLayout
                             {
                                 Children =
                                 {
@@ -134,25 +140,24 @@ namespace ItauAppClone.Controls
                                     .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label)))
                                 }
                             }
-                            .Grow(2),
+                            .Column(GridHeaderColumn.Left),
 
-                            new FlexLayout
+                            new StackLayout
                             {
-                                JustifyContent = FlexJustify.End,
-                                AlignItems = FlexAlignItems.Start,
+                                Orientation = StackOrientation.Horizontal,
                                 Children =
                                 {
                                     _expanderText,
                                     _expanderArrowImage
                                 }
                             }
+                            .Column(GridHeaderColumn.Right)
                             .Margins(0, 10, 0, 0)
-                            .Grow(1)
                         }
                     }
-                    .Height(85)
                 }
-            };
+            }
+            .Margins(0, 0, 0, 20);
 
             if (_headerSubtitleView != null)
                 stack.Children.Add(_headerSubtitleView);
