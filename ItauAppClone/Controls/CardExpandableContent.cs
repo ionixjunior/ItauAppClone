@@ -13,6 +13,40 @@ namespace ItauAppClone.Controls
             View headerExpandableContent,
             IList<View> footerContent)
         {
+            var expandableContent = new ExpandableContent(
+                headerTitle,
+                headerTitleTruncation,
+                textColor,
+                arrowIconName,
+                headerExpandableContent
+            );
+
+            Initialize(expandableContent, footerContent);
+        }
+
+        public CardExpandableContent(
+            string headerTitle,
+            LineBreakMode headerTitleTruncation,
+            Color textColor,
+            string arrowIconName,
+            View headerSubtitleView,
+            View headerExpandableContent,
+            IList<View> footerContent)
+        {
+            var expandableContent = new ExpandableContent(
+                headerTitle,
+                headerTitleTruncation,
+                textColor,
+                arrowIconName,
+                headerSubtitleView,
+                headerExpandableContent
+            );
+
+            Initialize(expandableContent, footerContent);
+        }
+
+        private void Initialize(ExpandableContent expandableContent, IList<View> footerContent)
+        {
             HasShadow = false;
             CornerRadius = 5;
             Margin = 20;
@@ -22,13 +56,7 @@ namespace ItauAppClone.Controls
                 Direction = FlexDirection.Column,
                 Children =
                 {
-                    new ExpandableContent(
-                        headerTitle,
-                        headerTitleTruncation,
-                        textColor,
-                        arrowIconName,
-                        headerExpandableContent
-                    )
+                    expandableContent
                 }
             };
 
