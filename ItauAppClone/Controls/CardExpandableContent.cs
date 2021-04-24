@@ -50,6 +50,7 @@ namespace ItauAppClone.Controls
             HasShadow = false;
             CornerRadius = 5;
             Margin = 20;
+            Padding = 0;
 
             var flexLayout = new FlexLayout
             {

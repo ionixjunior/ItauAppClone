@@ -158,7 +158,7 @@ namespace ItauAppClone.Controls
                     }
                 }
             }
-            .Margins(0, 0, 0, 20);
+            .Margin(20, 20);
 
             if (_headerSubtitleView != null)
                 stack.Children.Add(_headerSubtitleView);

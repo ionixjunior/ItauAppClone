@@ -123,7 +123,8 @@ namespace ItauAppClone.ContentViews.Home
                 {
                     HeightRequest = 1,
                     BackgroundColor = Color.FromHex("#EFE9E4")
-                },
+                }
+                .Margin(20, 0),
 
                 new FlexLayout
                 {
@@ -152,7 +153,8 @@ namespace ItauAppClone.ContentViews.Home
                         .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
                     }
                 }
-                .Basis(40)
+                .Basis(50)
+                .Margins(20, 0, 20, 20)
             };
 
         }
@@ -217,7 +219,8 @@ namespace ItauAppClone.ContentViews.Home
                     .Margins(0, 10, 0, 20)
                     .FontSize(Device.GetNamedSize(NamedSize.Small, typeof(Label)))
                 }
-            };
+            }
+            .Margin(20, 0);
         }
 
 
@@ -244,12 +247,113 @@ namespace ItauAppClone.ContentViews.Home
                     .FontSize(Device.GetNamedSize(NamedSize.Subtitle, typeof(Label)))
                 }
             }
-            .Margin(0, 10);
+            .Margin(20, 10);
         }
 
         private ContentView GetContentFromCreditCard()
         {
-            return new ContentView { Content = new Label { Text = "teste", TextColor = Color.White } };
+            return new ContentView
+            {
+                Content = new StackLayout
+                {
+                    Children =
+                    {
+                        new FlexLayout
+                        {
+                            JustifyContent = FlexJustify.SpaceBetween,
+                            Children =
+                            {
+                                new Label
+                                {
+                                    Text = "fatura aberta",
+                                    TextColor = Color.White
+                                },
+
+                                new Label
+                                {
+                                    Text = "venc. 01 mai.",
+                                    TextColor = Color.White
+                                }
+                            }
+                        }
+                        .Margin(20, 0),
+
+                        new Label
+                        {
+                            Text = "R$ 500,00",
+                            TextColor = Color.White
+                        }
+                        .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label)))
+                        .Margin(20, 0),
+
+                        new FlexLayout
+                        {
+                            JustifyContent = FlexJustify.SpaceBetween,
+                            Children =
+                            {
+                                new Label
+                                {
+                                    Text = "limite disponível",
+                                    TextColor = Color.White
+                                },
+
+                                new Label
+                                {
+                                    Text = "total",
+                                    TextColor = Color.White
+                                }
+                            }
+                        }
+                        .Margin(20, 0),
+
+                        new ProgressBar
+                        {
+                            Progress = 0.75,
+                            ProgressColor = Color.White,
+                            BackgroundColor = Color.FromHex("#827574")
+                        }
+                        .Margin(20, 0),
+
+                        new FlexLayout
+                        {
+                            JustifyContent = FlexJustify.SpaceBetween,
+                            Children =
+                            {
+                                new Label
+                                {
+                                    Text = "R$ 1.500,00",
+                                    TextColor = Color.White
+                                },
+
+                                new Label
+                                {
+                                    Text = "R$ 2.000,00",
+                                    TextColor = Color.White
+                                }
+                            }
+                        }
+                        .Margin(20, 0),
+
+                        new Button
+                        {
+                            Text = "gerar cartão virtual",
+                            TextColor = Color.White,
+                            BackgroundColor = Color.Transparent,
+                            TextTransform = TextTransform.Lowercase,
+                            FontAttributes = FontAttributes.Bold,
+                            HorizontalOptions = LayoutOptions.Start
+                        }
+                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
+                        .Margins(20, 20, 20, 0),
+
+                        new BoxView
+                        {
+                            HeightRequest = 1,
+                            BackgroundColor = Color.FromHex("#645857")
+                        }
+                    }
+                }
+            };
         }
 
         private List<View> GetFooterFromCreditCard()
