@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ItauAppClone.Controls;
 using ItauAppClone.Interfaces;
 using Xamarin.CommunityToolkit.Markup;
@@ -81,6 +82,7 @@ namespace ItauAppClone.ContentViews.Home
                             GetFooterFromCreditCard()
                         )
                         {
+                            IsVisible = true,
                             Background = new LinearGradientBrush
                             {
                                 StartPoint = new Point(0, 0),
@@ -101,6 +103,30 @@ namespace ItauAppClone.ContentViews.Home
                             }
                         }
                         .Margin(20, 20),
+
+                        new CardExpandableContent(
+                            "crédito",
+                            LineBreakMode.WordWrap,
+                            Color.Black,
+                            "arrow_up_gray",
+                            GetContentFromCredit(),
+                            GetFooterFromCredit()
+                        )
+                        {
+                            IsVisible = true
+                        },
+
+                        new CardExpandableContent(
+                            "meus investimentos",
+                            LineBreakMode.WordWrap,
+                            Color.Black,
+                            "arrow_up_gray",
+                            GetContentFromInvestments(),
+                            GetFooterFromInvestments()
+                        )
+                        {
+                            IsVisible = true
+                        },
                     }
                 }
             };
@@ -147,7 +173,6 @@ namespace ItauAppClone.ContentViews.Home
                 .Basis(50)
                 .Margins(20, 0, 20, 20)
             };
-
         }
 
         private StackLayout GetContentFromAccountBalance()
@@ -383,6 +408,101 @@ namespace ItauAppClone.ContentViews.Home
                 }
                 .Basis(60)
                 .Margins(20, 0)
+            };
+        }
+
+
+        private View GetContentFromCredit()
+        {
+            return new ContentView
+            {
+                Content = new Label
+                {
+                    Text = "Iê ié: não tem conteúdo para o crédito"
+                }
+                .CenterHorizontal()
+                .CenterVertical()
+            }
+            .Height(100);
+        }
+
+        private IList<View> GetFooterFromCredit()
+        {
+            return new List<View>
+            {
+                new BoxView
+                {
+                    HeightRequest = 1,
+                    BackgroundColor = Color.FromHex("#EFE9E4")
+                }
+                .Margin(20, 0),
+
+                new FlexLayout
+                {
+                    JustifyContent = FlexJustify.SpaceBetween,
+                    AlignItems = FlexAlignItems.Start,
+                    Children =
+                    {
+                        new Button
+                        {
+                            Text = "ver mais",
+                            TextColor = Color.FromHex("#0D6EB0"),
+                            BackgroundColor = Color.Transparent,
+                            TextTransform = TextTransform.Lowercase,
+                            FontAttributes = FontAttributes.Bold
+                        }
+                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button))),
+                    }
+                }
+                .Basis(50)
+                .Margins(20, 0, 20, 20)
+            };
+        }
+
+        private View GetContentFromInvestments()
+        {
+            return new ContentView
+            {
+                Content = new Label
+                {
+                    Text = "Iê ié: não tem conteúdo para meus investimentos"
+                }
+                .CenterHorizontal()
+                .CenterVertical()
+            }
+            .Height(100);
+        }
+
+        private IList<View> GetFooterFromInvestments()
+        {
+            return new List<View>
+            {
+                new BoxView
+                {
+                    HeightRequest = 1,
+                    BackgroundColor = Color.FromHex("#EFE9E4")
+                }
+                .Margin(20, 0),
+
+                new FlexLayout
+                {
+                    JustifyContent = FlexJustify.SpaceBetween,
+                    AlignItems = FlexAlignItems.Start,
+                    Children =
+                    {
+                        new Button
+                        {
+                            Text = "ver detalhes",
+                            TextColor = Color.FromHex("#0D6EB0"),
+                            BackgroundColor = Color.Transparent,
+                            TextTransform = TextTransform.Lowercase,
+                            FontAttributes = FontAttributes.Bold
+                        }
+                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button))),
+                    }
+                }
+                .Basis(50)
+                .Margins(20, 0, 20, 20)
             };
         }
     }
