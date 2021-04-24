@@ -39,15 +39,6 @@ namespace ItauAppClone.ContentViews.Home
                             IsVisible = true
                         },
 
-                        //new Frame
-                        //{
-                        //    IsVisible = true,
-                        //    HasShadow = false,
-                        //    CornerRadius = 5,
-                        //    Content = GetContentFromAccountBalance()
-                        //}
-                        //.Margin(20),
-
                         new StackLayout
                         {
                             IsVisible = true,
@@ -247,7 +238,7 @@ namespace ItauAppClone.ContentViews.Home
                     .FontSize(Device.GetNamedSize(NamedSize.Subtitle, typeof(Label)))
                 }
             }
-            .Margin(20, 10);
+            .Margin(0, 10);
         }
 
         private ContentView GetContentFromCreditCard()
@@ -304,13 +295,14 @@ namespace ItauAppClone.ContentViews.Home
                                 }
                             }
                         }
-                        .Margin(20, 0),
+                        .Margins(20, 20, 20, 0),
 
                         new ProgressBar
                         {
                             Progress = 0.75,
                             ProgressColor = Color.White,
-                            BackgroundColor = Color.FromHex("#827574")
+                            BackgroundColor = Color.FromHex("#827574"),
+                            HeightRequest = 5
                         }
                         .Margin(20, 0),
 
@@ -344,7 +336,8 @@ namespace ItauAppClone.ContentViews.Home
                             HorizontalOptions = LayoutOptions.Start
                         }
                         .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
-                        .Margins(20, 20, 20, 0),
+                        .Margins(20, 20, 20, 0)
+                        .Padding(0, 0),
 
                         new BoxView
                         {
@@ -385,9 +378,11 @@ namespace ItauAppClone.ContentViews.Home
                             FontAttributes = FontAttributes.Bold
                         }
                         .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
+                        .Margins(30, 0, 0, 0)
                     }
                 }
-                .Basis(40)
+                .Basis(60)
+                .Margins(20, 0)
             };
         }
     }
