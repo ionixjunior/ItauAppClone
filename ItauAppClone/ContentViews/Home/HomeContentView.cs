@@ -26,7 +26,7 @@ namespace ItauAppClone.ContentViews.Home
                     Children =
                     {
                         new Header(),
-                        new InfoContent("currency_outlined", "Seu limite de crédito continua disponível. Toque aqui."),
+                        new CardInfoContent("currency_outlined", "Seu limite de crédito continua disponível. Toque aqui."),
 
                         new CardExpandableContent(
                             "saldo em conta corrente",

@@ -5,11 +5,11 @@ using static Xamarin.CommunityToolkit.Markup.GridRowsColumns;
 
 namespace ItauAppClone.Controls
 {
-    public class InfoContent : Frame
+    public class CardInfoContent : Frame
     {
         enum GridColumn { Left, Right }
 
-        public InfoContent(string icon, string text)
+        public CardInfoContent(string icon, string text)
         {
             BackgroundColor = Color.FromHex("#0D6EB0");
             HasShadow = false;
