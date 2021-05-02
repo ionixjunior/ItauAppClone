@@ -11,7 +11,7 @@ namespace ItauAppClone.ContentViews.Home
 {
     public class HomeContentView : ContentView, IReload
     {
-        enum GridColumn { Left, Right }
+        enum GridRow { Header, Content }
 
         public HomeContentView() => Build();
 
@@ -19,117 +19,131 @@ namespace ItauAppClone.ContentViews.Home
         {
             BackgroundColor = AppStyle.ContentPageBackgroundColor;
 
-            Content = new ScrollView
+            var grid = new Grid
             {
-                Content = new StackLayout
+                RowDefinitions = Rows.Define(
+                    (GridRow.Header, 60),
+                    (GridRow.Content, Star)
+                ),
+                RowSpacing = 0
+            };
+
+            grid.Children.Add(new Header().Row(GridRow.Header));
+            grid.Children.Add(
+                new ScrollView
                 {
-                    Children =
+                    Content = new StackLayout
                     {
-                        new Header(),
-                        new CardInfoContent("currency_outlined", "Seu limite de crédito continua disponível. Toque aqui."),
-
-                        new CardExpandableContent(
-                            "saldo em conta corrente",
-                            LineBreakMode.WordWrap,
-                            Color.Black,
-                            "arrow_up_gray",
-                            GetContentFromAccountBalance(),
-                            GetFooterFromAccountBalance()
-                        )
+                        Children =
                         {
-                            IsVisible = true
-                        },
+                            new CardInfoContent("currency_outlined", "Seu limite de crédito continua disponível. Toque aqui."),
 
-                        new StackLayout
-                        {
-                            IsVisible = true,
-                            Children =
+                            new CardExpandableContent(
+                                "saldo em conta corrente",
+                                LineBreakMode.WordWrap,
+                                Color.Black,
+                                "arrow_up_gray",
+                                GetContentFromAccountBalance(),
+                                GetFooterFromAccountBalance()
+                            )
                             {
-                                new Label
-                                {
-                                    Text = "atalhos"
-                                }
-                                .Margin(20, 0),
+                                IsVisible = true
+                            },
 
-                                new ScrollView
+                            new StackLayout
+                            {
+                                IsVisible = true,
+                                Children =
                                 {
-                                    Orientation = ScrollOrientation.Horizontal,
-                                    HorizontalScrollBarVisibility = ScrollBarVisibility.Never,
-
-                                    Content = new FlexLayout
+                                    new Label
                                     {
-                                        Children =
+                                        Text = "atalhos"
+                                    }
+                                    .Margin(20, 0),
+
+                                    new ScrollView
+                                    {
+                                        Orientation = ScrollOrientation.Horizontal,
+                                        HorizontalScrollBarVisibility = ScrollBarVisibility.Never,
+
+                                        Content = new FlexLayout
                                         {
-                                            new Shortcut("house_outlined", "soluções para esse momento", Color.White, AppStyle.TextColor),
-                                            new Shortcut("pix", "Pix", Color.FromHex("#0D6EB0"), Color.White),
-                                            new Shortcut("barcode", "pagar conta", Color.White, AppStyle.TextColor),
-                                            new Shortcut("", "criar novo atalho", Color.White, AppStyle.TextColor)
+                                            Children =
+                                            {
+                                                new Shortcut("house_outlined", "soluções para esse momento", Color.White, AppStyle.TextColor),
+                                                new Shortcut("pix", "Pix", Color.FromHex("#0D6EB0"), Color.White),
+                                                new Shortcut("barcode", "pagar conta", Color.White, AppStyle.TextColor),
+                                                new Shortcut("", "criar novo atalho", Color.White, AppStyle.TextColor)
+                                            }
+                                        }
+                                    }
+                                    .Margins(0, 10, 0, 0)
+                                    .Padding(10, 0)
+                                }
+                            },
+
+                            new CardExpandableContent(
+                                "Itaucard Click MasterCard",
+                                LineBreakMode.TailTruncation,
+                                Color.White,
+                                "arrow_up_gray",
+                                GetSubtitleFromCreditCard(),
+                                GetContentFromCreditCard(),
+                                GetFooterFromCreditCard()
+                            )
+                            {
+                                IsVisible = true,
+                                Background = new LinearGradientBrush
+                                {
+                                    StartPoint = new Point(0, 0),
+                                    EndPoint = new Point(1, 1),
+                                    GradientStops = new GradientStopCollection
+                                    {
+                                        new GradientStop
+                                        {
+                                            Color = Color.FromHex("#6E606B"),
+                                            Offset = 0.0f
+                                        },
+                                        new GradientStop
+                                        {
+                                            Color = Color.FromHex("#282013"),
+                                            Offset = 1.0f
                                         }
                                     }
                                 }
-                                .Margins(0, 10, 0, 0)
-                                .Padding(10, 0)
                             }
-                        },
+                            .Margin(20, 20),
 
-                        new CardExpandableContent(
-                            "Itaucard Click MasterCard",
-                            LineBreakMode.TailTruncation,
-                            Color.White,
-                            "arrow_up_gray",
-                            GetSubtitleFromCreditCard(),
-                            GetContentFromCreditCard(),
-                            GetFooterFromCreditCard()
-                        )
-                        {
-                            IsVisible = true,
-                            Background = new LinearGradientBrush
+                            new CardExpandableContent(
+                                "crédito",
+                                LineBreakMode.WordWrap,
+                                Color.Black,
+                                "arrow_up_gray",
+                                GetContentFromCredit(),
+                                GetFooterFromCredit()
+                            )
                             {
-                                StartPoint = new Point(0, 0),
-                                EndPoint = new Point(1, 1),
-                                GradientStops = new GradientStopCollection
-                                {
-                                    new GradientStop
-                                    {
-                                        Color = Color.FromHex("#6E606B"),
-                                        Offset = 0.0f
-                                    },
-                                    new GradientStop
-                                    {
-                                        Color = Color.FromHex("#282013"),
-                                        Offset = 1.0f
-                                    }
-                                }
-                            }
+                                IsVisible = true
+                            },
+
+                            new CardExpandableContent(
+                                "meus investimentos",
+                                LineBreakMode.WordWrap,
+                                Color.Black,
+                                "arrow_up_gray",
+                                GetContentFromInvestments(),
+                                GetFooterFromInvestments()
+                            )
+                            {
+                                IsVisible = true
+                            },
                         }
-                        .Margin(20, 20),
-
-                        new CardExpandableContent(
-                            "crédito",
-                            LineBreakMode.WordWrap,
-                            Color.Black,
-                            "arrow_up_gray",
-                            GetContentFromCredit(),
-                            GetFooterFromCredit()
-                        )
-                        {
-                            IsVisible = true
-                        },
-
-                        new CardExpandableContent(
-                            "meus investimentos",
-                            LineBreakMode.WordWrap,
-                            Color.Black,
-                            "arrow_up_gray",
-                            GetContentFromInvestments(),
-                            GetFooterFromInvestments()
-                        )
-                        {
-                            IsVisible = true
-                        },
                     }
                 }
-            };
+                .Row(GridRow.Content)
+            );
+
+            Content = grid;
         }
 
         private List<View> GetFooterFromAccountBalance()
