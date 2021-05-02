@@ -214,5 +214,11 @@
     <BundleResource Include="Resources\search_outlined%402x.png" />
     <BundleResource Include="Resources\search_outlined%403x.png" />
     <BundleResource Include="Resources\mastercard_logo.png" />
+    <BundleResource Include="Resources\arrow_white_item.png" />
+    <BundleResource Include="Resources\arrow_white_item%402x.png" />
+    <BundleResource Include="Resources\arrow_white_item%403x.png" />
+    <BundleResource Include="Resources\investments_diversity.png" />
+    <BundleResource Include="Resources\investments_diversity%402x.png" />
+    <BundleResource Include="Resources\investments_diversity%403x.png" />
   </ItemGroup>
 </Project>
