@@ -508,7 +508,13 @@ namespace ItauAppClone.ContentViews.Home
                     }
                 }
                 .Basis(50)
-                .Margins(20, 0, 20, 20)
+                .Margins(20, 0, 20, 20),
+
+                new InfoContent("investments_diversity", "diversificar sua carteira é a melhor opção neste momento!")
+                {
+                    BackgroundColor = Color.FromHex("#0D6EB0")
+                }
+                .Padding(20, 10)
             };
         }
     }
