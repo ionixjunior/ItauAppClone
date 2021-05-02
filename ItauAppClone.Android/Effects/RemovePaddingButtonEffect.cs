@@ -24,6 +24,7 @@ namespace ItauAppClone.Droid.Effects
                     _paddingRight = button.PaddingRight;
 
                     button.SetMinWidth(0);
+                    button.SetMinimumWidth(0);
                     button.SetPadding(0, button.PaddingTop, 0, button.PaddingBottom);
                 }
             }
