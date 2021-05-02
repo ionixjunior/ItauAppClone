@@ -308,7 +308,7 @@ namespace ItauAppClone.ContentViews.Home
                                 }
                             }
                         }
-                        .Margin(20, 0),
+                        .Margin(35, 0),
 
                         new Label
                         {
@@ -316,7 +316,7 @@ namespace ItauAppClone.ContentViews.Home
                             TextColor = Color.White
                         }
                         .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label)))
-                        .Margin(20, 0),
+                        .Margin(35, 0),
 
                         new FlexLayout
                         {
@@ -336,7 +336,7 @@ namespace ItauAppClone.ContentViews.Home
                                 }
                             }
                         }
-                        .Margins(20, 20, 20, 0),
+                        .Margins(35, 20, 35, 0),
 
                         new ProgressBar
                         {
@@ -345,7 +345,7 @@ namespace ItauAppClone.ContentViews.Home
                             BackgroundColor = Color.FromHex("#827574"),
                             HeightRequest = 5
                         }
-                        .Margin(20, 0),
+                        .Margin(35, 0),
 
                         new FlexLayout
                         {
@@ -365,7 +365,7 @@ namespace ItauAppClone.ContentViews.Home
                                 }
                             }
                         }
-                        .Margin(20, 0),
+                        .Margin(35, 0),
 
                         new Button
                         {
@@ -378,7 +378,7 @@ namespace ItauAppClone.ContentViews.Home
                         }
                         .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
                         .Effects(new RemovePaddingButtonEffect())
-                        .Margins(20, 20, 20, 0)
+                        .Margins(35, 20, 35, 0)
                         .Padding(0, 0),
 
                         new BoxView
@@ -426,7 +426,7 @@ namespace ItauAppClone.ContentViews.Home
                     }
                 }
                 .Basis(60)
-                .Margins(20, 0)
+                .Margins(35, 0)
             };
         }
 
