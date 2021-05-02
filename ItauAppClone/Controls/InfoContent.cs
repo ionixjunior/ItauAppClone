@@ -6,15 +6,16 @@ namespace ItauAppClone.Controls
 {
     public class InfoContent : Grid
     {
-        enum GridColumn { Left, Right }
+        enum GridColumn { Left, Middle, Right }
 
-        public InfoContent(string icon, string text)
+        public InfoContent(string icon, string text, bool hasArrowIcon = false)
         {
             ColumnDefinitions = Columns.Define(
                 (GridColumn.Left, 40),
-                (GridColumn.Right, Star)
+                (GridColumn.Middle, Star),
+                (GridColumn.Right, Auto)
             );
-            ColumnSpacing = 20;
+            ColumnSpacing = 0;
 
             Children.Add(
                 new Image
@@ -33,9 +34,23 @@ namespace ItauAppClone.Controls
                     MaxLines = 2,
                     LineBreakMode = LineBreakMode.TailTruncation
                 }
-                .Column(GridColumn.Right)
+                .Column(GridColumn.Middle)
                 .FontSize(Device.GetNamedSize(NamedSize.Large, typeof(Label)))
+                .Margins(20, 0, 0, 0)
             );
+
+            if (hasArrowIcon)
+            {
+                Children.Add(
+                    new Image
+                    {
+                        Source = "arrow_white_item"
+                    }
+                    .Height(30)
+                    .Column(GridColumn.Right)
+                    .Margins(20, 0, 0, 0)
+                );
+            }
         }
     }
 }

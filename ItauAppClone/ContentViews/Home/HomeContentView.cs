@@ -510,7 +510,7 @@ namespace ItauAppClone.ContentViews.Home
                 .Basis(50)
                 .Margins(20, 0, 20, 20),
 
-                new InfoContent("investments_diversity", "diversificar sua carteira é a melhor opção neste momento!")
+                new InfoContent("investments_diversity", "diversificar sua carteira é a melhor opção neste momento!", hasArrowIcon: true)
                 {
                     BackgroundColor = Color.FromHex("#0D6EB0")
                 }
