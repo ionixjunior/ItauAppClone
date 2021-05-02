@@ -37,12 +37,12 @@ namespace ItauAppClone.ContentViews.Home
                             GetFooterFromAccountBalance()
                         )
                         {
-                            IsVisible = true
+                            IsVisible = false
                         },
 
                         new StackLayout
                         {
-                            IsVisible = true,
+                            IsVisible = false,
                             Children =
                             {
                                 new Label
@@ -82,7 +82,7 @@ namespace ItauAppClone.ContentViews.Home
                             GetFooterFromCreditCard()
                         )
                         {
-                            IsVisible = true,
+                            IsVisible = false,
                             Background = new LinearGradientBrush
                             {
                                 StartPoint = new Point(0, 0),
@@ -455,7 +455,13 @@ namespace ItauAppClone.ContentViews.Home
                     }
                 }
                 .Basis(50)
-                .Margins(20, 0, 20, 20)
+                .Margins(20, 0, 20, 20),
+
+                new InfoContent("credit_rate_outlined", "diminuímos a taxa de crédito pessoal aqui no app!")
+                {
+                    BackgroundColor = Color.FromHex("#0D6EB0")
+                }
+                .Padding(20, 10)
             };
         }
 
