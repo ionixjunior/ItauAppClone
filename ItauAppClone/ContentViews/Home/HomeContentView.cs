@@ -457,7 +457,10 @@ namespace ItauAppClone.ContentViews.Home
                 .Basis(50)
                 .Margins(20, 0, 20, 20),
 
-                new InfoContent("credit_rate_outlined", "diminuímos a taxa de crédito pessoal aqui no app!")
+                new InfoContent(
+                    "credit_rate_outlined",
+                    "diminuímos a taxa de crédito pessoal aqui no app!",
+                    hasTruncateText: true)
                 {
                     BackgroundColor = Color.FromHex("#0D6EB0")
                 }
@@ -510,7 +513,11 @@ namespace ItauAppClone.ContentViews.Home
                 .Basis(50)
                 .Margins(20, 0, 20, 20),
 
-                new InfoContent("investments_diversity", "diversificar sua carteira é a melhor opção neste momento!", hasArrowIcon: true)
+                new InfoContent(
+                    "investments_diversity",
+                    "diversificar sua carteira é a melhor opção neste momento!",
+                    hasArrowIcon: true,
+                    hasTruncateText: true)
                 {
                     BackgroundColor = Color.FromHex("#0D6EB0")
                 }
