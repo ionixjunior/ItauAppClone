@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ItauAppClone.Controls;
 using ItauAppClone.Interfaces;
 using Xamarin.CommunityToolkit.Markup;
-using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 using static Xamarin.CommunityToolkit.Markup.GridRowsColumns;
 
