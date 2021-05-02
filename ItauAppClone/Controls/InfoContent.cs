@@ -8,7 +8,7 @@ namespace ItauAppClone.Controls
     {
         enum GridColumn { Left, Middle, Right }
 
-        public InfoContent(string icon, string text, bool hasArrowIcon = false)
+        public InfoContent(string icon, string text, bool hasArrowIcon = false, bool hasTruncateText = false)
         {
             ColumnDefinitions = Columns.Define(
                 (GridColumn.Left, 40),
@@ -25,19 +25,7 @@ namespace ItauAppClone.Controls
                 .Column(GridColumn.Left)
             );
 
-            Children.Add(
-                new Label
-                {
-                    Text = text,
-                    TextColor = Color.White,
-                    FontAttributes = FontAttributes.Bold,
-                    MaxLines = 2,
-                    LineBreakMode = LineBreakMode.TailTruncation
-                }
-                .Column(GridColumn.Middle)
-                .FontSize(Device.GetNamedSize(NamedSize.Large, typeof(Label)))
-                .Margins(20, 0, 0, 0)
-            );
+            Children.Add(GetText(text, hasTruncateText));
 
             if (hasArrowIcon)
             {
@@ -51,6 +39,27 @@ namespace ItauAppClone.Controls
                     .Margins(20, 0, 0, 0)
                 );
             }
+        }
+
+        private Label GetText(string text, bool hasTruncateText)
+        {
+            var label = new Label
+            {
+                Text = text,
+                TextColor = Color.White,
+                FontAttributes = FontAttributes.Bold
+            }
+            .Column(GridColumn.Middle)
+            .FontSize(Device.GetNamedSize(NamedSize.Large, typeof(Label)))
+            .Margins(20, 0, 0, 0);
+
+            if (hasTruncateText)
+            {
+                label.MaxLines = 2;
+                label.LineBreakMode = LineBreakMode.TailTruncation;
+            }
+
+            return label;
         }
     }
 }
