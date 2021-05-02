@@ -37,12 +37,12 @@ namespace ItauAppClone.ContentViews.Home
                             GetFooterFromAccountBalance()
                         )
                         {
-                            IsVisible = false
+                            IsVisible = true
                         },
 
                         new StackLayout
                         {
-                            IsVisible = false,
+                            IsVisible = true,
                             Children =
                             {
                                 new Label
@@ -82,7 +82,7 @@ namespace ItauAppClone.ContentViews.Home
                             GetFooterFromCreditCard()
                         )
                         {
-                            IsVisible = false,
+                            IsVisible = true,
                             Background = new LinearGradientBrush
                             {
                                 StartPoint = new Point(0, 0),
