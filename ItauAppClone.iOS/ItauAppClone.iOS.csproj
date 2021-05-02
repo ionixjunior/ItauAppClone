@@ -220,5 +220,8 @@
     <BundleResource Include="Resources\investments_diversity.png" />
     <BundleResource Include="Resources\investments_diversity%402x.png" />
     <BundleResource Include="Resources\investments_diversity%403x.png" />
+    <BundleResource Include="Resources\plus.png" />
+    <BundleResource Include="Resources\plus%402x.png" />
+    <BundleResource Include="Resources\plus%403x.png" />
   </ItemGroup>
 </Project>
