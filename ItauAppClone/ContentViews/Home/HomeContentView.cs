@@ -252,7 +252,7 @@ namespace ItauAppClone.ContentViews.Home
                     .FontSize(Device.GetNamedSize(NamedSize.Small, typeof(Label)))
                 }
             }
-            .Margin(20, 0);
+            .Margin(30, 0);
         }
 
 
@@ -439,8 +439,8 @@ namespace ItauAppClone.ContentViews.Home
                 {
                     Text = "Iê ié: não tem conteúdo para o crédito"
                 }
-                .CenterHorizontal()
-                .CenterVertical()
+                .TextCenterHorizontal()
+                .TextCenterVertical()
             }
             .Height(100);
         }
@@ -496,8 +496,8 @@ namespace ItauAppClone.ContentViews.Home
                 {
                     Text = "Iê ié: não tem conteúdo para meus investimentos"
                 }
-                .CenterHorizontal()
-                .CenterVertical()
+                .TextCenterHorizontal()
+                .TextCenterVertical()
             }
             .Height(100);
         }
