@@ -187,7 +187,7 @@ namespace ItauAppClone.ContentViews.Home
                     }
                 }
                 .Basis(50)
-                .Margins(20, 0, 20, 20)
+                .Margins(30, 0, 30, 20)
             };
         }
 
@@ -475,7 +475,7 @@ namespace ItauAppClone.ContentViews.Home
                     }
                 }
                 .Basis(50)
-                .Margins(20, 0, 20, 20),
+                .Margins(30, 0, 30, 20),
 
                 new InfoContent(
                     "credit_rate_outlined",
@@ -532,7 +532,7 @@ namespace ItauAppClone.ContentViews.Home
                     }
                 }
                 .Basis(50)
-                .Margins(20, 0, 20, 20),
+                .Margins(30, 0, 30, 20),
 
                 new InfoContent(
                     "investments_diversity",
