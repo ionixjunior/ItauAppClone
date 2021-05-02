@@ -10,6 +10,7 @@ namespace ItauAppClone.Droid.Effects
     public class RemovePaddingButtonEffect : PlatformEffect
     {
         private int _minWidth;
+        private int _minimumWidth;
         private int _paddingLeft;
         private int _paddingRight;
 
@@ -20,6 +21,7 @@ namespace ItauAppClone.Droid.Effects
                 if (Control is Android.Widget.Button button)
                 {
                     _minWidth = button.MinWidth;
+                    _minimumWidth = button.MinimumWidth;
                     _paddingLeft = button.PaddingLeft;
                     _paddingRight = button.PaddingRight;
 
@@ -41,6 +43,7 @@ namespace ItauAppClone.Droid.Effects
                 if (Control is Android.Widget.Button button)
                 {
                     button.SetMinWidth(_minWidth);
+                    button.SetMinimumWidth(_minimumWidth);
                     button.SetPadding(_paddingLeft, button.PaddingTop, _paddingRight, button.PaddingBottom);
                 }
             }
