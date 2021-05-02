@@ -29,7 +29,9 @@ namespace ItauAppClone.Controls
                 {
                     Text = text,
                     TextColor = Color.White,
-                    FontAttributes = FontAttributes.Bold
+                    FontAttributes = FontAttributes.Bold,
+                    MaxLines = 2,
+                    LineBreakMode = LineBreakMode.TailTruncation
                 }
                 .Column(GridColumn.Right)
                 .FontSize(Device.GetNamedSize(NamedSize.Large, typeof(Label)))
