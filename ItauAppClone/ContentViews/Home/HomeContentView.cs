@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ItauAppClone.Controls;
+using ItauAppClone.Effects;
 using ItauAppClone.Interfaces;
 using Xamarin.CommunityToolkit.Markup;
 using Xamarin.Forms;
@@ -170,7 +171,8 @@ namespace ItauAppClone.ContentViews.Home
                             TextTransform = TextTransform.Lowercase,
                             FontAttributes = FontAttributes.Bold
                         }
-                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button))),
+                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
+                        .Effects(new RemovePaddingButtonEffect()),
 
                         new Button
                         {
@@ -181,6 +183,7 @@ namespace ItauAppClone.ContentViews.Home
                             FontAttributes = FontAttributes.Bold
                         }
                         .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
+                        .Effects(new RemovePaddingButtonEffect())
                     }
                 }
                 .Basis(50)
@@ -374,6 +377,7 @@ namespace ItauAppClone.ContentViews.Home
                             HorizontalOptions = LayoutOptions.Start
                         }
                         .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
+                        .Effects(new RemovePaddingButtonEffect())
                         .Margins(20, 20, 20, 0)
                         .Padding(0, 0),
 
@@ -405,7 +409,8 @@ namespace ItauAppClone.ContentViews.Home
                             TextTransform = TextTransform.Lowercase,
                             FontAttributes = FontAttributes.Bold
                         }
-                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button))),
+                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
+                        .Effects(new RemovePaddingButtonEffect()),
 
                         new Button
                         {
@@ -417,6 +422,7 @@ namespace ItauAppClone.ContentViews.Home
                         }
                         .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
                         .Margins(30, 0, 0, 0)
+                        .Effects(new RemovePaddingButtonEffect())
                     }
                 }
                 .Basis(60)
@@ -464,7 +470,8 @@ namespace ItauAppClone.ContentViews.Home
                             TextTransform = TextTransform.Lowercase,
                             FontAttributes = FontAttributes.Bold
                         }
-                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button))),
+                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
+                        .Effects(new RemovePaddingButtonEffect())
                     }
                 }
                 .Basis(50)
@@ -520,7 +527,8 @@ namespace ItauAppClone.ContentViews.Home
                             TextTransform = TextTransform.Lowercase,
                             FontAttributes = FontAttributes.Bold
                         }
-                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button))),
+                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
+                        .Effects(new RemovePaddingButtonEffect())
                     }
                 }
                 .Basis(50)
