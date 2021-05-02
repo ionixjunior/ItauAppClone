@@ -72,7 +72,7 @@ namespace ItauAppClone.ContentViews.Home
                                                 new Shortcut("house_outlined", "soluções para esse momento", Color.White, AppStyle.TextColor),
                                                 new Shortcut("pix", "Pix", Color.FromHex("#0D6EB0"), Color.White),
                                                 new Shortcut("barcode", "pagar conta", Color.White, AppStyle.TextColor),
-                                                new Shortcut("", "criar novo atalho", Color.White, AppStyle.TextColor)
+                                                new Shortcut("plus", "criar novo atalho", Color.White, AppStyle.TextColor)
                                             }
                                         }
                                     }
