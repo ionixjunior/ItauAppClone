@@ -8,8 +8,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebugType>portable</DebugType>
     <DebugSymbols>true</DebugSymbols>
+    <LangVersion>9.0</LangVersion>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
     <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
@@ -26,5 +30,7 @@
     <Folder Include="Interfaces\" />
     <Folder Include="Effects\" />
     <Folder Include="ContentViews\Extrato\" />
+    <Folder Include="Models\" />
+    <Folder Include="Enums\" />
   </ItemGroup>
 </Project>
