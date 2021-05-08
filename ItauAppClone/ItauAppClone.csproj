@@ -21,16 +21,4 @@
     <PackageReference Include="Xamarin.CommunityToolkit.Markup" Version="1.0.3" />
     <PackageReference Include="LiveSharp" Version="1.6.54" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-    <Folder Include="Templates\" />
-    <Folder Include="ContentViews\" />
-    <Folder Include="ContentViews\Home\" />
-    <Folder Include="Controls\" />
-    <Folder Include="Interfaces\" />
-    <Folder Include="Effects\" />
-    <Folder Include="ContentViews\Extrato\" />
-    <Folder Include="Models\" />
-    <Folder Include="Enums\" />
-  </ItemGroup>
 </Project>
