@@ -25,5 +25,6 @@
     <Folder Include="Controls\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Effects\" />
+    <Folder Include="ContentViews\Extrato\" />
   </ItemGroup>
 </Project>

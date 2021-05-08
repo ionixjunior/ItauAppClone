@@ -1,4 +1,5 @@
 ﻿using System;
+using ItauAppClone.ContentViews.Extrato;
 using ItauAppClone.ContentViews.Home;
 using ItauAppClone.Templates;
 using Xamarin.CommunityToolkit.UI.Views;
@@ -42,7 +43,7 @@ namespace ItauAppClone.Controls
                 TextColor = Color.White,
                 TextColorSelected = AppStyle.PrimaryColor,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
-                Content = new Label { Text = "Conteúdo extrato" }
+                Content = new ExtratoContentView()
             });
             TabItems.Add(new TabViewItem
             {
