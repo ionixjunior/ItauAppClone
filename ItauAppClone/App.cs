@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading;
 using ItauAppClone.Controls;
 using ItauAppClone.Views;
 using Xamarin.Forms;
@@ -10,6 +12,7 @@ namespace ItauAppClone
     {
         public App()
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
             CreateStyles();
             var mainMenu = new MainMenu();
             MainPage = new MainView(mainMenu);
