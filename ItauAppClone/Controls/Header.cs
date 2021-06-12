@@ -7,14 +7,14 @@ namespace ItauAppClone.Controls
     {
         public Header()
         {
-            BackgroundColor = Color.White;
+            BackgroundColor = AppStyle.PrimaryColor;
             AlignItems = FlexAlignItems.Center;
             Padding = new Thickness(10);
 
             Children.Add(GetAvatar());
             Children.Add(GetAccountInfo());
-            Children.Add(GetBellIcon());
             Children.Add(GetSearchIcon());
+            Children.Add(GetBellIcon());
         }
 
         private Frame GetAvatar()
@@ -45,17 +45,24 @@ namespace ItauAppClone.Controls
             return new StackLayout
             {
                 Spacing = 0,
+                Orientation = StackOrientation.Horizontal,
                 Children =
                 {
                     new Label
                     {
-                        Text = "olá, Marcos",
-                        TextColor = AppStyle.PrimaryColor,
+                        Text = "Ione",
+                        TextColor = Color.White,
                         FontAttributes = FontAttributes.Bold
                     }
                     .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Label))),
 
-                    new Label { Text = "ag **47 c/c/ ***79-7", TextColor = AppStyle.TextColor }
+                    new Image
+                    {
+                        Source = "arrow_down_white"
+                    }
+                    .Margin(10, 0)
+                    .Width(16)
+                    .Height(16)
                 }
             }
             .Margin(10, 0)
