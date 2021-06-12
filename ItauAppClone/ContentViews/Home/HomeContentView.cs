@@ -36,6 +36,20 @@ namespace ItauAppClone.ContentViews.Home
                     {
                         Children =
                         {
+                            new FlexLayout
+                            {
+                                AlignItems = FlexAlignItems.Center,
+                                BackgroundColor = Color.White,
+                                Children =
+                                {
+                                    GetShortcut("house_outlined", "soluções para esse momento", Color.White),
+                                    GetShortcut("pix", "Pix", Color.FromHex("#0D6EB0")),
+                                    GetShortcut("barcode", "pagar conta", Color.White),
+                                    GetShortcut("add", "criar novo atalho", Color.White)
+                                }
+                            }
+                            .Height(130),
+
                             new CardInfoContent("currency_outlined", "Seu limite de crédito continua disponível. Toque aqui."),
 
                             new CardExpandableContent(
@@ -50,9 +64,10 @@ namespace ItauAppClone.ContentViews.Home
                                 IsVisible = true
                             },
 
+                            // JÁ FOI SUBSTITUÍDO
                             new StackLayout
                             {
-                                IsVisible = true,
+                                IsVisible = false,
                                 Children =
                                 {
                                     new Label
@@ -144,6 +159,44 @@ namespace ItauAppClone.ContentViews.Home
             );
 
             Content = grid;
+        }
+
+        private static StackLayout GetShortcut(string icon, string text, Color backgroundColor)
+        {
+            return new StackLayout
+            {
+                Margin = 5,
+                Children =
+                {
+                    new Frame
+                    {
+                        BackgroundColor = backgroundColor,
+                        BorderColor = Color.FromHex("#D2D2D0"),
+                        HasShadow = false,
+                        Padding = 0,
+                        CornerRadius = 14,
+                        Content = new Image
+                        {
+                            Source = icon
+                        }
+                        .Height(20)
+                        .Width(20)
+                        .Margin(12)
+                    }
+                    .CenterHorizontal(),
+
+                    new Label
+                    {
+                        Text = text,
+                        TextColor = AppStyle.TextColor
+                    }
+                    .TextCenterHorizontal()
+                    .FontSize(Device.GetNamedSize(NamedSize.Micro, typeof(Label))),
+                }
+            }
+            .CenterVertical()
+            .Grow(1)
+            .Basis(25f);
         }
 
         private List<View> GetFooterFromAccountBalance()
