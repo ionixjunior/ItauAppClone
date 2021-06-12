@@ -227,5 +227,26 @@
     <BundleResource Include="Resources\plus.png" />
     <BundleResource Include="Resources\plus%402x.png" />
     <BundleResource Include="Resources\plus%403x.png" />
+    <BundleResource Include="Resources\add.png" />
+    <BundleResource Include="Resources\add%402x.png" />
+    <BundleResource Include="Resources\add%403x.png" />
+    <BundleResource Include="Resources\arrow_down_white.png" />
+    <BundleResource Include="Resources\arrow_down_white%402x.png" />
+    <BundleResource Include="Resources\arrow_down_white%403x.png" />
+    <BundleResource Include="Resources\arrow_right_white.png" />
+    <BundleResource Include="Resources\arrow_right_white%402x.png" />
+    <BundleResource Include="Resources\arrow_right_white%403x.png" />
+    <BundleResource Include="Resources\calendar.png" />
+    <BundleResource Include="Resources\calendar%402x.png" />
+    <BundleResource Include="Resources\calendar%403x.png" />
+    <BundleResource Include="Resources\closed_eyes.png" />
+    <BundleResource Include="Resources\closed_eyes%402x.png" />
+    <BundleResource Include="Resources\closed_eyes%403x.png" />
+    <BundleResource Include="Resources\opened_eyes.png" />
+    <BundleResource Include="Resources\opened_eyes%402x.png" />
+    <BundleResource Include="Resources\opened_eyes%403x.png" />
+    <BundleResource Include="Resources\refresh.png" />
+    <BundleResource Include="Resources\refresh%402x.png" />
+    <BundleResource Include="Resources\refresh%403x.png" />
   </ItemGroup>
 </Project>
