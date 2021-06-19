@@ -10,6 +10,9 @@ namespace ItauAppClone.ContentViews.Home
 {
     public class HomeContentView : ContentView, IReload
     {
+        private Span _valorSaldoConta = new Span { Text = "1.014,96" };
+        private Span _valorChequeEspecial = new Span { Text = "700,00" };
+
         enum GridRow { Header, Content }
 
         public HomeContentView() => Build();
@@ -28,6 +31,15 @@ namespace ItauAppClone.ContentViews.Home
                 RowSpacing = 0
             };
 
+            var textoSaldoConta = new FormattedString();
+            textoSaldoConta.Spans.Add(new Span { Text = "R$ " });
+            textoSaldoConta.Spans.Add(_valorSaldoConta);
+
+            var textoChequeEspecial = new FormattedString();
+            textoChequeEspecial.Spans.Add(new Span { Text = "cheque especial disponível R$ " });
+            textoChequeEspecial.Spans.Add(_valorChequeEspecial);
+
+
             grid.Children.Add(new Header().Row(GridRow.Header));
             grid.Children.Add(
                 new ScrollView
@@ -36,6 +48,81 @@ namespace ItauAppClone.ContentViews.Home
                     {
                         Children =
                         {
+                            new StackLayout
+                            {
+                                BackgroundColor = AppStyle.PrimaryColor,
+                                Children =
+                                {
+                                    new FlexLayout
+                                    {
+                                        Children =
+                                        {
+                                            new Button
+                                            {
+                                                ImageSource = "opened_eyes",
+                                                Text = "saldo em conta",
+                                                BackgroundColor = Color.Transparent,
+                                                TextColor = Color.White,
+                                                TextTransform = TextTransform.Lowercase
+                                            }
+                                        }
+                                    },
+
+                                    new FlexLayout
+                                    {
+                                        JustifyContent = FlexJustify.SpaceBetween,
+                                        AlignItems = FlexAlignItems.Center,
+                                        Children =
+                                        {
+                                            new Label
+                                            {
+                                                FormattedText = textoSaldoConta,
+                                                TextColor = Color.White,
+                                                FontAttributes = FontAttributes.Bold
+                                            }
+                                            .FontSize(Device.GetNamedSize(NamedSize.Large, typeof(Label))),
+
+                                            new ImageButton
+                                            {
+                                                Source = "refresh",
+                                                BackgroundColor = Color.Transparent
+                                            }
+                                            .Padding(8)
+                                        }
+                                    },
+
+                                    new BoxView
+                                    {
+                                        HeightRequest = 1,
+                                        BackgroundColor = Color.White
+                                    },
+
+                                    new FlexLayout
+                                    {
+                                        JustifyContent = FlexJustify.SpaceBetween,
+                                        AlignItems = FlexAlignItems.Center,
+                                        Children =
+                                        {
+                                            new Label
+                                            {
+                                                TextColor = Color.White,
+                                                FormattedText = textoChequeEspecial
+                                            }
+                                            .FontSize(Device.GetNamedSize(NamedSize.Small, typeof(Label))),
+
+                                            new Image
+                                            {
+                                                Source = "arrow_right_white",
+                                                HeightRequest = 12,
+                                                WidthRequest = 12
+                                            }
+                                        }
+                                    }
+                                    .Paddings(0, 12, 0, 0)
+                                }
+                            }
+                            .Padding(28),
+
                             new FlexLayout
                             {
                                 AlignItems = FlexAlignItems.Center,
