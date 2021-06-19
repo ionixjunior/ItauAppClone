@@ -88,7 +88,8 @@ namespace ItauAppClone.ContentViews.Home
                                                 Source = "refresh",
                                                 BackgroundColor = Color.Transparent
                                             }
-                                            .Padding(8)
+                                            .Padding(2, 8)
+                                            .Effects(new ResizeImageButtonEffect())
                                         }
                                     },
 
