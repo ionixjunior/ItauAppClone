@@ -46,6 +46,7 @@ namespace ItauAppClone.ContentViews.Home
                 {
                     Content = new StackLayout
                     {
+                        Spacing = 0,
                         Children =
                         {
                             new StackLayout
