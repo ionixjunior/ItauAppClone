@@ -23,5 +23,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\" />
+    <Folder Include="ViewModels\Home\" />
+    <Folder Include="Converters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="ViewModels\Home\" />
+    <None Remove="Converters\" />
   </ItemGroup>
 </Project>

@@ -1,7 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using ItauAppClone.Controls;
+using ItauAppClone.Converters;
 using ItauAppClone.Effects;
 using ItauAppClone.Interfaces;
+using ItauAppClone.ViewModels.Home;
 using Xamarin.CommunityToolkit.Markup;
 using Xamarin.Forms;
 using static Xamarin.CommunityToolkit.Markup.GridRowsColumns;
@@ -10,8 +13,7 @@ namespace ItauAppClone.ContentViews.Home
 {
     public class HomeContentView : ContentView, IReload
     {
-        private Span _valorSaldoConta = new Span { Text = "1.014,96" };
-        private Span _valorChequeEspecial = new Span { Text = "700,00" };
+        private HomeContentViewModel _viewModel;
 
         enum GridRow { Header, Content }
 
@@ -19,6 +21,23 @@ namespace ItauAppClone.ContentViews.Home
 
         public void Build()
         {
+            BindingContext = _viewModel = new HomeContentViewModel();
+            var DeveVisualizarConteudoConverterParameter = new Func<bool>(() => _viewModel.DeveVisualizarSaldoEmConta);
+
+            var valorSaldoConta = new Span()
+                .Bind(
+                    Span.TextProperty,
+                    nameof(_viewModel.SaldoEmConta),
+                    stringFormat: "{0:N2}",
+                    converter: new DeveVisualizarConteudoConverter(DeveVisualizarConteudoConverterParameter));
+
+            var valorChequeEspecial = new Span()
+                .Bind(
+                    Span.TextProperty,
+                    nameof(_viewModel.ChequeEspecial),
+                    stringFormat: "{0:N2}",
+                    converter: new DeveVisualizarConteudoConverter(DeveVisualizarConteudoConverterParameter));
+
             BackgroundColor = AppStyle.ContentPageBackgroundColor;
             Margin = new Thickness(0, 0, 0, 20);
 
@@ -33,11 +52,11 @@ namespace ItauAppClone.ContentViews.Home
 
             var textoSaldoConta = new FormattedString();
             textoSaldoConta.Spans.Add(new Span { Text = "R$ " });
-            textoSaldoConta.Spans.Add(_valorSaldoConta);
+            textoSaldoConta.Spans.Add(valorSaldoConta);
 
             var textoChequeEspecial = new FormattedString();
             textoChequeEspecial.Spans.Add(new Span { Text = "cheque especial disponível R$ " });
-            textoChequeEspecial.Spans.Add(_valorChequeEspecial);
+            textoChequeEspecial.Spans.Add(valorChequeEspecial);
 
 
             grid.Children.Add(new Header().Row(GridRow.Header));
@@ -60,12 +79,16 @@ namespace ItauAppClone.ContentViews.Home
                                         {
                                             new Button
                                             {
-                                                ImageSource = "opened_eyes",
                                                 Text = "saldo em conta",
                                                 BackgroundColor = Color.Transparent,
                                                 TextColor = Color.White,
                                                 TextTransform = TextTransform.Lowercase
                                             }
+                                            .Bind(
+                                                Button.ImageSourceProperty,
+                                                nameof(_viewModel.DeveVisualizarSaldoEmConta),
+                                                convert: (bool deveVisualizarSaldoEmConta) => deveVisualizarSaldoEmConta ? "closed_eyes" : "opened_eyes" )
+                                            .BindCommand(nameof(_viewModel.MostrarEsconderSaldoEmContaCommand))
                                         }
                                     },
 
@@ -91,6 +114,7 @@ namespace ItauAppClone.ContentViews.Home
                                             .Width(32)
                                             .Height(32)
                                             .Padding(8, 8)
+                                            .Bind(IsVisibleProperty, nameof(_viewModel.DeveVisualizarSaldoEmConta))
                                         }
                                     },
 
