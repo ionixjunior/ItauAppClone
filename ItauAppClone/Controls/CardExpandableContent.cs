@@ -51,6 +51,7 @@ namespace ItauAppClone.Controls
             CornerRadius = 5;
             Margin = 20;
             Padding = 0;
+            IsClippedToBounds = true;
 
             var flexLayout = new FlexLayout
             {

@@ -116,10 +116,35 @@ namespace ItauAppClone.Controls
         {
             var stack = new StackLayout
             {
+                //BackgroundColor = Color.Red,
                 Children =
                 {
+                    new BoxView
+                    {
+                        Background = new LinearGradientBrush
+                        {
+                            StartPoint = new Point(0, 0),
+                            EndPoint = new Point(1, 1),
+                            GradientStops = new GradientStopCollection
+                            {
+                                new GradientStop
+                                {
+                                    Color = Color.FromHex("#9E9176"),
+                                    Offset = 0.0f
+                                },
+                                new GradientStop
+                                {
+                                    Color = Color.FromHex("#DED3B5"),
+                                    Offset = 1.0f
+                                }
+                            }
+                        },
+                        HeightRequest = 10
+                    },
+
                     new Grid
                     {
+                        ColumnSpacing = 10,
                         ColumnDefinitions = Columns.Define(
                             (GridHeaderColumn.Left, Star),
                             (GridHeaderColumn.Right, Auto)
@@ -135,9 +160,10 @@ namespace ItauAppClone.Controls
                                     {
                                         Text = _headerTitle,
                                         TextColor = _textColor,
-                                        LineBreakMode = _headerTitleTruncation
+                                        LineBreakMode = _headerTitleTruncation,
+                                        FontAttributes = FontAttributes.Bold
                                     }
-                                    .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label)))
+                                    .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Label)))
                                 }
                             }
                             .Column(GridHeaderColumn.Left),
@@ -156,12 +182,21 @@ namespace ItauAppClone.Controls
                             .Margins(0, 10, 0, 0)
                         }
                     }
+                    .Margin(30, 20)
                 }
-            }
-            .Margin(30, 20);
+            };
 
             if (_headerSubtitleView != null)
+            {
+                _headerSubtitleView.Margin(30, 0);
                 stack.Children.Add(_headerSubtitleView);
+            }
+
+            stack.Children.Add(new BoxView
+            {
+                HeightRequest = 1,
+                BackgroundColor = Color.FromHex("#EAEAE7")
+            }.Margin(30, 10));
 
             return stack;
         }

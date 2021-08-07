@@ -164,6 +164,20 @@ namespace ItauAppClone.ContentViews.Home
                             }
                             .Height(130),
 
+                            new CardExpandableContent(
+                                "Itaucard Multiplo Mc International",
+                                LineBreakMode.WordWrap,
+                                Color.Black,
+                                "arrow_up_gray",
+                                GetSubtitleFromCreditCard(),
+                                GetContentFromCreditCard(),
+                                GetFooterFromCreditCard()
+                            )
+                            {
+                                IsVisible = true
+                            }
+                            .Margin(20, 20),
+
                             new CardInfoContent("currency_outlined", "Seu limite de crédito continua disponível. Toque aqui."),
 
                             new CardExpandableContent(
@@ -211,6 +225,7 @@ namespace ItauAppClone.ContentViews.Home
                                 }
                             },
 
+                            // JÁ FOI SUBSTITUÍDO
                             new CardExpandableContent(
                                 "Itaucard Click MasterCard",
                                 LineBreakMode.TailTruncation,
@@ -435,19 +450,21 @@ namespace ItauAppClone.ContentViews.Home
                     {
                         Source = "mastercard_logo"
                     }
-                    .Height(60),
+                    .Height(30),
 
                     new Label
                     {
                         Text = "final 1234",
-                        TextColor = Color.White
+                        TextColor = Color.Black
                     }
                     .Margin(15, 0)
-                    .FontSize(Device.GetNamedSize(NamedSize.Subtitle, typeof(Label)))
+                    .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Label)))
                 }
             }
             .Margin(0, 10);
         }
+
+        enum GridCalendarCreditCard { Image, Content }
 
         private ContentView GetContentFromCreditCard()
         {
@@ -464,52 +481,24 @@ namespace ItauAppClone.ContentViews.Home
                             {
                                 new Label
                                 {
-                                    Text = "fatura aberta",
-                                    TextColor = Color.White
+                                    Text = "limite utilizado",
+                                    TextColor = Color.FromHex("#5B5A58")
                                 },
 
                                 new Label
                                 {
-                                    Text = "venc. 01 mai.",
-                                    TextColor = Color.White
+                                    Text = "disponível",
+                                    TextColor = Color.FromHex("#5B5A58")
                                 }
                             }
                         }
                         .Margin(35, 0),
-
-                        new Label
-                        {
-                            Text = "R$ 500,00",
-                            TextColor = Color.White
-                        }
-                        .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label)))
-                        .Margin(35, 0),
-
-                        new FlexLayout
-                        {
-                            JustifyContent = FlexJustify.SpaceBetween,
-                            Children =
-                            {
-                                new Label
-                                {
-                                    Text = "limite disponível",
-                                    TextColor = Color.White
-                                },
-
-                                new Label
-                                {
-                                    Text = "total",
-                                    TextColor = Color.White
-                                }
-                            }
-                        }
-                        .Margins(35, 20, 35, 0),
 
                         new ProgressBar
                         {
                             Progress = 0.75,
-                            ProgressColor = Color.White,
-                            BackgroundColor = Color.FromHex("#827574"),
+                            ProgressColor = AppStyle.PrimaryColor,
+                            BackgroundColor = Color.FromHex("#F0E9E6"),
                             HeightRequest = 5
                         }
                         .Margin(35, 0),
@@ -522,37 +511,102 @@ namespace ItauAppClone.ContentViews.Home
                                 new Label
                                 {
                                     Text = "R$ 1.500,00",
-                                    TextColor = Color.White
+                                    TextColor = Color.Black,
+                                    FontAttributes = FontAttributes.Bold
                                 },
 
                                 new Label
                                 {
                                     Text = "R$ 2.000,00",
-                                    TextColor = Color.White
+                                    TextColor = Color.Black,
+                                    FontAttributes = FontAttributes.Bold
                                 }
                             }
                         }
                         .Margin(35, 0),
 
-                        new Button
+                        new BoxView
                         {
-                            Text = "gerar cartão virtual",
-                            TextColor = Color.White,
-                            BackgroundColor = Color.Transparent,
-                            TextTransform = TextTransform.Lowercase,
-                            FontAttributes = FontAttributes.Bold,
-                            HorizontalOptions = LayoutOptions.Start
+                            HeightRequest = 1,
+                            BackgroundColor = Color.FromHex("#EAEAE7")
                         }
-                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
-                        .Effects(new RemovePaddingButtonEffect())
-                        .Margins(35, 20, 35, 0)
-                        .Padding(0, 0),
+                        .Margin(35, 15),
+
+                        new FlexLayout
+                        {
+                            JustifyContent = FlexJustify.SpaceBetween,
+                            Children =
+                            {
+                                new Label
+                                {
+                                    Text = "fatura aberta",
+                                    TextColor = Color.Black
+                                },
+
+                                new Label
+                                {
+                                    Text = "venc. 01 mai.",
+                                    TextColor = Color.Black
+                                }
+                            }
+                        }
+                        .Margin(35, 0),
+
+                        new Label
+                        {
+                            Text = "R$ 500,00",
+                            TextColor = Color.Black,
+                            FontAttributes = FontAttributes.Bold
+                        }
+                        .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label)))
+                        .Margin(35, 0),
+
+                        new Frame
+                        {
+                            BackgroundColor = Color.FromHex("#FBF7F5"),
+                            CornerRadius = 5,
+                            HasShadow = false,
+                            Padding = 20,
+                            Content = new Grid
+                            {
+                                ColumnSpacing = 15,
+                                ColumnDefinitions = Columns.Define(
+                                    (GridCalendarCreditCard.Image, 24),
+                                    (GridCalendarCreditCard.Content, Star)
+                                ),
+
+                                Children =
+                                {
+                                    new Image
+                                    {
+                                        Source = "calendar"
+                                    }
+                                    .Column(GridCalendarCreditCard.Image),
+
+                                    new Label
+                                    {
+                                        FormattedText = new FormattedString
+                                        {
+                                            Spans =
+                                            {
+                                                new Span { Text = "compras a partir do dia " },
+                                                new Span { Text = "08", FontAttributes = FontAttributes.Bold },
+                                                new Span { Text = " estarão na próxima fatura" }
+                                            }
+                                        }
+                                    }
+                                    .Column(GridCalendarCreditCard.Content)
+                                }
+                            }
+                        }
+                        .Margins(35, 15, 35, 0),
 
                         new BoxView
                         {
                             HeightRequest = 1,
-                            BackgroundColor = Color.FromHex("#645857")
+                            BackgroundColor = Color.FromHex("#EAEAE7")
                         }
+                        .Margin(35, 5),
                     }
                 }
             };
@@ -570,8 +624,8 @@ namespace ItauAppClone.ContentViews.Home
                     {
                         new Button
                         {
-                            Text = "pagar",
-                            TextColor = Color.White,
+                            Text = "ver fatura",
+                            TextColor = Color.FromHex("#0D6EB0"),
                             BackgroundColor = Color.Transparent,
                             TextTransform = TextTransform.Lowercase,
                             FontAttributes = FontAttributes.Bold
@@ -581,8 +635,8 @@ namespace ItauAppClone.ContentViews.Home
 
                         new Button
                         {
-                            Text = "ver detalhes",
-                            TextColor = Color.White,
+                            Text = "cartão virtual",
+                            TextColor = Color.FromHex("#0D6EB0"),
                             BackgroundColor = Color.Transparent,
                             TextTransform = TextTransform.Lowercase,
                             FontAttributes = FontAttributes.Bold
