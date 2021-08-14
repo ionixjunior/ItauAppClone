@@ -178,7 +178,7 @@ namespace ItauAppClone.ContentViews.Home
                                 GetFooterFromCreditCard()
                             )
                             {
-                                IsVisible = true
+                                IsVisible = false
                             }
                             .Margin(20, 20),
 
@@ -505,6 +505,12 @@ namespace ItauAppClone.ContentViews.Home
                 {
                     Children =
                     {
+                        new BoxView
+                        {
+                            HeightRequest = 1,
+                            BackgroundColor = Color.FromHex("#EAEAE7")
+                        }.Margin(30, 10),
+
                         new FlexLayout
                         {
                             JustifyContent = FlexJustify.SpaceBetween,
@@ -630,14 +636,7 @@ namespace ItauAppClone.ContentViews.Home
                                 }
                             }
                         }
-                        .Margins(35, 15, 35, 0),
-
-                        new BoxView
-                        {
-                            HeightRequest = 1,
-                            BackgroundColor = Color.FromHex("#EAEAE7")
-                        }
-                        .Margin(35, 5),
+                        .Margins(35, 15, 35, 0)
                     }
                 }
             };
@@ -647,6 +646,12 @@ namespace ItauAppClone.ContentViews.Home
         {
             return new List<View>
             {
+                new BoxView
+                {
+                    HeightRequest = 1,
+                    BackgroundColor = Color.FromHex("#EAEAE7")
+                }.Margin(30, 10),
+
                 new FlexLayout
                 {
                     JustifyContent = FlexJustify.Start,
@@ -687,14 +692,115 @@ namespace ItauAppClone.ContentViews.Home
         {
             return new ContentView
             {
-                Content = new Label
+                Content = new StackLayout
                 {
-                    Text = "teste"
+                    Children =
+                    {
+                        new Label
+                        {
+                            Text = "valores pré-aprovados e válidos para esta data"
+                        }
+                        .Margin(0, 5),
+
+                        new BoxView
+                        {
+                            HeightRequest = 1,
+                            BackgroundColor = Color.FromHex("#EFE9E4")
+                        },
+
+                        new FlexLayout
+                        {
+                            JustifyContent = FlexJustify.SpaceBetween,
+                            Children =
+                            {
+                                new StackLayout
+                                {
+                                    Children =
+                                    {
+                                        new Label
+                                        {
+                                            Text = "Crédito Consignado"
+                                        }
+                                        .TextStart()
+                                        .FontSize(Device.GetNamedSize(NamedSize.Small, typeof(Label))),
+
+                                        new Label
+                                        {
+                                            Text = "R$ 19.440,00",
+                                            FontAttributes = FontAttributes.Bold
+                                        }
+                                    }
+                                }
+                                .AlignSelf(FlexAlignSelf.Start),
+
+                                new Button
+                                {
+                                    Text = "simular",
+                                    TextColor = Color.FromHex("#0D6EB0"),
+                                    BackgroundColor = Color.Transparent,
+                                    TextTransform = TextTransform.Lowercase,
+                                    FontAttributes = FontAttributes.Bold
+                                }
+                                .AlignSelf(FlexAlignSelf.Center)
+                            }
+                        }
+                        .Margin(0, 5)
+                        .Height(70),
+
+                        new BoxView
+                        {
+                            HeightRequest = 1,
+                            BackgroundColor = Color.FromHex("#EFE9E4")
+                        },
+
+                        new FlexLayout
+                        {
+                            JustifyContent = FlexJustify.SpaceBetween,
+                            Children =
+                            {
+                                new StackLayout
+                                {
+                                    Children =
+                                    {
+                                        new Label
+                                        {
+                                            Text = "Crédito Pessoal"
+                                        }
+                                        .TextStart()
+                                        .FontSize(Device.GetNamedSize(NamedSize.Small, typeof(Label))),
+
+                                        new Label
+                                        {
+                                            Text = "R$ 6.020,00",
+                                            FontAttributes = FontAttributes.Bold
+                                        }
+                                    }
+                                }
+                                .AlignSelf(FlexAlignSelf.Start),
+
+                                new Button
+                                {
+                                    Text = "simular",
+                                    TextColor = Color.FromHex("#0D6EB0"),
+                                    BackgroundColor = Color.Transparent,
+                                    TextTransform = TextTransform.Lowercase,
+                                    FontAttributes = FontAttributes.Bold
+                                }
+                                .AlignSelf(FlexAlignSelf.Center)
+                            }
+                        }
+                        .Margin(0, 5)
+                        .Height(70),
+
+                        new BoxView
+                        {
+                            HeightRequest = 1,
+                            BackgroundColor = Color.FromHex("#EFE9E4")
+                        }
+                    }
                 }
-                .TextCenterHorizontal()
-                .TextCenterVertical()
-            }
-            .Height(100);
+                .Margin(20, 0)
+            };
         }
 
         private IList<View> GetFooterFromCredit()

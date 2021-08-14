@@ -217,12 +217,6 @@ namespace ItauAppClone.Controls
                 stack.Children.Add(_headerSubtitleView);
             }
 
-            stack.Children.Add(new BoxView
-            {
-                HeightRequest = 1,
-                BackgroundColor = Color.FromHex("#EAEAE7")
-            }.Margin(30, 10));
-
             return stack;
         }
     }
