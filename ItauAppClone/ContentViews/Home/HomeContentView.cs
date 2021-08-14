@@ -152,6 +152,7 @@ namespace ItauAppClone.ContentViews.Home
 
                             new FlexLayout
                             {
+                                IsVisible = true,
                                 AlignItems = FlexAlignItems.Center,
                                 BackgroundColor = Color.White,
                                 Children =
@@ -167,6 +168,9 @@ namespace ItauAppClone.ContentViews.Home
                             new CardExpandableContent(
                                 "Itaucard Multiplo Mc International",
                                 LineBreakMode.WordWrap,
+                                FontAttributes.Bold,
+                                NamedSize.Medium,
+                                true,
                                 Color.Black,
                                 "arrow_up_gray",
                                 GetSubtitleFromCreditCard(),
@@ -178,11 +182,29 @@ namespace ItauAppClone.ContentViews.Home
                             }
                             .Margin(20, 20),
 
+                            new CardExpandableContent(
+                                "crédito",
+                                LineBreakMode.WordWrap,
+                                FontAttributes.None,
+                                NamedSize.Title,
+                                false,
+                                Color.Black,
+                                "arrow_up_gray",
+                                GetContentFromCredit(),
+                                GetFooterFromCredit()
+                            )
+                            {
+                                IsVisible = true
+                            },
+
                             new CardInfoContent("currency_outlined", "Seu limite de crédito continua disponível. Toque aqui."),
 
                             new CardExpandableContent(
                                 "saldo em conta corrente",
                                 LineBreakMode.WordWrap,
+                                FontAttributes.None,
+                                NamedSize.Medium,
+                                false,
                                 Color.Black,
                                 "arrow_up_gray",
                                 GetContentFromAccountBalance(),
@@ -229,6 +251,9 @@ namespace ItauAppClone.ContentViews.Home
                             new CardExpandableContent(
                                 "Itaucard Click MasterCard",
                                 LineBreakMode.TailTruncation,
+                                FontAttributes.None,
+                                NamedSize.Medium,
+                                false,
                                 Color.White,
                                 "arrow_up_gray",
                                 GetSubtitleFromCreditCard(),
@@ -261,6 +286,9 @@ namespace ItauAppClone.ContentViews.Home
                             new CardExpandableContent(
                                 "crédito",
                                 LineBreakMode.WordWrap,
+                                FontAttributes.None,
+                                NamedSize.Medium,
+                                false,
                                 Color.Black,
                                 "arrow_up_gray",
                                 GetContentFromCredit(),
@@ -273,6 +301,9 @@ namespace ItauAppClone.ContentViews.Home
                             new CardExpandableContent(
                                 "meus investimentos",
                                 LineBreakMode.WordWrap,
+                                FontAttributes.None,
+                                NamedSize.Medium,
+                                false,
                                 Color.Black,
                                 "arrow_up_gray",
                                 GetContentFromInvestments(),
@@ -658,7 +689,7 @@ namespace ItauAppClone.ContentViews.Home
             {
                 Content = new Label
                 {
-                    Text = "Iê ié: não tem conteúdo para o crédito"
+                    Text = "teste"
                 }
                 .TextCenterHorizontal()
                 .TextCenterVertical()

@@ -10,6 +10,9 @@ namespace ItauAppClone.Controls
     {
         private string _headerTitle;
         private LineBreakMode _headerTitleTruncation;
+        private FontAttributes _headerFontAttributes;
+        private NamedSize _headerTitleSize;
+        private bool _hasGradientAtTop;
         private Color _textColor;
         private string _arrowIconName;
         private Label _expanderText;
@@ -23,6 +26,9 @@ namespace ItauAppClone.Controls
         public ExpandableContent(
             string headerTitle,
             LineBreakMode headerTitleTruncation,
+            FontAttributes headerFontAttributes,
+            NamedSize headerTitleSize,
+            bool hasGradientAtTop,
             Color textColor,
             string arrowIconName,
             View content)
@@ -30,6 +36,9 @@ namespace ItauAppClone.Controls
             Initialize(
                 headerTitle,
                 headerTitleTruncation,
+                headerFontAttributes,
+                headerTitleSize,
+                hasGradientAtTop,
                 textColor,
                 arrowIconName,
                 content
@@ -39,12 +48,18 @@ namespace ItauAppClone.Controls
         public ExpandableContent(
             string headerTitle,
             LineBreakMode headerTitleTruncation,
+            FontAttributes headerFontAttributes,
+            NamedSize headerTitleSize,
+            bool hasGradientAtTop,
             Color textColor,
             string arrowIconName,
             View headerSubtitleView,
             View content) : this(
                 headerTitle,
                 headerTitleTruncation,
+                headerFontAttributes,
+                headerTitleSize,
+                hasGradientAtTop,
                 textColor,
                 arrowIconName,
                 content)
@@ -54,6 +69,9 @@ namespace ItauAppClone.Controls
             Initialize(
                 headerTitle,
                 headerTitleTruncation,
+                headerFontAttributes,
+                headerTitleSize,
+                hasGradientAtTop,
                 textColor,
                 arrowIconName,
                 content
@@ -63,12 +81,18 @@ namespace ItauAppClone.Controls
         private void Initialize(
             string headerTitle,
             LineBreakMode headerTitleTruncation,
+            FontAttributes headerFontAttributes,
+            NamedSize headerTitleSize,
+            bool hasGradientAtTop,
             Color textColor,
             string arrowIconName,
             View content)
         {
             _headerTitle = headerTitle;
             _headerTitleTruncation = headerTitleTruncation;
+            _headerFontAttributes = headerFontAttributes;
+            _headerTitleSize = headerTitleSize;
+            _hasGradientAtTop = hasGradientAtTop;
             _textColor = textColor;
             _arrowIconName = arrowIconName;
             _expanderText = GetHeaderText();
@@ -121,6 +145,7 @@ namespace ItauAppClone.Controls
                 {
                     new BoxView
                     {
+                        IsVisible = _hasGradientAtTop,
                         Background = new LinearGradientBrush
                         {
                             StartPoint = new Point(0, 0),
@@ -161,9 +186,9 @@ namespace ItauAppClone.Controls
                                         Text = _headerTitle,
                                         TextColor = _textColor,
                                         LineBreakMode = _headerTitleTruncation,
-                                        FontAttributes = FontAttributes.Bold
+                                        FontAttributes = _headerFontAttributes
                                     }
-                                    .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Label)))
+                                    .FontSize(Device.GetNamedSize(_headerTitleSize, typeof(Label)))
                                 }
                             }
                             .Column(GridHeaderColumn.Left),

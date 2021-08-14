@@ -8,6 +8,9 @@ namespace ItauAppClone.Controls
         public CardExpandableContent(
             string headerTitle,
             LineBreakMode headerTitleTruncation,
+            FontAttributes headerFontAttributes,
+            NamedSize headerTitleSize,
+            bool hasGradientAtTop,
             Color textColor,
             string arrowIconName,
             View headerExpandableContent,
@@ -16,6 +19,9 @@ namespace ItauAppClone.Controls
             var expandableContent = new ExpandableContent(
                 headerTitle,
                 headerTitleTruncation,
+                headerFontAttributes,
+                headerTitleSize,
+                hasGradientAtTop,
                 textColor,
                 arrowIconName,
                 headerExpandableContent
@@ -27,6 +33,9 @@ namespace ItauAppClone.Controls
         public CardExpandableContent(
             string headerTitle,
             LineBreakMode headerTitleTruncation,
+            FontAttributes headerFontAttributes,
+            NamedSize headerTitleSize,
+            bool hasGradientAtTop,
             Color textColor,
             string arrowIconName,
             View headerSubtitleView,
@@ -36,6 +45,9 @@ namespace ItauAppClone.Controls
             var expandableContent = new ExpandableContent(
                 headerTitle,
                 headerTitleTruncation,
+                headerFontAttributes,
+                headerTitleSize,
+                hasGradientAtTop,
                 textColor,
                 arrowIconName,
                 headerSubtitleView,
