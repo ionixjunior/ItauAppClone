@@ -178,7 +178,7 @@ namespace ItauAppClone.ContentViews.Home
                                 GetFooterFromCreditCard()
                             )
                             {
-                                IsVisible = false
+                                IsVisible = true
                             }
                             .Margin(20, 20),
 
@@ -187,107 +187,6 @@ namespace ItauAppClone.ContentViews.Home
                                 LineBreakMode.WordWrap,
                                 FontAttributes.None,
                                 NamedSize.Title,
-                                false,
-                                Color.Black,
-                                "arrow_up_gray",
-                                GetContentFromCredit(),
-                                GetFooterFromCredit()
-                            )
-                            {
-                                IsVisible = true
-                            },
-
-                            new CardInfoContent("currency_outlined", "Seu limite de crédito continua disponível. Toque aqui."),
-
-                            new CardExpandableContent(
-                                "saldo em conta corrente",
-                                LineBreakMode.WordWrap,
-                                FontAttributes.None,
-                                NamedSize.Medium,
-                                false,
-                                Color.Black,
-                                "arrow_up_gray",
-                                GetContentFromAccountBalance(),
-                                GetFooterFromAccountBalance()
-                            )
-                            {
-                                IsVisible = true
-                            },
-
-                            // JÁ FOI SUBSTITUÍDO
-                            new StackLayout
-                            {
-                                IsVisible = false,
-                                Children =
-                                {
-                                    new Label
-                                    {
-                                        Text = "atalhos"
-                                    }
-                                    .Margin(20, 0),
-
-                                    new ScrollView
-                                    {
-                                        Orientation = ScrollOrientation.Horizontal,
-                                        HorizontalScrollBarVisibility = ScrollBarVisibility.Never,
-
-                                        Content = new FlexLayout
-                                        {
-                                            Children =
-                                            {
-                                                new Shortcut("house_outlined", "soluções para esse momento", Color.White, AppStyle.TextColor),
-                                                new Shortcut("pix", "Pix", Color.FromHex("#0D6EB0"), Color.White),
-                                                new Shortcut("barcode", "pagar conta", Color.White, AppStyle.TextColor),
-                                                new Shortcut("plus", "criar novo atalho", Color.White, AppStyle.TextColor)
-                                            }
-                                        }
-                                    }
-                                    .Margins(0, 10, 0, 0)
-                                    .Padding(10, 0)
-                                }
-                            },
-
-                            // JÁ FOI SUBSTITUÍDO
-                            new CardExpandableContent(
-                                "Itaucard Click MasterCard",
-                                LineBreakMode.TailTruncation,
-                                FontAttributes.None,
-                                NamedSize.Medium,
-                                false,
-                                Color.White,
-                                "arrow_up_gray",
-                                GetSubtitleFromCreditCard(),
-                                GetContentFromCreditCard(),
-                                GetFooterFromCreditCard()
-                            )
-                            {
-                                IsVisible = true,
-                                Background = new LinearGradientBrush
-                                {
-                                    StartPoint = new Point(0, 0),
-                                    EndPoint = new Point(1, 1),
-                                    GradientStops = new GradientStopCollection
-                                    {
-                                        new GradientStop
-                                        {
-                                            Color = Color.FromHex("#6E606B"),
-                                            Offset = 0.0f
-                                        },
-                                        new GradientStop
-                                        {
-                                            Color = Color.FromHex("#282013"),
-                                            Offset = 1.0f
-                                        }
-                                    }
-                                }
-                            }
-                            .Margin(20, 20),
-
-                            new CardExpandableContent(
-                                "crédito",
-                                LineBreakMode.WordWrap,
-                                FontAttributes.None,
-                                NamedSize.Medium,
                                 false,
                                 Color.Black,
                                 "arrow_up_gray",
