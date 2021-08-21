@@ -140,7 +140,6 @@ namespace ItauAppClone.Controls
         {
             var stack = new StackLayout
             {
-                //BackgroundColor = Color.Red,
                 Children =
                 {
                     new BoxView
