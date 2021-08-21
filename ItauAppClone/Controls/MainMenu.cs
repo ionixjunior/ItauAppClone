@@ -16,7 +16,7 @@ namespace ItauAppClone.Controls
             var width = Width;
             var tabWidth = width / 5;
 
-            TabStripBackgroundColor = AppStyle.PrimaryColor;
+            TabStripBackgroundColor = Color.White;
             TabStripPlacement = TabStripPlacement.Bottom;
             TabStripHeight = 70;
             TabContentBackgroundColor = Color.White;
@@ -29,8 +29,8 @@ namespace ItauAppClone.Controls
                 Text = "início",
                 Icon = "menu_home",
                 IconSelected = "menu_home_selected",
-                TextColor = Color.White,
-                TextColorSelected = AppStyle.PrimaryColor,
+                TextColor = Color.Black,
+                TextColorSelected = Color.White,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
                 Content = new HomeContentView()
             });
@@ -40,8 +40,8 @@ namespace ItauAppClone.Controls
                 Text = "extrato",
                 Icon = "menu_extrato",
                 IconSelected = "menu_extrato_selected",
-                TextColor = Color.White,
-                TextColorSelected = AppStyle.PrimaryColor,
+                TextColor = Color.Black,
+                TextColorSelected = Color.White,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
                 Content = new ExtratoContentView()
             });
@@ -51,8 +51,8 @@ namespace ItauAppClone.Controls
                 Text = "transações",
                 Icon = "menu_transacoes",
                 IconSelected = "menu_transacoes_selected",
-                TextColor = Color.White,
-                TextColorSelected = AppStyle.PrimaryColor,
+                TextColor = Color.Black,
+                TextColorSelected = Color.White,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
                 Content = new Label { Text = "Conteúdo transações" }
             });
@@ -62,8 +62,8 @@ namespace ItauAppClone.Controls
                 Text = "serviços",
                 Icon = "menu_servicos",
                 IconSelected = "menu_servicos_selected",
-                TextColor = Color.White,
-                TextColorSelected = AppStyle.PrimaryColor,
+                TextColor = Color.Black,
+                TextColorSelected = Color.White,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
                 Content = new Label { Text = "Conteúdo serviços" }
             });
@@ -73,8 +73,8 @@ namespace ItauAppClone.Controls
                 Text = "ajuda",
                 Icon = "menu_ajuda",
                 IconSelected = "menu_ajuda_selected",
-                TextColor = Color.White,
-                TextColorSelected = AppStyle.PrimaryColor,
+                TextColor = Color.Black,
+                TextColorSelected = Color.White,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
                 Content = new Label { Text = "ajuda" }
             });

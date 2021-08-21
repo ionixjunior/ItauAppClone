@@ -15,7 +15,6 @@ namespace ItauAppClone.Views
     public class MainView : ContentPage
     {
         private const int TabItemSelectedTopSpace = 12;
-        private Color PrimaryColor = Color.FromHex("#EB6F01");
         private readonly TabView _tabView;
 
         public MainView(TabView tabView)
@@ -31,7 +30,6 @@ namespace ItauAppClone.Views
             ReloadTabItems();
 #endif
             SafeAreaEffect.SetSafeArea(_tabView, new SafeArea(false, true, false, true));
-            BackgroundColor = PrimaryColor;
 
             Content = _tabView;
         }
