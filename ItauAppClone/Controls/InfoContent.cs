@@ -6,14 +6,13 @@ namespace ItauAppClone.Controls
 {
     public class InfoContent : Grid
     {
-        enum GridColumn { Left, Middle, Right }
+        enum GridColumn { Text, Icon }
 
-        public InfoContent(string icon, string text, bool hasArrowIcon = false, bool hasTruncateText = false)
+        public InfoContent(string icon, string text, bool hasTruncateText = false)
         {
             ColumnDefinitions = Columns.Define(
-                (GridColumn.Left, 40),
-                (GridColumn.Middle, Star),
-                (GridColumn.Right, Auto)
+                (GridColumn.Text, Star),
+                (GridColumn.Icon, 40)
             );
             ColumnSpacing = 0;
 
@@ -22,23 +21,10 @@ namespace ItauAppClone.Controls
                 {
                     Source = icon
                 }
-                .Column(GridColumn.Left)
+                .Column(GridColumn.Icon)
             );
 
             Children.Add(GetText(text, hasTruncateText));
-
-            if (hasArrowIcon)
-            {
-                Children.Add(
-                    new Image
-                    {
-                        Source = "arrow_white_item"
-                    }
-                    .Height(30)
-                    .Column(GridColumn.Right)
-                    .Margins(20, 0, 0, 0)
-                );
-            }
         }
 
         private Label GetText(string text, bool hasTruncateText)
@@ -49,9 +35,9 @@ namespace ItauAppClone.Controls
                 TextColor = Color.White,
                 FontAttributes = FontAttributes.Bold
             }
-            .Column(GridColumn.Middle)
-            .FontSize(Device.GetNamedSize(NamedSize.Large, typeof(Label)))
-            .Margins(20, 0, 0, 0);
+            .Column(GridColumn.Text)
+            .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Label)))
+            .Margins(0, 0, 20, 0);
 
             if (hasTruncateText)
             {

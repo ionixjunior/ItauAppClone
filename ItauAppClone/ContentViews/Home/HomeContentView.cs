@@ -837,12 +837,29 @@ namespace ItauAppClone.ContentViews.Home
 
                 new InfoContent(
                     "credit_rate_outlined",
-                    "diminuímos a taxa de crédito pessoal aqui no app!",
+                    "dinheiro na hora! comece a pagar em até 90 dias",
                     hasTruncateText: true)
                 {
-                    BackgroundColor = Color.FromHex("#0D6EB0")
+                    Background = new LinearGradientBrush
+                    {
+                        StartPoint = new Point(0, 0),
+                        EndPoint = new Point(1, 1),
+                        GradientStops = new GradientStopCollection
+                        {
+                            new GradientStop
+                            {
+                                Color = Color.FromHex("#063562"),
+                                Offset = 0.0f
+                            },
+                            new GradientStop
+                            {
+                                Color = Color.FromHex("#1261A5"),
+                                Offset = 0.7f
+                            }
+                        }
+                    }
                 }
-                .Padding(20, 10)
+                .Padding(20, 20)
             };
         }
 
@@ -895,7 +912,6 @@ namespace ItauAppClone.ContentViews.Home
                 new InfoContent(
                     "investments_diversity",
                     "diversificar sua carteira é a melhor opção neste momento!",
-                    hasArrowIcon: true,
                     hasTruncateText: true)
                 {
                     BackgroundColor = Color.FromHex("#0D6EB0")
