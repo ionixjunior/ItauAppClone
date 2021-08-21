@@ -206,7 +206,7 @@ namespace ItauAppClone.Controls
                             .Margins(0, 10, 0, 0)
                         }
                     }
-                    .Margin(30, 20)
+                    .Margin(20, 20)
                 }
             };
 
