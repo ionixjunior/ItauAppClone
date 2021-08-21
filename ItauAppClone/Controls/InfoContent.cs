@@ -12,7 +12,7 @@ namespace ItauAppClone.Controls
         {
             ColumnDefinitions = Columns.Define(
                 (GridColumn.Text, Star),
-                (GridColumn.Icon, 40)
+                (GridColumn.Icon, 60)
             );
             ColumnSpacing = 0;
 

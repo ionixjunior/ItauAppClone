@@ -836,7 +836,7 @@ namespace ItauAppClone.ContentViews.Home
                 .Margins(30, 0, 30, 20),
 
                 new InfoContent(
-                    "credit_rate_outlined",
+                    "coins",
                     "dinheiro na hora! comece a pagar em até 90 dias",
                     hasTruncateText: true)
                 {
@@ -859,7 +859,7 @@ namespace ItauAppClone.ContentViews.Home
                         }
                     }
                 }
-                .Padding(20, 20)
+                .Paddings(20, 20, 0, 20)
             };
         }
 
