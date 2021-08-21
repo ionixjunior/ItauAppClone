@@ -201,7 +201,7 @@ namespace ItauAppClone.ContentViews.Home
                                 "meus investimentos",
                                 LineBreakMode.WordWrap,
                                 FontAttributes.None,
-                                NamedSize.Medium,
+                                NamedSize.Title,
                                 false,
                                 Color.Black,
                                 "arrow_up_gray",
@@ -764,16 +764,84 @@ namespace ItauAppClone.ContentViews.Home
 
         private View GetContentFromInvestments()
         {
-            return new ContentView
+            return new StackLayout
             {
-                Content = new Label
+                Children =
                 {
-                    Text = "Iê ié: não tem conteúdo para meus investimentos"
+                    new Label
+                    {
+                        Text = "total investido"
+                    },
+
+                    new Label
+                    {
+                        Text = "R$ 507,92",
+                        TextColor = Color.FromHex("#1D6548")
+                    }
+                    .FontSize(Device.GetNamedSize(NamedSize.Title, typeof(Label))),
+
+                    new BoxView
+                    {
+                        HeightRequest = 1,
+                        BackgroundColor = Color.FromHex("#EFE9E4")
+                    },
+
+                    new FlexLayout
+                    {
+                        AlignItems = FlexAlignItems.Center,
+
+                        Children =
+                        {
+                            new FlexLayout
+                            {
+                                Direction = FlexDirection.Column,
+                                Children =
+                                {
+                                    new Label
+                                    {
+                                        Text = "Poupança",
+                                        VerticalTextAlignment = TextAlignment.End
+                                    }
+                                    .Grow(1),
+
+                                    new FlexLayout
+                                    {
+                                        Children =
+                                        {
+                                            new BoxView
+                                            {
+                                                BackgroundColor = Color.FromHex("#1E4581"),
+                                                CornerRadius = 5
+                                            }
+                                            .Width(10)
+                                            .Height(10)
+                                            .Margins(0, 10, 0, 0),
+
+                                            new Label
+                                            {
+                                                Text = "R$ 507,92",
+                                                FontAttributes = FontAttributes.Bold
+                                            }
+                                            .Margins(10, 5, 0, 0)
+                                        }
+                                    }
+                                    .Grow(1)
+                                }
+                            }
+                            .Grow(1),
+
+                            new Label
+                            {
+                                Text = "100%"
+                            }
+                            .TextEnd()
+                            .Grow(1)
+                        }
+                    }
+                    .Height(140)
                 }
-                .TextCenterHorizontal()
-                .TextCenterVertical()
             }
-            .Height(100);
+            .Margin(20, 0);
         }
 
         private IList<View> GetFooterFromInvestments()
@@ -806,16 +874,65 @@ namespace ItauAppClone.ContentViews.Home
                     }
                 }
                 .Basis(50)
-                .Margins(30, 0, 30, 20),
+                .Margins(20, 0, 30, 20),
 
-                new InfoContent(
-                    "investments_diversity",
-                    "diversificar sua carteira é a melhor opção neste momento!",
-                    hasTruncateText: true)
+                new BoxView
                 {
-                    BackgroundColor = Color.FromHex("#0D6EB0")
+                    HeightRequest = 1,
+                    BackgroundColor = Color.FromHex("#EFE9E4")
                 }
-                .Padding(20, 10)
+                .Margin(20, 0),
+
+                new StackLayout
+                {
+                    Children =
+                    {
+                        new Label
+                        {
+                            Text = "Seu perfil expirou",
+                            TextColor = AppStyle.PrimaryColor,
+                            FontAttributes = FontAttributes.Bold
+                        },
+
+                        new Label
+                        {
+                            Text = "Mantenha seu perfil de investidor atualizado para continuarmos sugerindo os investimentos mais adequados para você."
+                        }
+                        .FontSize(Device.GetNamedSize(NamedSize.Small, typeof(Label))),
+
+                        new FlexLayout
+                        {
+                            AlignItems = FlexAlignItems.Start,
+                            Children =
+                            {
+                                new Button
+                                {
+                                    Text = "responder",
+                                    TextColor = Color.FromHex("#0D6EB0"),
+                                    BackgroundColor = Color.Transparent,
+                                    TextTransform = TextTransform.Lowercase,
+                                    FontAttributes = FontAttributes.Bold
+                                }
+                                .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
+                                .Effects(new RemovePaddingButtonEffect()),
+
+                                new Button
+                                {
+                                    Text = "agora não",
+                                    TextColor = Color.FromHex("#0D6EB0"),
+                                    BackgroundColor = Color.Transparent,
+                                    TextTransform = TextTransform.Lowercase,
+                                    FontAttributes = FontAttributes.Bold
+                                }
+                                .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
+                                .Effects(new RemovePaddingButtonEffect())
+                                .Margins(30, 0, 0, 0)
+                            }
+                        }
+                        .Basis(50)
+                    }
+                }
+                .Paddings(20, 20, 20, 10)
             };
         }
     }
