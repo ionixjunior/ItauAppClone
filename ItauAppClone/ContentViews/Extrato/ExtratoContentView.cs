@@ -6,6 +6,7 @@ using static Xamarin.CommunityToolkit.Markup.GridRowsColumns;
 using ItauAppClone.Controls;
 using ItauAppClone.ViewModels;
 using ItauAppClone.Models;
+using ItauAppClone.Enums;
 
 namespace ItauAppClone.ContentViews.Extrato
 {
@@ -123,12 +124,14 @@ namespace ItauAppClone.ContentViews.Extrato
                         }
                         .Grow(1)
                         .Margin(5)
-                        .Bind(nameof(Transacao.Descricao)),
+                        .Bind(nameof(Transacao.Descricao))
+                        .Bind(Label.TextColorProperty, nameof(Transacao.Tipo), converter: CorDaTransacaoConverter),
 
                         new Label { }
                         .Shrink(0)
                         .Margin(5)
                         .Bind(path: ".", converter: ValorTransacaoParaTextoConverter)
+                        .Bind(Label.TextColorProperty, nameof(Transacao.Tipo), converter: CorDaTransacaoConverter)
                     }
                 }
             };
@@ -150,6 +153,17 @@ namespace ItauAppClone.ContentViews.Extrato
                 }
 
                 return string.Empty;
+            });
+
+        private FuncConverter<TipoTransacao, Color> CorDaTransacaoConverter
+            = new FuncConverter<TipoTransacao, Color>(tipoTransacao =>
+            {
+                return tipoTransacao switch
+                {
+                    TipoTransacao.Entrada => Color.FromHex("#12805A"),
+                    TipoTransacao.Saida => Color.Black,
+                    _ => Color.Black
+                };
             });
     }
 }
