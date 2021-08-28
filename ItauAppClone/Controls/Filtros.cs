@@ -41,7 +41,7 @@ namespace ItauAppClone.Controls
 
             if (estaSelecionado)
             {
-                frame.BackgroundColor = AppStyle.PrimaryColor;
+                frame.BackgroundColor = Color.FromHex("#007AB7");
             }
 
             return frame;
@@ -69,7 +69,7 @@ namespace ItauAppClone.Controls
                 layout.Children.Add(
                     new Frame
                     {
-                        BackgroundColor = AppStyle.PrimaryColor,
+                        BackgroundColor = Color.FromHex("#007AB7"),
                         HasShadow = false,
                         Padding = 0,
                         HeightRequest = 22,
