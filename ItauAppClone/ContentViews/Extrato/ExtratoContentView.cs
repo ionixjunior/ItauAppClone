@@ -42,7 +42,8 @@ namespace ItauAppClone.ContentViews.Extrato
                             {
                                 ItemTemplate = new DataTemplate(() => CarregarTemplateTransacao()),
                                 ItemsLayout = new LinearItemsLayout(ItemsLayoutOrientation.Vertical) { ItemSpacing = 10 },
-                                IsGrouped = true
+                                IsGrouped = true,
+                                GroupHeaderTemplate = new DataTemplate(() => CarregarTemplateDoCabecalhoDoGrupo())
                             }
                             .Bind(nameof(_viewModel.Transacoes))
                             .Margin(10),
@@ -64,6 +65,25 @@ namespace ItauAppClone.ContentViews.Extrato
                     .Row(LinhaGrid.Conteudo)
                 }
             };
+        }
+
+        private const string _formatacaoDeData = "{0:M}";
+        private const string _formatacaoDeDiaDaSemana = "{0:dddd}";
+
+        private View CarregarTemplateDoCabecalhoDoGrupo()
+        {
+            return new StackLayout
+            {
+                Children =
+                {
+                    new Label()
+                        .Bind(nameof(TransacoesDoDia.Data), stringFormat: _formatacaoDeData),
+
+                    new Label()
+                        .Bind(nameof(TransacoesDoDia.Data), stringFormat: _formatacaoDeDiaDaSemana),
+                }
+            }
+            .Paddings(0, 26, 0, 0);
         }
 
         private View CarregarTemplateTransacao()
