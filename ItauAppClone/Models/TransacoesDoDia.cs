@@ -3,8 +3,15 @@ using System.Collections.Generic;
 
 namespace ItauAppClone.Models
 {
-    public record TransacoesDoDia(
-        DateTime Data,
-        decimal SaldoDoDia,
-        List<Transacao> Transacoes);
+    public class TransacoesDoDia : List<Transacao>
+    {
+        public DateTime Data { get; private set; }
+        public decimal SaldoDoDia { get; private set; }
+
+        public TransacoesDoDia(DateTime data, decimal saldoDoDia, List<Transacao> transacoes) : base(transacoes)
+        {
+            Data = data;
+            SaldoDoDia = saldoDoDia;
+        }
+    }
 }

@@ -41,7 +41,8 @@ namespace ItauAppClone.ContentViews.Extrato
                             new CollectionView
                             {
                                 ItemTemplate = new DataTemplate(() => CarregarTemplateTransacao()),
-                                ItemsLayout = new LinearItemsLayout(ItemsLayoutOrientation.Vertical) { ItemSpacing = 10 }
+                                ItemsLayout = new LinearItemsLayout(ItemsLayoutOrientation.Vertical) { ItemSpacing = 10 },
+                                IsGrouped = true
                             }
                             .Bind(nameof(_viewModel.Transacoes))
                             .Margin(10),
