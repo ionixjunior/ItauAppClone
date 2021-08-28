@@ -120,14 +120,18 @@ namespace ItauAppClone.ContentViews.Extrato
 
                         new Label
                         {
-                            LineBreakMode = LineBreakMode.TailTruncation
+                            LineBreakMode = LineBreakMode.TailTruncation,
+                            FontAttributes = FontAttributes.Bold
                         }
                         .Grow(1)
                         .Margin(5)
                         .Bind(nameof(Transacao.Descricao))
                         .Bind(Label.TextColorProperty, nameof(Transacao.Tipo), converter: CorDaTransacaoConverter),
 
-                        new Label { }
+                        new Label
+                        {
+                            FontAttributes = FontAttributes.Bold
+                        }
                         .Shrink(0)
                         .Margin(5)
                         .Bind(path: ".", converter: ValorTransacaoParaTextoConverter)
