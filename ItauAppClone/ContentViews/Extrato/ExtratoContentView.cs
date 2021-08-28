@@ -46,7 +46,7 @@ namespace ItauAppClone.ContentViews.Extrato
                                 GroupHeaderTemplate = new DataTemplate(() => CarregarTemplateDoCabecalhoDoGrupo())
                             }
                             .Bind(nameof(_viewModel.Transacoes))
-                            .Margin(10),
+                            .Margin(10, 0),
 
                             new Frame
                             {
