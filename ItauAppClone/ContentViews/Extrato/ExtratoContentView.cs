@@ -77,10 +77,16 @@ namespace ItauAppClone.ContentViews.Extrato
                 Children =
                 {
                     new Label()
-                        .Bind(nameof(TransacoesDoDia.Data), stringFormat: _formatacaoDeData),
+                    {
+                        TextColor = Color.Black
+                    }
+                    .Bind(nameof(TransacoesDoDia.Data), stringFormat: _formatacaoDeData),
 
-                    new Label()
-                        .Bind(nameof(TransacoesDoDia.Data), stringFormat: _formatacaoDeDiaDaSemana),
+                    new Label
+                    {
+                        TextColor = Color.FromHex("#5D5753")
+                    }
+                    .Bind(nameof(TransacoesDoDia.Data), stringFormat: _formatacaoDeDiaDaSemana),
                 }
             }
             .Paddings(0, 26, 0, 0);
