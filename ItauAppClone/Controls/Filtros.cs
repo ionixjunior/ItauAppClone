@@ -7,7 +7,6 @@ namespace ItauAppClone.Controls
     {
         public Filtros()
         {
-            BackgroundColor = Color.White;
             Orientation = ScrollOrientation.Horizontal;
             HorizontalScrollBarVisibility = ScrollBarVisibility.Never;
             Padding = new Thickness(5, 0);
