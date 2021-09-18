@@ -249,5 +249,20 @@
     <BundleResource Include="Resources\refresh%402x.png" />
     <BundleResource Include="Resources\refresh%403x.png" />
     <BundleResource Include="Resources\coins.png" />
+    <BundleResource Include="Resources\fab_relatorio.png" />
+    <BundleResource Include="Resources\fab_relatorio%402x.png" />
+    <BundleResource Include="Resources\fab_relatorio%403x.png" />
+    <BundleResource Include="Resources\seta_filtro_nao_selecionado.png" />
+    <BundleResource Include="Resources\seta_filtro_nao_selecionado%402x.png" />
+    <BundleResource Include="Resources\seta_filtro_nao_selecionado%403x.png" />
+    <BundleResource Include="Resources\seta_filtro_selecionado.png" />
+    <BundleResource Include="Resources\seta_filtro_selecionado%402x.png" />
+    <BundleResource Include="Resources\seta_filtro_selecionado%403x.png" />
+    <BundleResource Include="Resources\tipo_transacao_entrada.png" />
+    <BundleResource Include="Resources\tipo_transacao_entrada%402x.png" />
+    <BundleResource Include="Resources\tipo_transacao_entrada%403x.png" />
+    <BundleResource Include="Resources\tipo_transacao_saida.png" />
+    <BundleResource Include="Resources\tipo_transacao_saida%402x.png" />
+    <BundleResource Include="Resources\tipo_transacao_saida%403x.png" />
   </ItemGroup>
 </Project>
