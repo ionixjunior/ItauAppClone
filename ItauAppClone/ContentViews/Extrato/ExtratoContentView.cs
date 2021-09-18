@@ -122,12 +122,11 @@ namespace ItauAppClone.ContentViews.Extrato
 
                     Children =
                     {
-                        new Label() { TextColor = Color.Gray, Text = "teste" }
+                        new Label() { TextColor = Color.Gray }
                         .Column(ColunaGridTransacao.Descricao)
                         .Row(LinhaGridTransacao.Categoria)
-                        .FontSize(Device.GetNamedSize(NamedSize.Caption, typeof(Label))),
-                        //.Bind(nameof(Transacao.Descricao))
-                        //.Bind(Label.TextColorProperty, nameof(Transacao.Tipo), converter: CorDaTransacaoConverter),
+                        .FontSize(Device.GetNamedSize(NamedSize.Caption, typeof(Label)))
+                        .Bind(nameof(Transacao.Categoria)),
 
                         new Image()
                         .Bind(Image.SourceProperty, nameof(Transacao.Tipo), converter: IconeDaTransacaoConverter)
