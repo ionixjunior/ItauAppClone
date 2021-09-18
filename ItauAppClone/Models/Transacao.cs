@@ -9,13 +9,15 @@ namespace ItauAppClone.Models
         public decimal Valor { get; private set; }
         public TipoTransacao Tipo { get; private set; }
         public DateTime Data { get; private set; }
+        public string Categoria { get; private set; }
 
-        public Transacao(string descricao, decimal valor, TipoTransacao tipo, DateTime data)
+        public Transacao(string descricao, decimal valor, TipoTransacao tipo, DateTime data, string categoria)
         {
             Descricao = descricao;
             Valor = valor;
             Tipo = tipo;
             Data = data;
+            Categoria = categoria;
         }
     }
 }
