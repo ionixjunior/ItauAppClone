@@ -63,7 +63,10 @@ namespace ItauAppClone.Controls
             }
 
             if (string.IsNullOrWhiteSpace(textoBadge))
-                layout.Children.Add(new Image { Source = "arrow_up_gray" });
+            {
+                var iconeSeta = estaSelecionado ? "seta_filtro_selecionado" : "seta_filtro_nao_selecionado";
+                layout.Children.Add(new Image { Source = iconeSeta });
+            }
             else
             {
                 layout.Children.Add(
