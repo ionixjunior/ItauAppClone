@@ -49,10 +49,10 @@ namespace ItauAppClone.ContentViews.Extrato
                             .Bind(nameof(_viewModel.Transacoes))
                             .Margin(10, 0),
 
-                            new Frame
+                            new ImageButton
                             {
+                                Source = "fab_relatorio",
                                 BackgroundColor = Color.FromHex("#007AB7"),
-                                HasShadow = false,
                                 CornerRadius = 30
                             }
                             .End()
@@ -60,7 +60,7 @@ namespace ItauAppClone.ContentViews.Extrato
                             .Margin(20)
                             .Width(60)
                             .Height(60)
-                            .Padding(0)
+                            .Padding(16)
                         }
                     }
                     .Row(LinhaGrid.Conteudo)
