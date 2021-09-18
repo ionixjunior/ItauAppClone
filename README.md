@@ -17,6 +17,9 @@ Estou vetorizando os ícones do aplicativo usando o [Figma](https://www.figma.co
 <kbd><img width="250" src="art/home_android_04.png" /></kbd>
 <kbd><img width="250" src="art/home_android_05.png" /></kbd>
 
+#### Extrato
+<kbd><img width="250" src="art/extrato_android_01.png" /></kbd>
+
 ### iOS
 
 #### Home
@@ -25,3 +28,6 @@ Estou vetorizando os ícones do aplicativo usando o [Figma](https://www.figma.co
 <kbd><img width="250" src="art/home_ios_03.png" /></kbd>
 <kbd><img width="250" src="art/home_ios_04.png" /></kbd>
 <kbd><img width="250" src="art/home_ios_05.png" /></kbd>
+
+#### Extrato
+<kbd><img width="250" src="art/extrato_ios_01.png" /></kbd>
