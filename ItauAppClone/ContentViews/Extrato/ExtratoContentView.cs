@@ -93,6 +93,9 @@ namespace ItauAppClone.ContentViews.Extrato
             .Paddings(0, 26, 0, 0);
         }
 
+        enum LinhaGridTransacao { Categoria, Informacoes }
+        enum ColunaGridTransacao { Icone, Descricao, Valor }
+
         private View CarregarTemplateTransacao()
         {
             return new Frame
@@ -101,28 +104,46 @@ namespace ItauAppClone.ContentViews.Extrato
                 HasShadow = false,
                 CornerRadius = 6,
                 Padding = 0,
-                HeightRequest = 50,
-                Content = new FlexLayout
+                Content = new Grid
                 {
-                    AlignItems = FlexAlignItems.Center,
+                    RowDefinitions = Rows.Define(
+                        (LinhaGridTransacao.Categoria, Auto),
+                        (LinhaGridTransacao.Informacoes, Auto)
+                    ),
+
+                    ColumnDefinitions = Columns.Define(
+                        (ColunaGridTransacao.Icone, 20),
+                        (ColunaGridTransacao.Descricao, Star),
+                        (ColunaGridTransacao.Valor, Auto)
+                    ),
+
+                    RowSpacing = 4,
+                    ColumnSpacing = 16,
 
                     Children =
                     {
+                        new Label() { TextColor = Color.Gray, Text = "teste" }
+                        .Column(ColunaGridTransacao.Descricao)
+                        .Row(LinhaGridTransacao.Categoria)
+                        .FontSize(Device.GetNamedSize(NamedSize.Caption, typeof(Label))),
+                        //.Bind(nameof(Transacao.Descricao))
+                        //.Bind(Label.TextColorProperty, nameof(Transacao.Tipo), converter: CorDaTransacaoConverter),
+
                         new Image()
                         .Bind(Image.SourceProperty, nameof(Transacao.Tipo), converter: IconeDaTransacaoConverter)
-                        .Basis(30)
-                        .Width(30)
-                        .Height(30)
-                        .Shrink(0)
-                        .Margin(5),
+                        .Column(ColunaGridTransacao.Icone)
+                        .Row(LinhaGridTransacao.Informacoes)
+                        .Width(20)
+                        .Height(20),
 
                         new Label
                         {
                             LineBreakMode = LineBreakMode.TailTruncation,
                             FontAttributes = FontAttributes.Bold
                         }
-                        .Grow(1)
-                        .Margin(5)
+                        .Column(ColunaGridTransacao.Descricao)
+                        .Row(LinhaGridTransacao.Informacoes)
+                        .TextCenterVertical()
                         .Bind(nameof(Transacao.Descricao))
                         .Bind(Label.TextColorProperty, nameof(Transacao.Tipo), converter: CorDaTransacaoConverter),
 
@@ -130,12 +151,14 @@ namespace ItauAppClone.ContentViews.Extrato
                         {
                             FontAttributes = FontAttributes.Bold
                         }
-                        .Shrink(0)
-                        .Margin(5)
+                        .Column(ColunaGridTransacao.Valor)
+                        .Row(LinhaGridTransacao.Informacoes)
+                        .TextCenterVertical()
                         .Bind(path: ".", converter: ValorTransacaoParaTextoConverter)
                         .Bind(Label.TextColorProperty, nameof(Transacao.Tipo), converter: CorDaTransacaoConverter)
                     }
                 }
+                .Margin(12)
             };
         }
 
