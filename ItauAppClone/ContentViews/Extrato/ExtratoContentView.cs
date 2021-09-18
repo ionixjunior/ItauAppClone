@@ -108,13 +108,11 @@ namespace ItauAppClone.ContentViews.Extrato
 
                     Children =
                     {
-                        new Image
-                        {
-                            BackgroundColor = Color.Yellow
-                        }
-                        .Basis(40)
-                        .Width(40)
-                        .Height(40)
+                        new Image()
+                        .Bind(Image.SourceProperty, nameof(Transacao.Tipo), converter: IconeDaTransacaoConverter)
+                        .Basis(30)
+                        .Width(30)
+                        .Height(30)
                         .Shrink(0)
                         .Margin(5),
 
@@ -167,6 +165,17 @@ namespace ItauAppClone.ContentViews.Extrato
                     TipoTransacao.Entrada => Color.FromHex("#12805A"),
                     TipoTransacao.Saida => Color.Black,
                     _ => Color.Black
+                };
+            });
+
+        private FuncConverter<TipoTransacao, string> IconeDaTransacaoConverter
+            = new FuncConverter<TipoTransacao, string>(tipoTransacao =>
+            {
+                return tipoTransacao switch
+                {
+                    TipoTransacao.Entrada => "tipo_transacao_entrada",
+                    TipoTransacao.Saida => "tipo_transacao_saida",
+                    _ => string.Empty
                 };
             });
     }
