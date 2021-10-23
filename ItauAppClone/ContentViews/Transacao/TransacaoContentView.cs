@@ -52,7 +52,7 @@ namespace ItauAppClone.ContentViews.Transacao
                                 ObterBotaoPequeno("pagar"),
                                 ObterBotaoPequeno("fazer transferência"),
                                 ObterBotaoPequeno("DDA - boleto eletrônico"),
-                                ObterBotaoPequeno("Pix"),
+                                ObterBotaoPequeno("Pix", corDeFundo: Color.FromHex("#0D6EB0"), corDoTexto: Color.White),
                                 ObterBotaoGrande(),
                                 ObterBotaoPequeno("pagamentos automáticos"),
                                 ObterBotaoPequeno("detran.sp"),
@@ -68,14 +68,14 @@ namespace ItauAppClone.ContentViews.Transacao
             Content = grid;
         }
 
-        private View ObterBotaoPequeno(string descricao)
+        private View ObterBotaoPequeno(string descricao, Color? corDeFundo = null, Color? corDoTexto = null)
         {
             return new Frame
             {
                 HasShadow = false,
                 CornerRadius = 4,
                 HeightRequest = 100,
-                BackgroundColor = Color.White,
+                BackgroundColor = corDeFundo ?? Color.White,
                 Content = new StackLayout
                 {
                     VerticalOptions = LayoutOptions.End,
@@ -91,7 +91,8 @@ namespace ItauAppClone.ContentViews.Transacao
 
                         new Label
                         {
-                            Text = descricao
+                            Text = descricao,
+                            TextColor = corDoTexto ?? Color.Black
                         }
                     }
                 }
