@@ -34,7 +34,12 @@ namespace ItauAppClone.ContentViews.Transacao
                 {
                     Children =
                     {
-                        new Label { Text = "hoje, dia 05,\no que deseja fazer?" },
+                        new Label
+                        {
+                            Text = "hoje, dia 05,\no que deseja fazer?"
+                        }
+                        .Margin(8, 16)
+                        .FontSize(Device.GetNamedSize(NamedSize.Large, typeof(Label))),
 
                         new FlexLayout
                         {
