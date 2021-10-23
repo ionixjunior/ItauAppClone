@@ -1,6 +1,7 @@
 ﻿using System;
 using ItauAppClone.ContentViews.Extrato;
 using ItauAppClone.ContentViews.Home;
+using ItauAppClone.ContentViews.Transacao;
 using ItauAppClone.Templates;
 using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
@@ -54,7 +55,7 @@ namespace ItauAppClone.Controls
                 TextColor = Color.Black,
                 TextColorSelected = Color.White,
                 ControlTemplate = new ControlTemplate(typeof(CustomTabViewItemTemplate)),
-                Content = new Label { Text = "Conteúdo transações" }
+                Content = new TransacaoContentView()
             });
             TabItems.Add(new TabViewItem
             {

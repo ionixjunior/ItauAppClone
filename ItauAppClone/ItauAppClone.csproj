@@ -25,9 +25,11 @@
     <Folder Include="ViewModels\" />
     <Folder Include="ViewModels\Home\" />
     <Folder Include="Converters\" />
+    <Folder Include="ContentViews\Transacao\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="ViewModels\Home\" />
     <None Remove="Converters\" />
+    <None Remove="ContentViews\Transacao\" />
   </ItemGroup>
 </Project>
