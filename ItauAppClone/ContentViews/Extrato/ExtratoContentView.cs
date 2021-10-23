@@ -7,6 +7,7 @@ using ItauAppClone.Controls;
 using ItauAppClone.ViewModels;
 using ItauAppClone.Models;
 using ItauAppClone.Enums;
+using TransacaoModel = ItauAppClone.Models.Transacao;
 
 namespace ItauAppClone.ContentViews.Extrato
 {
@@ -126,10 +127,10 @@ namespace ItauAppClone.ContentViews.Extrato
                         .Column(ColunaGridTransacao.Descricao)
                         .Row(LinhaGridTransacao.Categoria)
                         .FontSize(Device.GetNamedSize(NamedSize.Caption, typeof(Label)))
-                        .Bind(nameof(Transacao.Categoria)),
+                        .Bind(nameof(TransacaoModel.Categoria)),
 
                         new Image()
-                        .Bind(Image.SourceProperty, nameof(Transacao.Tipo), converter: IconeDaTransacaoConverter)
+                        .Bind(Image.SourceProperty, nameof(TransacaoModel.Tipo), converter: IconeDaTransacaoConverter)
                         .Column(ColunaGridTransacao.Icone)
                         .Row(LinhaGridTransacao.Informacoes)
                         .Width(20)
@@ -143,8 +144,8 @@ namespace ItauAppClone.ContentViews.Extrato
                         .Column(ColunaGridTransacao.Descricao)
                         .Row(LinhaGridTransacao.Informacoes)
                         .TextCenterVertical()
-                        .Bind(nameof(Transacao.Descricao))
-                        .Bind(Label.TextColorProperty, nameof(Transacao.Tipo), converter: CorDaTransacaoConverter),
+                        .Bind(nameof(TransacaoModel.Descricao))
+                        .Bind(Label.TextColorProperty, nameof(TransacaoModel.Tipo), converter: CorDaTransacaoConverter),
 
                         new Label
                         {
@@ -154,7 +155,7 @@ namespace ItauAppClone.ContentViews.Extrato
                         .Row(LinhaGridTransacao.Informacoes)
                         .TextCenterVertical()
                         .Bind(path: ".", converter: ValorTransacaoParaTextoConverter)
-                        .Bind(Label.TextColorProperty, nameof(Transacao.Tipo), converter: CorDaTransacaoConverter)
+                        .Bind(Label.TextColorProperty, nameof(TransacaoModel.Tipo), converter: CorDaTransacaoConverter)
                     }
                 }
                 .Margin(12)
@@ -163,8 +164,8 @@ namespace ItauAppClone.ContentViews.Extrato
 
         private const string _formatacaoMonetaria = "C2";
 
-        private FuncConverter<Transacao, string> ValorTransacaoParaTextoConverter
-            = new FuncConverter<Transacao, string>(transacao =>
+        private FuncConverter<TransacaoModel, string> ValorTransacaoParaTextoConverter
+            = new FuncConverter<TransacaoModel, string>(transacao =>
             {
                 if (transacao is { })
                 {
