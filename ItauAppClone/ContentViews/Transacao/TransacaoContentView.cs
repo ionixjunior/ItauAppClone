@@ -16,6 +16,7 @@ namespace ItauAppClone.ContentViews.Transacao
         public void Build()
         {
             BackgroundColor = AppStyle.ContentPageBackgroundColor;
+            Margin = new Thickness(0, 0, 0, 20);
 
             var grid = new Grid
             {
