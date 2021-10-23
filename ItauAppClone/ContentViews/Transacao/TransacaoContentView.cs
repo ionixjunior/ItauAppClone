@@ -15,6 +15,8 @@ namespace ItauAppClone.ContentViews.Transacao
 
         public void Build()
         {
+            BackgroundColor = AppStyle.ContentPageBackgroundColor;
+
             var grid = new Grid
             {
                 RowDefinitions = Rows.Define(
@@ -67,7 +69,7 @@ namespace ItauAppClone.ContentViews.Transacao
                 HasShadow = false,
                 CornerRadius = 4,
                 HeightRequest = 100,
-                BackgroundColor = Color.Red
+                BackgroundColor = Color.White
             }
             .Padding(0)
             .Margin(8)
@@ -81,7 +83,7 @@ namespace ItauAppClone.ContentViews.Transacao
                 HasShadow = false,
                 CornerRadius = 4,
                 HeightRequest = 160,
-                BackgroundColor = Color.Blue
+                BackgroundColor = Color.White
             }
             .Padding(0)
             .Margin(8)
