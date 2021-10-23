@@ -49,15 +49,15 @@ namespace ItauAppClone.ContentViews.Transacao
 
                             Children =
                             {
-                                ObterBotaoPequeno(),
-                                ObterBotaoPequeno(),
-                                ObterBotaoPequeno(),
-                                ObterBotaoPequeno(),
+                                ObterBotaoPequeno("pagar"),
+                                ObterBotaoPequeno("fazer transferência"),
+                                ObterBotaoPequeno("DDA - boleto eletrônico"),
+                                ObterBotaoPequeno("Pix"),
                                 ObterBotaoGrande(),
-                                ObterBotaoPequeno(),
-                                ObterBotaoPequeno(),
-                                ObterBotaoPequeno(),
-                                ObterBotaoPequeno(),
+                                ObterBotaoPequeno("pagamentos automáticos"),
+                                ObterBotaoPequeno("detran.sp"),
+                                ObterBotaoPequeno("recarga"),
+                                ObterBotaoPequeno("transferência"),
                             }
                         }
                     }
@@ -68,14 +68,34 @@ namespace ItauAppClone.ContentViews.Transacao
             Content = grid;
         }
 
-        private View ObterBotaoPequeno()
+        private View ObterBotaoPequeno(string descricao)
         {
             return new Frame
             {
                 HasShadow = false,
                 CornerRadius = 4,
                 HeightRequest = 100,
-                BackgroundColor = Color.White
+                BackgroundColor = Color.White,
+                Content = new StackLayout
+                {
+                    VerticalOptions = LayoutOptions.End,
+                    Children =
+                    {
+                        new Image
+                        {
+                            BackgroundColor = Color.Orange
+                        }
+                        .Start()
+                        .Width(26)
+                        .Height(26),
+
+                        new Label
+                        {
+                            Text = descricao
+                        }
+                    }
+                }
+                .Margin(16)
             }
             .Padding(0)
             .Margin(8)
