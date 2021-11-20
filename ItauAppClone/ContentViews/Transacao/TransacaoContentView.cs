@@ -54,7 +54,7 @@ namespace ItauAppClone.ContentViews.Transacao
                                 ObterBotaoPequeno("DDA - boleto eletrônico", icone: "boleto_eletronico"),
                                 ObterBotaoPequeno("Pix", icone: "pix", corDeFundo: Color.FromHex("#0D6EB0"), corDoTexto: Color.White),
                                 ObterBotaoGrande(),
-                                ObterBotaoPequeno("pagamentos automáticos", icone: "pagamento_automatico"),
+                                ObterBotaoPequeno("pagamentos automáticos", icone: "pagamento_automatico", corDeFundo: Color.FromHex("#F1F1F1")),
                                 ObterBotaoPequeno("detran.sp", icone: "detran"),
                                 ObterBotaoPequeno("recarga", icone: "recarga"),
                                 ObterBotaoPequeno("transferência", icone: "transferencia_pessoa"),
