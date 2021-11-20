@@ -118,6 +118,22 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\codigo_barras.imageset\codigo_barras.pdf" />
+    <ImageAsset Include="Assets.xcassets\codigo_barras.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\boleto_eletronico.imageset\boleto_eletronico.pdf" />
+    <ImageAsset Include="Assets.xcassets\boleto_eletronico.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\detran.imageset\detran.pdf" />
+    <ImageAsset Include="Assets.xcassets\detran.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\pagamento_automatico.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\pagamento_automatico.imageset\pagamento_automatico.pdf" />
+    <ImageAsset Include="Assets.xcassets\pix.imageset\pix.pdf" />
+    <ImageAsset Include="Assets.xcassets\pix.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\recarga.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\recarga.imageset\recarga.pdf" />
+    <ImageAsset Include="Assets.xcassets\transferencia_pessoa.imageset\transferencia_pessoa.pdf" />
+    <ImageAsset Include="Assets.xcassets\transferencia_pessoa.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\transferencia.imageset\transferencia.pdf" />
+    <ImageAsset Include="Assets.xcassets\transferencia.imageset\Contents.json" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
