@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using ItauAppClone.Controls;
+using ItauAppClone.Effects;
 using ItauAppClone.Interfaces;
 using Xamarin.CommunityToolkit.Markup;
 using Xamarin.Forms;
@@ -102,16 +104,72 @@ namespace ItauAppClone.ContentViews.Transacao
 
         private View ObterBotaoGrande()
         {
-            return new Frame
-            {
-                HasShadow = false,
-                CornerRadius = 4,
-                HeightRequest = 160,
-                BackgroundColor = Color.White
-            }
+            return new CardExpandableContent(
+                "próximos pagamentos",
+                LineBreakMode.WordWrap,
+                FontAttributes.None,
+                NamedSize.Title,
+                false,
+                Color.Black,
+                "arrow_up_gray",
+                ObterSubtituloDoCabecalho(),
+                new ContentView(),
+                ObterRodapeProximoPagamentos()
+            )
             .Padding(0)
             .Margin(8)
+            .Height(160)
             .Basis(new FlexBasis(1f, true));
+        }
+
+        private View ObterSubtituloDoCabecalho()
+        {
+            return new StackLayout
+            {
+                BackgroundColor = Color.FromHex("#F1F1F1"),
+                Children = {
+                    new Label
+                    {
+                        Text = "consultar lançamentos Pix",
+                        FontAttributes = FontAttributes.Bold
+                    }
+                    .Margin(20)
+                }
+            };
+        }
+
+        private IList<View> ObterRodapeProximoPagamentos()
+        {
+            return new List<View>
+            {
+                new BoxView
+                {
+                    HeightRequest = 1,
+                    BackgroundColor = Color.FromHex("#EFE9E4")
+                }
+                .Margin(20, 0),
+
+                new FlexLayout
+                {
+                    JustifyContent = FlexJustify.SpaceBetween,
+                    AlignItems = FlexAlignItems.Start,
+                    Children =
+                    {
+                        new Button
+                        {
+                            Text = "ver todos",
+                            TextColor = Color.FromHex("#0D6EB0"),
+                            BackgroundColor = Color.Transparent,
+                            TextTransform = TextTransform.Lowercase,
+                            FontAttributes = FontAttributes.Bold
+                        }
+                        .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Button)))
+                        .Effects(new RemovePaddingButtonEffect())
+                    }
+                }
+                .Basis(50)
+                .Margins(30, 0, 30, 20)
+            };
         }
     }
 }
