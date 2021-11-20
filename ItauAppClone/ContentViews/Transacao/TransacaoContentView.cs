@@ -49,15 +49,15 @@ namespace ItauAppClone.ContentViews.Transacao
 
                             Children =
                             {
-                                ObterBotaoPequeno("pagar"),
-                                ObterBotaoPequeno("fazer transferência"),
-                                ObterBotaoPequeno("DDA - boleto eletrônico"),
-                                ObterBotaoPequeno("Pix", corDeFundo: Color.FromHex("#0D6EB0"), corDoTexto: Color.White),
+                                ObterBotaoPequeno("pagar", icone: "codigo_barras"),
+                                ObterBotaoPequeno("fazer transferência", icone: "transferencia"),
+                                ObterBotaoPequeno("DDA - boleto eletrônico", icone: "boleto_eletronico"),
+                                ObterBotaoPequeno("Pix", icone: "pix", corDeFundo: Color.FromHex("#0D6EB0"), corDoTexto: Color.White),
                                 ObterBotaoGrande(),
-                                ObterBotaoPequeno("pagamentos automáticos"),
-                                ObterBotaoPequeno("detran.sp"),
-                                ObterBotaoPequeno("recarga"),
-                                ObterBotaoPequeno("transferência"),
+                                ObterBotaoPequeno("pagamentos automáticos", icone: "pagamento_automatico"),
+                                ObterBotaoPequeno("detran.sp", icone: "detran"),
+                                ObterBotaoPequeno("recarga", icone: "recarga"),
+                                ObterBotaoPequeno("transferência", icone: "transferencia_pessoa"),
                             }
                         }
                     }
@@ -68,7 +68,7 @@ namespace ItauAppClone.ContentViews.Transacao
             Content = grid;
         }
 
-        private View ObterBotaoPequeno(string descricao, Color? corDeFundo = null, Color? corDoTexto = null)
+        private View ObterBotaoPequeno(string descricao, string icone, Color? corDeFundo = null, Color? corDoTexto = null)
         {
             return new Frame
             {
@@ -81,10 +81,7 @@ namespace ItauAppClone.ContentViews.Transacao
                     VerticalOptions = LayoutOptions.End,
                     Children =
                     {
-                        new Image
-                        {
-                            BackgroundColor = Color.Orange
-                        }
+                        new Image { Source = icone }
                         .Start()
                         .Width(26)
                         .Height(26),
