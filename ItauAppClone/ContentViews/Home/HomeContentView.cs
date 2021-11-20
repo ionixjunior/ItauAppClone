@@ -391,7 +391,7 @@ namespace ItauAppClone.ContentViews.Home
                     .FontSize(Device.GetNamedSize(NamedSize.Medium, typeof(Label)))
                 }
             }
-            .Margin(0, 10);
+            .Margin(30, 0);
         }
 
         enum GridCalendarCreditCard { Image, Content }

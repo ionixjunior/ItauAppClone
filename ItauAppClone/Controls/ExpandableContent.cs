@@ -212,7 +212,6 @@ namespace ItauAppClone.Controls
 
             if (_headerSubtitleView != null)
             {
-                _headerSubtitleView.Margin(30, 0);
                 stack.Children.Add(_headerSubtitleView);
             }
 
